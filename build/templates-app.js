@@ -59,6 +59,17 @@ angular.module("experience/experience.tpl.html", []).run(["$templateCache", func
   $templateCache.put("experience/experience.tpl.html",
     "<div class=\"row\">\n" +
     "    <div class=\"col-md-3\">\n" +
+    "            <div class=\"form-group\">\n" +
+    "                <label for=\"filter\">Filter:</label>\n" +
+    "        <input ng-model=\"searchText\" class=\"form-control\">\n" +
+    "    </div>\n" +
+    "            <div class=\"form-group\">\n" +
+    "                <label for=\"filter\">Sort:</label>\n" +
+    "        <select ng-model=\"sortOrder\" class=\"form-control\">\n" +
+    "            <option value=\"\">Chronological</option>\n" +
+    "            <option value=\"months\">Tenure</option>\n" +
+    "        </select>\n" +
+    "    </div>\n" +
     "      <h3>\n" +
     "        Requested Skills\n" +
     "      </h3>\n" +
@@ -72,13 +83,13 @@ angular.module("experience/experience.tpl.html", []).run(["$templateCache", func
     "      <h1 class=\"page-header\">\n" +
     "        Experience \n" +
     "      </h1>\n" +
-    "      <div ng-repeat=\"exp in experience\">\n" +
+    "      <div ng-repeat=\"exp in experience | orderBy:sortOrder | filter:searchText\">\n" +
     "        <p>\n" +
     "        <h3>{{exp.company.title}}</h3>\n" +
     "        </p>\n" +
     "        <p>\n" +
     "        <h4><span ng-repeat=\"title in exp.titles\">{{title.title}}<span ng-show=\" ! $last \">, </span></span></h4>\n" +
-    "        <h4>{{exp.startDate}} - {{exp.endDate}}</h4>\n" +
+    "        <h5>{{exp.startDate}} - {{exp.endDate}} ({{exp.tenure}})</h5>\n" +
     "        </p>\n" +
     "        <p>\n" +
     "        <ul>\n" +
@@ -148,6 +159,17 @@ angular.module("skills/skills.tpl.html", []).run(["$templateCache", function($te
   $templateCache.put("skills/skills.tpl.html",
     "<div class=\"row\">\n" +
     "    <div class=\"col-md-3\">\n" +
+    "            <div class=\"form-group\">\n" +
+    "                <label for=\"filter\">Filter:</label>\n" +
+    "        <input ng-model=\"searchText\" class=\"form-control\">\n" +
+    "    </div>\n" +
+    "            <div class=\"form-group\">\n" +
+    "                <label for=\"filter\">Sort:</label>\n" +
+    "        <select ng-model=\"sortOrder\" class=\"form-control\">\n" +
+    "            <option value=\"value[0].title\">Alphabetical</option>\n" +
+    "            <option value=\"rating\">Proficiency</option>\n" +
+    "        </select>\n" +
+    "    </div>\n" +
     "      <h3>\n" +
     "        Requested Skills\n" +
     "      </h3>\n" +
@@ -165,7 +187,7 @@ angular.module("skills/skills.tpl.html", []).run(["$templateCache", function($te
     "        <p>\n" +
     "        <h3><span ng-repeat=\"category in skill.categories\">{{category.title}}<span ng-show=\" ! $last \">, </span></span></h4>\n" +
     "        </p>\n" +
-    "        <div ng-repeat=\"set in skill.sets\">\n" +
+    "        <div ng-repeat=\"set in skill.sets | orderBy:sortOrder:true | filter:searchText\">\n" +
     "        <button class=\"btn btn-default\" button-toggle=\"active btn-success\" ng-repeat=\"value in set.value\" ng-model=\"value\"></button>\n" +
     "        <rating value=\"set.rating\" max=\"5\" readonly=\"true\"></rating>{{set.rating}}\n" +
     "        </div>\n" +

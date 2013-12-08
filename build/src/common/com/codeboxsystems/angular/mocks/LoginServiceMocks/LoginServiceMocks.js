@@ -8,7 +8,7 @@ angular.module('codeboxsystems.mocks.LoginServiceMocks', [])
         var users = [{
             id: '1',
             username: 'admin',
-            password: 'admin',
+            password: 'halidnnalke2',
             role: {
                 admin: true
             }

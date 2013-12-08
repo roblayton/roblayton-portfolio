@@ -43,7 +43,7 @@
               <span class="icon-bar"></span>
             </button>
             
-            <a class="navbar-brand" href="#">Logo</a> 
+            <a class="navbar-brand" href="#">Rob Layton</a> 
           </div>
 
           <!-- Collect the nav links, forms, and other content for toggling -->
@@ -83,31 +83,31 @@
 
             </ul>
             
-              <!--
+              
             <ul class="nav navbar-nav navbar-right">
-              <li ng-hide="!$root.currUser" ui-route="/account" ng-class="{active:$uiRoute}">
+              <li ng-hide="$root.currUser" ui-route="/account" ng-class="{active:$uiRoute}">
                 <a href="#/account">
                   <i class="icon-gear"></i>
                   Account
                 </a>
               </li>
-              <li  ui-route="/register" ng-class="{active:$uiRoute}">
+              <li ng-hide="$root.currUser" ui-route="/register" ng-class="{active:$uiRoute}">
                 <a href="#/register">
                   Register
                 </a>
               </li>
-              <li ng-hide="!$root.currUser" ui-route="/login" ng-class="{active:$uiRoute}">
-                <a href="#/logout" class="login">
+              <li ng-hide="$root.currUser" ui-route="/logout" ng-class="{active:$uiRoute}">
+                <a href="#/logout" class="logout">
                   Log Out
                 </a>
               </li>
-              <li ng-hide="$root.currUser" ui-route="/login" ng-class="{active:$uiRoute}">
+              <li ui-route="/login" ng-class="{active:$uiRoute}">
                 <a href="#/login">
                   Log In
                 </a>
               </li>
             </ul>
-              -->
+              
           </div><!-- /.navbar-collapse -->
         </nav>
       </div>

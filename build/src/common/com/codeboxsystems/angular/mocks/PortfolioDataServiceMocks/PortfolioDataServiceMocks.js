@@ -1,9 +1,9 @@
 /*
  * @author Rob Layton
  */
-angular.module('codeboxsystems.mocks.PortfolioDataServiceMocks', [])
+angular.module('codeboxsystems.mocks.PortfolioDataServiceMocks', ['codeboxsystems.utils.DateUtil'])
 
-.factory('PortfolioDataServiceMocks', function() {
+.factory('PortfolioDataServiceMocks', function(DateUtil) {
 	var PortfolioDataServiceMocks = function() {
 		var skillsDb = [{
 			id: '1',
@@ -149,12 +149,17 @@ angular.module('codeboxsystems.mocks.PortfolioDataServiceMocks', [])
 			id: '30',
 			title: 'PowerPoint',
 			active: false
+		},
+		{
+			id: '31',
+			title: 'Code Reviews',
+			active: false
 		}
 		];
 
 		var companiesDb = [{
 			id: '1',
-			title: 'Adcade'
+			title: 'Adcade, NYC'
 		},
 		{
 			id: '2',
@@ -256,7 +261,32 @@ angular.module('codeboxsystems.mocks.PortfolioDataServiceMocks', [])
 		var usersDb = [{
 			id: '1',
 			title: 'Rob Layton',
-			skills: [{
+			skills: [
+			{
+				categories: ['3'],
+				set: [{
+					value: '20',
+					rating: 5
+				},
+				{
+					value: '21',
+					rating: 5
+				},
+				{
+					value: '22',
+					rating: 5
+				},
+				{
+					value: '23',
+					rating: 5
+				},
+				{
+					value: '31',
+					rating: 5
+				}
+                ]
+			},
+            {
 				categories: ['2'],
 				set: [{
 					value: '1',
@@ -320,26 +350,6 @@ angular.module('codeboxsystems.mocks.PortfolioDataServiceMocks', [])
                 ]
 			},
 			{
-				categories: ['3'],
-				set: [{
-					value: '20',
-					rating: 5
-				},
-				{
-					value: '21',
-					rating: 5
-				},
-				{
-					value: '22',
-					rating: 5
-				},
-				{
-					value: '23',
-					rating: 5
-				}
-                ]
-			},
-			{
 				categories: ['5'],
 				set: [{
 					value: '18',
@@ -359,13 +369,13 @@ angular.module('codeboxsystems.mocks.PortfolioDataServiceMocks', [])
 				company: '1',
 				titles: ['1'],
 				achievements: ['1', '2'],
-				skills: ['1', '2', '3', '4', '6', '8', '9', '10', '11', '12', '13', '16', '17', '18', '20', '21', '22', '23', '24'],
+				skills: ['1', '2', '3', '4', '6', '8', '9', '10', '11', '12', '13', '16', '17', '18', '20', '21', '22', '23', '31', '24'],
 				startDate: '2012-04-01',
 				endDate: 'Present'
 			},
 			{
 				company: '2',
-				titles: ['3', '2'],
+				titles: ['2'],
 				achievements: ['3'],
 				skills: ['1', '3', '4', '5', '7', '6', '8', '14', '15', '16', '17', '20', '25', '26', '27'],
 				startDate: '2010-07-01',
@@ -373,7 +383,7 @@ angular.module('codeboxsystems.mocks.PortfolioDataServiceMocks', [])
 			},
 			{
 				company: '3',
-				titles: ['4', '5'],
+				titles: ['5'],
 				achievements: ['3'],
 				skills: ['1', '3', '4', '5', '7', '8', '14', '15', '25', '26', '27'],
 				startDate: '2009-11-01',
@@ -400,12 +410,28 @@ angular.module('codeboxsystems.mocks.PortfolioDataServiceMocks', [])
 				titles: ['10'],
 				achievements: ['3'],
 				skills: ['1', '3', '4', '5', '7', '8', '14', '15', '25', '26', '27', '29', '30'],
-				startDate: '2009-05-01',
-				endDate: '2009-08-01'
+				startDate: '2004-05-01',
+				endDate: '2009-05-01'
 			}]
 		}];
 
 		// Private 
+        var formatDates = function() {
+            for (var i = 0, iLen = usersDb.length; i < iLen; i++) {
+                var user = usersDb[i];
+                for (var j = 0, jLen = user.experience.length; j < jLen; j++) {
+                    var exp = user.experience[j];
+                    var months = DateUtil.calcTotal(exp.startDate, exp.endDate);
+                    exp.startDate = DateUtil.dateToReadable(exp.startDate);
+                    exp.endDate = DateUtil.dateToReadable(exp.endDate);
+                    exp.tenure = DateUtil.genTotalTime(months);
+                    exp.months = months;
+                }
+            }
+        };
+
+        formatDates();
+
 		var fetchData = function(a, b) {
 			var list = [];
 			for (var i = 0, iLen = a.length; i < iLen; i++) {
@@ -479,7 +505,9 @@ angular.module('codeboxsystems.mocks.PortfolioDataServiceMocks', [])
 								achievements: fetchData(exp.achievements, achievementsDb),
 								skills: fetchData(exp.skills, skillsDb),
 								startDate: exp.startDate,
-								endDate: exp.endDate
+								endDate: exp.endDate,
+                                tenure: exp.tenure,
+                                months: exp.months
 							});
 						}
 					}
