@@ -1,4 +1,4 @@
-angular.module('app.skills', ['ui.state', 'placeholders', 'ui.bootstrap', 'codeboxsystems.data.PortfolioDataService'])
+angular.module('app.skills', ['ui.state', 'placeholders', 'ui.bootstrap', 'codeboxsystems.ui.button', 'codeboxsystems.data.PortfolioDataService'])
 
 .config(function config($stateProvider) {
 	$stateProvider.state('skills', {
@@ -27,7 +27,8 @@ angular.module('app.skills', ['ui.state', 'placeholders', 'ui.bootstrap', 'codeb
 				console.log(err.message);
 			}
 		};
-		//PortfolioDataService.fetchSkillsByUser($rootScope.user, callbacks);
+        PortfolioDataService.fetchSkillsByUser($rootScope.currUser, callbacks);
 	};
-});
 
+    $scope.fetch();
+});

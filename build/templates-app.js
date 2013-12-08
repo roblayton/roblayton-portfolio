@@ -97,5 +97,29 @@ angular.module("register/register.tpl.html", []).run(["$templateCache", function
 
 angular.module("skills/skills.tpl.html", []).run(["$templateCache", function($templateCache) {
   $templateCache.put("skills/skills.tpl.html",
+    "<div class=\"row\">\n" +
+    "    <div class=\"col-md-3\">\n" +
+    "      <h1>\n" +
+    "        Sidebar \n" +
+    "      </h1>\n" +
+    "      <div ng-repeat=\"skill in skills\">\n" +
+    "        <p ng-repeat=\"set in skill.sets\">\n" +
+    "        <span ng-repeat=\"value in set.value\" ng-show=\"value.active\">{{value.title}}</span>\n" +
+    "        </p>\n" +
+    "      </div>\n" +
+    "    </div>\n" +
+    "    <div class=\"col-md-9\">\n" +
+    "      <h1 class=\"page-header\">\n" +
+    "        Skills \n" +
+    "      </h1>\n" +
+    "      <div ng-repeat=\"skill in skills\">\n" +
+    "        <p>\n" +
+    "        <h3><span ng-repeat=\"category in skill.categories\">{{category.title}}<span ng-show=\" ! $last \">, </span></span></h4>\n" +
+    "        </p>\n" +
+    "        <div ng-repeat=\"set in skill.sets\">\n" +
+    "        <button class=\"btn btn-default\" button-toggle=\"active btn-success\" ng-repeat=\"value in set.value\" ng-model=\"value\"></button>\n" +
+    "        </div>\n" +
+    "      </div>\n" +
+    "</div>\n" +
     "");
 }]);

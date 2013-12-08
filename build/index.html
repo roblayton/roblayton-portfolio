@@ -54,6 +54,7 @@
     <script type="text/javascript" src="src/common/com/codeboxsystems/angular/mocks/PortfolioDataServiceMocks/PortfolioDataServiceMocks.js"></script>
     <script type="text/javascript" src="src/common/com/codeboxsystems/angular/session/Cookie/Cookie.js"></script>
     <script type="text/javascript" src="src/common/com/codeboxsystems/angular/ui/BootstrapModal/BootstrapModal.js"></script>
+    <script type="text/javascript" src="src/common/com/codeboxsystems/angular/ui/button/button.js"></script>
     <script type="text/javascript" src="src/common/com/codeboxsystems/angular/ui/fileInput/fileInput.js"></script>
     <script type="text/javascript" src="templates-common.js"></script>
     <script type="text/javascript" src="templates-app.js"></script>
@@ -81,7 +82,7 @@
 
           <!-- Collect the nav links, forms, and other content for toggling -->
           <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-            <ul ng-hide="!$root.currUser" class="nav navbar-nav">
+            <ul class="nav navbar-nav">
               <li ui-route="/dashboard" ng-class="{active:$uiRoute}">
                 <a href="#/dashboard">
                   <i class="icon-dashboard"></i>
@@ -110,6 +111,7 @@
 
             </ul>
             
+              <!--
             <ul class="nav navbar-nav navbar-right">
               <li ng-hide="!$root.currUser" ui-route="/account" ng-class="{active:$uiRoute}">
                 <a href="#/account">
@@ -117,13 +119,11 @@
                   Account
                 </a>
               </li>
-              <!--
               <li  ui-route="/register" ng-class="{active:$uiRoute}">
                 <a href="#/register">
                   Register
                 </a>
               </li>
-              -->
               <li ng-hide="!$root.currUser" ui-route="/login" ng-class="{active:$uiRoute}">
                 <a href="#/logout" class="login">
                   Log Out
@@ -135,6 +135,7 @@
                 </a>
               </li>
             </ul>
+              -->
           </div><!-- /.navbar-collapse -->
         </nav>
       </div>

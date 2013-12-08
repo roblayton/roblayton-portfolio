@@ -1,0 +1,24 @@
+<div class="row">
+    <div class="col-md-3">
+      <h1>
+        Sidebar 
+      </h1>
+      <div ng-repeat="skill in skills">
+        <p ng-repeat="set in skill.sets">
+        <span ng-repeat="value in set.value" ng-show="value.active">{{value.title}}</span>
+        </p>
+      </div>
+    </div>
+    <div class="col-md-9">
+      <h1 class="page-header">
+        Skills 
+      </h1>
+      <div ng-repeat="skill in skills">
+        <p>
+        <h3><span ng-repeat="category in skill.categories">{{category.title}}<span ng-show=" ! $last ">, </span></span></h4>
+        </p>
+        <div ng-repeat="set in skill.sets">
+        <button class="btn btn-default" button-toggle="active btn-success" ng-repeat="value in set.value" ng-model="value"></button>
+        </div>
+      </div>
+</div>

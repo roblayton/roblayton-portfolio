@@ -8,7 +8,10 @@ angular.module('codeboxsystems.mocks.LoginServiceMocks', [])
         var users = [{
             id: '1',
             username: 'admin',
-            password: 'admin'
+            password: 'admin',
+            role: {
+                admin: true
+            }
         }];
         var currUser = users[0];
 
@@ -43,7 +46,10 @@ angular.module('codeboxsystems.mocks.LoginServiceMocks', [])
                     console.log('Login successful.');
                     currUser = user;
                     return {
-                        id: currUser.id
+                        id: currUser.id,
+                        title: currUser.title,
+                        skills: currUser.skills,
+                        experience: currUser.experience
                     };
                 }
                 else {

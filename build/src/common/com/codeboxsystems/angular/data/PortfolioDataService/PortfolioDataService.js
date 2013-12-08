@@ -55,4 +55,3 @@ angular.module('codeboxsystems.data.PortfolioDataService', ['codeboxsystems.mock
         }
     };
 });
-
