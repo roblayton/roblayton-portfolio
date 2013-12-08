@@ -1,0 +1,34 @@
+<div class="row">
+    <div class="col-md-3">
+      <h3>
+        Requested Skills
+      </h3>
+      <div ng-repeat="skill in skills">
+        <p ng-repeat="set in skill.sets">
+        <span ng-repeat="value in set.value" ng-show="value.active">{{value.title}}</span>
+        </p>
+      </div>
+    </div>
+    <div class="col-md-9">
+      <h1 class="page-header">
+        Experience 
+      </h1>
+      <div ng-repeat="exp in experience">
+        <p>
+        <h3>{{exp.company.title}}</h3>
+        </p>
+        <p>
+        <h4><span ng-repeat="title in exp.titles">{{title.title}}<span ng-show=" ! $last ">, </span></span></h4>
+        <h4>{{exp.startDate}} - {{exp.endDate}}</h4>
+        </p>
+        <p>
+        <ul>
+          <li ng-repeat="achievement in exp.achievements">{{achievement.title}}</li>
+        </ul>
+        </p>
+        <p>
+          <button button-toggle="active btn-success" class="btn btn-default btn-xs" ng-repeat="skill in exp.skills" ng-model="skill"></button> 
+        </p>
+      </div>
+    </div>
+</div>

@@ -1,8 +1,8 @@
 <div class="row">
     <div class="col-md-3">
-      <h1>
-        Sidebar 
-      </h1>
+      <h3>
+        Requested Skills
+      </h3>
       <div ng-repeat="skill in skills">
         <p ng-repeat="set in skill.sets">
         <span ng-repeat="value in set.value" ng-show="value.active">{{value.title}}</span>
@@ -19,6 +19,7 @@
         </p>
         <div ng-repeat="set in skill.sets">
         <button class="btn btn-default" button-toggle="active btn-success" ng-repeat="value in set.value" ng-model="value"></button>
+        <rating value="set.rating" max="5" readonly="true"></rating>{{set.rating}}
         </div>
       </div>
 </div>

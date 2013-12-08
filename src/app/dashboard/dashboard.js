@@ -12,7 +12,7 @@
  * The dependencies block here is also where component dependencies should be
  * specified, as shown below.
  */
-angular.module('app.dashboard', ['ui.state'])
+angular.module('app.dashboard', ['ui.state', 'codeboxsystems.data.PortfolioDataService'])
 
 /**
  * Each section or module of the site can also have its own routes. AngularJS
@@ -37,7 +37,21 @@ angular.module('app.dashboard', ['ui.state'])
 /**
  * And of course we define a controller for our route.
  */
-.controller('DashboardCtrl', function DashboardCtrl($scope, $location) {
+.controller('DashboardCtrl', function DashboardCtrl($scope, $rootScope, $location, PortfolioDataService) {
+	$scope.fetch = function() {
+		console.log('SkillsCtrl.fetch');
+		var callbacks = {
+			onSuccess: function(skills) {
+				$scope.skills = skills;
+			},
+			onErr: function(err) {
+				console.log(err.message);
+			}
+		};
+        PortfolioDataService.fetchSkillsByUser($rootScope.currUser, callbacks);
+	};
+
+    $scope.fetch();
 })
 
 ;

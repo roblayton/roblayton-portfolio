@@ -61,10 +61,6 @@ angular.module('codeboxsystems.mocks.PortfolioDataServiceMocks', [])
 		{
 			id: '3',
 			title: 'Web Developer'
-		},
-		{
-			id: '4',
-			title: 'Director of Web Engineering'
 		}];
 
 		var achievementsDb = [{
@@ -128,15 +124,19 @@ angular.module('codeboxsystems.mocks.PortfolioDataServiceMocks', [])
 			}],
 			experience: [{
 				company: '1',
-				titles: ['4', '1'],
+				titles: ['1'],
 				achievements: ['1', '2'],
-				skills: ['1', '2', '3', '4']
+				skills: ['1', '2', '3', '4'],
+                startDate: '2012-04-01',
+                endDate: 'Present'
 			},
 			{
 				company: '2',
 				titles: ['3', '2'],
 				achievements: ['3'],
-				skills: ['5']
+				skills: ['5'],
+                startDate: '2010-07-01',
+                endDate: '2012-03-01'
 			}]
 		}];
 
@@ -212,7 +212,9 @@ angular.module('codeboxsystems.mocks.PortfolioDataServiceMocks', [])
 								company: company,
 								titles: fetchData(exp.titles, titlesDb),
 								achievements: fetchData(exp.achievements, achievementsDb),
-								skills: fetchData(exp.skills, skillsDb)
+								skills: fetchData(exp.skills, skillsDb),
+                                startDate: exp.startDate,
+                                endDate: exp.endDate
 							});
 						}
 					}

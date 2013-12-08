@@ -1,4 +1,4 @@
-angular.module('app', ['templates-app', 'templates-common', 'app.dashboard', 'app.skills', 'app.register', 'app.login', 'app.logout', 'app.account', 'ui.state', 'ui.route', 'codeboxsystems.data.PortfolioDataService'])
+angular.module('app', ['templates-app', 'templates-common', 'app.dashboard', 'app.skills', 'app.experience', 'app.register', 'app.login', 'app.logout', 'app.account', 'ui.state', 'ui.route', 'codeboxsystems.data.PortfolioDataService'])
 
 .config(function myAppConfig($stateProvider, $urlRouterProvider) {
 	$urlRouterProvider.otherwise('/dashboard');
@@ -24,6 +24,8 @@ angular.module('app', ['templates-app', 'templates-common', 'app.dashboard', 'ap
 				// They are permitted to view the dashboard without logging in
 			} else if (route == 'skills') {
 				// They are permitted to view skills without logging in
+			} else if (route == 'experience') {
+				// They are permitted to view experience without logging in
 			} else {
 				$location.path('/login');
 			}

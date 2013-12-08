@@ -1,4 +1,4 @@
-angular.module('templates-app', ['account/account.tpl.html', 'dashboard/dashboard.tpl.html', 'login/login.tpl.html', 'register/register.tpl.html', 'skills/skills.tpl.html']);
+angular.module('templates-app', ['account/account.tpl.html', 'dashboard/dashboard.tpl.html', 'experience/experience.tpl.html', 'login/login.tpl.html', 'register/register.tpl.html', 'skills/skills.tpl.html']);
 
 angular.module("account/account.tpl.html", []).run(["$templateCache", function($templateCache) {
   $templateCache.put("account/account.tpl.html",
@@ -33,13 +33,62 @@ angular.module("account/account.tpl.html", []).run(["$templateCache", function($
 angular.module("dashboard/dashboard.tpl.html", []).run(["$templateCache", function($templateCache) {
   $templateCache.put("dashboard/dashboard.tpl.html",
     "<div class=\"row\">\n" +
-    "    <div class=\"col-md-12\">\n" +
+    "    <div class=\"col-md-3\">\n" +
+    "      <h3>\n" +
+    "        Requested Skills\n" +
+    "      </h3>\n" +
+    "      <div ng-repeat=\"skill in skills\">\n" +
+    "        <p ng-repeat=\"set in skill.sets\">\n" +
+    "        <span ng-repeat=\"value in set.value\" ng-show=\"value.active\">{{value.title}}</span>\n" +
+    "        </p>\n" +
+    "      </div>\n" +
+    "    </div>\n" +
+    "    <div class=\"col-md-9\">\n" +
     "      <h1 class=\"page-header\">\n" +
     "        Dashboard \n" +
     "      </h1>\n" +
     "      <p>\n" +
     "        Stuff goes here.\n" +
     "      </p>\n" +
+    "    </div>\n" +
+    "</div>\n" +
+    "");
+}]);
+
+angular.module("experience/experience.tpl.html", []).run(["$templateCache", function($templateCache) {
+  $templateCache.put("experience/experience.tpl.html",
+    "<div class=\"row\">\n" +
+    "    <div class=\"col-md-3\">\n" +
+    "      <h3>\n" +
+    "        Requested Skills\n" +
+    "      </h3>\n" +
+    "      <div ng-repeat=\"skill in skills\">\n" +
+    "        <p ng-repeat=\"set in skill.sets\">\n" +
+    "        <span ng-repeat=\"value in set.value\" ng-show=\"value.active\">{{value.title}}</span>\n" +
+    "        </p>\n" +
+    "      </div>\n" +
+    "    </div>\n" +
+    "    <div class=\"col-md-9\">\n" +
+    "      <h1 class=\"page-header\">\n" +
+    "        Experience \n" +
+    "      </h1>\n" +
+    "      <div ng-repeat=\"exp in experience\">\n" +
+    "        <p>\n" +
+    "        <h3>{{exp.company.title}}</h3>\n" +
+    "        </p>\n" +
+    "        <p>\n" +
+    "        <h4><span ng-repeat=\"title in exp.titles\">{{title.title}}<span ng-show=\" ! $last \">, </span></span></h4>\n" +
+    "        <h4>{{exp.startDate}} - {{exp.endDate}}</h4>\n" +
+    "        </p>\n" +
+    "        <p>\n" +
+    "        <ul>\n" +
+    "          <li ng-repeat=\"achievement in exp.achievements\">{{achievement.title}}</li>\n" +
+    "        </ul>\n" +
+    "        </p>\n" +
+    "        <p>\n" +
+    "          <button button-toggle=\"active btn-success\" class=\"btn btn-default btn-xs\" ng-repeat=\"skill in exp.skills\" ng-model=\"skill\"></button> \n" +
+    "        </p>\n" +
+    "      </div>\n" +
     "    </div>\n" +
     "</div>\n" +
     "");
@@ -99,9 +148,9 @@ angular.module("skills/skills.tpl.html", []).run(["$templateCache", function($te
   $templateCache.put("skills/skills.tpl.html",
     "<div class=\"row\">\n" +
     "    <div class=\"col-md-3\">\n" +
-    "      <h1>\n" +
-    "        Sidebar \n" +
-    "      </h1>\n" +
+    "      <h3>\n" +
+    "        Requested Skills\n" +
+    "      </h3>\n" +
     "      <div ng-repeat=\"skill in skills\">\n" +
     "        <p ng-repeat=\"set in skill.sets\">\n" +
     "        <span ng-repeat=\"value in set.value\" ng-show=\"value.active\">{{value.title}}</span>\n" +
@@ -118,6 +167,7 @@ angular.module("skills/skills.tpl.html", []).run(["$templateCache", function($te
     "        </p>\n" +
     "        <div ng-repeat=\"set in skill.sets\">\n" +
     "        <button class=\"btn btn-default\" button-toggle=\"active btn-success\" ng-repeat=\"value in set.value\" ng-model=\"value\"></button>\n" +
+    "        <rating value=\"set.rating\" max=\"5\" readonly=\"true\"></rating>{{set.rating}}\n" +
     "        </div>\n" +
     "      </div>\n" +
     "</div>\n" +

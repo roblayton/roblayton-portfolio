@@ -20,7 +20,6 @@ angular.module('app.skills', ['ui.state', 'placeholders', 'ui.bootstrap', 'codeb
 		console.log('SkillsCtrl.fetch');
 		var callbacks = {
 			onSuccess: function(skills) {
-				console.log(skills);
 				$scope.skills = skills;
 			},
 			onErr: function(err) {

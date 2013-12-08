@@ -1,5 +1,15 @@
 <div class="row">
-    <div class="col-md-12">
+    <div class="col-md-3">
+      <h3>
+        Requested Skills
+      </h3>
+      <div ng-repeat="skill in skills">
+        <p ng-repeat="set in skill.sets">
+        <span ng-repeat="value in set.value" ng-show="value.active">{{value.title}}</span>
+        </p>
+      </div>
+    </div>
+    <div class="col-md-9">
       <h1 class="page-header">
         Dashboard 
       </h1>
