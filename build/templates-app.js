@@ -81,15 +81,17 @@ angular.module("experience/experience.tpl.html", []).run(["$templateCache", func
     "    </div>\n" +
     "    <div class=\"col-md-9\">\n" +
     "      <h1 class=\"page-header\">\n" +
-    "        Experience \n" +
+    "          Experience <span class=\"label label-default\">{{totalTenure}}</span>\n" +
     "      </h1>\n" +
-    "      <div ng-repeat=\"exp in experience | orderBy:sortOrder | filter:searchText\">\n" +
+    "      <p>\n" +
+    "      </p>\n" +
+    "      <div ng-repeat=\"exp in experience | orderBy:sortOrder:true | filter:searchText\">\n" +
     "        <p>\n" +
     "        <h3>{{exp.company.title}}</h3>\n" +
     "        </p>\n" +
     "        <p>\n" +
     "        <h4><span ng-repeat=\"title in exp.titles\">{{title.title}}<span ng-show=\" ! $last \">, </span></span></h4>\n" +
-    "        <h5>{{exp.startDate}} - {{exp.endDate}} ({{exp.tenure}})</h5>\n" +
+    "        <h5><span class=\"label label-default\">{{exp.startDate}} - {{exp.endDate}}</span> <span class=\"label label-info\">{{exp.tenure}}</span></h5>\n" +
     "        </p>\n" +
     "        <p>\n" +
     "        <ul>\n" +

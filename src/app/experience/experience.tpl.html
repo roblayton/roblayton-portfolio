@@ -22,15 +22,17 @@
     </div>
     <div class="col-md-9">
       <h1 class="page-header">
-        Experience 
+          Experience <span class="label label-default">{{totalTenure}}</span>
       </h1>
-      <div ng-repeat="exp in experience | orderBy:sortOrder | filter:searchText">
+      <p>
+      </p>
+      <div ng-repeat="exp in experience | orderBy:sortOrder:true | filter:searchText">
         <p>
         <h3>{{exp.company.title}}</h3>
         </p>
         <p>
         <h4><span ng-repeat="title in exp.titles">{{title.title}}<span ng-show=" ! $last ">, </span></span></h4>
-        <h5>{{exp.startDate}} - {{exp.endDate}} ({{exp.tenure}})</h5>
+        <h5><span class="label label-default">{{exp.startDate}} - {{exp.endDate}}</span> <span class="label label-info">{{exp.tenure}}</span></h5>
         </p>
         <p>
         <ul>

@@ -415,6 +415,8 @@ angular.module('codeboxsystems.mocks.PortfolioDataServiceMocks', ['codeboxsystem
 			}]
 		}];
 
+        var totalTenure = 0;
+
 		// Private 
         var formatDates = function() {
             for (var i = 0, iLen = usersDb.length; i < iLen; i++) {
@@ -426,8 +428,11 @@ angular.module('codeboxsystems.mocks.PortfolioDataServiceMocks', ['codeboxsystem
                     exp.endDate = DateUtil.dateToReadable(exp.endDate);
                     exp.tenure = DateUtil.genTotalTime(months);
                     exp.months = months;
+                    totalTenure += months;
                 }
             }
+
+            totalTenure = DateUtil.genTotalTime(totalTenure);
         };
 
         formatDates();
@@ -448,6 +453,9 @@ angular.module('codeboxsystems.mocks.PortfolioDataServiceMocks', ['codeboxsystem
 
 		// Public API
 		return {
+            getTotalTenure: function() {
+                return totalTenure;
+            },
 			fetchUser: function(id) {
 				for (var i = 0, len = usersDb.length; i < len; i++) {
 					var user = usersDb[i];
