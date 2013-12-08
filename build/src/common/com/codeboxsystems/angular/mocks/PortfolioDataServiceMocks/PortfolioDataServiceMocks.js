@@ -17,7 +17,7 @@ angular.module('codeboxsystems.mocks.PortfolioDataServiceMocks', [])
 		},
 		{
 			id: '3',
-			title: 'HTML5',
+			title: 'HTML(4/5)',
 			active: false
 		},
 		{
@@ -27,19 +27,130 @@ angular.module('codeboxsystems.mocks.PortfolioDataServiceMocks', [])
 		},
 		{
 			id: '5',
-			title: 'PHP',
+			title: 'AS2',
 			active: false
 		},
 		{
 			id: '6',
-			title: 'Spanish',
+			title: 'Canvas',
 			active: false
 		},
 		{
 			id: '7',
-			title: 'German',
+			title: 'AS3',
 			active: false
-		}];
+		},
+		{
+			id: '8',
+			title: 'jQuery(UI)',
+			active: false
+		},
+		{
+			id: '9',
+			title: 'AngularJS',
+			active: false
+		},
+		{
+			id: '10',
+			title: 'ThreeJS',
+			active: false
+		},
+		{
+			id: '11',
+			title: 'WebGL',
+			active: false
+		},
+		{
+			id: '12',
+			title: 'NodeJS',
+			active: false
+		},
+		{
+			id: '13',
+			title: 'MongoDB',
+			active: false
+		},
+		{
+			id: '14',
+			title: 'PHP',
+			active: false
+		},
+		{
+			id: '15',
+			title: 'MySQL',
+			active: false
+		},
+		{
+			id: '16',
+			title: 'Bash Scripting',
+			active: false
+		},
+		{
+			id: '17',
+			title: 'Regex',
+			active: false
+		},
+		{
+			id: '18',
+			title: 'Vim',
+			active: false
+		},
+		{
+			id: '20',
+			title: 'Management',
+			active: false
+		},
+		{
+			id: '21',
+			title: 'Project Management',
+			active: false
+		},
+		{
+			id: '22',
+			title: 'Agile',
+			active: false
+		},
+		{
+			id: '23',
+			title: 'Scrum',
+			active: false
+		},
+		{
+			id: '24',
+			title: 'Git',
+			active: false
+		},
+		{
+			id: '25',
+			title: 'Adobe Flash',
+			active: false
+		},
+		{
+			id: '26',
+			title: 'Adobe Photoshop',
+			active: false
+		},
+		{
+			id: '27',
+			title: 'Adobe Illustrator',
+			active: false
+		},
+		{
+			id: '28',
+			title: 'Wordpress',
+			active: false
+		},
+		{
+			id: '29',
+			title: 'Corel Draw',
+			active: false
+		},
+		{
+			id: '30',
+			title: 'PowerPoint',
+			active: false
+		}
+		];
 
 		var companiesDb = [{
 			id: '1',
@@ -48,6 +159,22 @@ angular.module('codeboxsystems.mocks.PortfolioDataServiceMocks', [])
 		{
 			id: '2',
 			title: 'Florida Virtual School'
+		},
+		{
+			id: '3',
+			title: 'Monster Media'
+		},
+		{
+			id: '4',
+			title: 'Digitec'
+		},
+		{
+			id: '5',
+			title: 'University of Central Florida'
+		},
+		{
+			id: '6',
+			title: 'The Presentation Group'
 		}];
 
 		var titlesDb = [{
@@ -61,7 +188,36 @@ angular.module('codeboxsystems.mocks.PortfolioDataServiceMocks', [])
 		{
 			id: '3',
 			title: 'Web Developer'
-		}];
+		},
+		{
+			id: '4',
+			title: 'Interactive Designer'
+		},
+		{
+			id: '5',
+			title: 'Interactive Developer'
+		},
+		{
+			id: '6',
+			title: 'HTML Developer'
+		},
+		{
+			id: '7',
+			title: 'Contractor'
+		},
+		{
+			id: '8',
+			title: 'Web Developer'
+		},
+		{
+			id: '9',
+			title: 'Intern'
+		},
+		{
+			id: '10',
+			title: 'Interactive Designer'
+		}
+        ];
 
 		var achievementsDb = [{
 			id: '1',
@@ -83,27 +239,28 @@ angular.module('codeboxsystems.mocks.PortfolioDataServiceMocks', [])
 		{
 			id: '2',
 			title: 'Programming Languages'
+		},
+		{
+			id: '3',
+			title: 'Leadership'
+		},
+		{
+			id: '4',
+			title: 'Libraries'
+		},
+		{
+			id: '5',
+			title: 'Tools'
 		}];
 
 		var usersDb = [{
 			id: '1',
 			title: 'Rob Layton',
 			skills: [{
-				categories: ['1'],
-				set: [{
-					value: '6',
-					rating: 2
-				},
-				{
-					value: '7',
-					rating: 3
-				}]
-			},
-			{
 				categories: ['2'],
 				set: [{
 					value: '1',
-					rating: 2
+					rating: 5
 				},
 				{
 					value: '2',
@@ -111,32 +268,140 @@ angular.module('codeboxsystems.mocks.PortfolioDataServiceMocks', [])
 				},
 				{
 					value: '3',
-					rating: 3
+					rating: 5
 				},
 				{
 					value: '4',
 					rating: 5
 				},
 				{
-					value: '5',
-					rating: 3
+					value: '7',
+					rating: 4
+				},
+				{
+					value: '14',
+					rating: 2
+				},
+				{
+					value: '15',
+					rating: 2
+				},
+				{
+					value: '16',
+					rating: 2
 				}]
+			},
+			{
+				categories: ['4'],
+				set: [{
+					value: '6',
+					rating: 5
+				},
+				{
+					value: '8',
+					rating: 3
+				},
+				{
+					value: '9',
+					rating: 5
+				},
+				{
+					value: '10',
+					rating: 3
+				},
+				{
+					value: '12',
+					rating: 2
+				},
+				{
+					value: '13',
+					rating: 2
+				}
+                ]
+			},
+			{
+				categories: ['3'],
+				set: [{
+					value: '20',
+					rating: 5
+				},
+				{
+					value: '21',
+					rating: 5
+				},
+				{
+					value: '22',
+					rating: 5
+				},
+				{
+					value: '23',
+					rating: 5
+				}
+                ]
+			},
+			{
+				categories: ['5'],
+				set: [{
+					value: '18',
+					rating: 5
+				},
+				{
+					value: '17',
+					rating: 3
+				},
+				{
+					value: '24',
+					rating: 4
+				}
+                ]
 			}],
 			experience: [{
 				company: '1',
 				titles: ['1'],
 				achievements: ['1', '2'],
-				skills: ['1', '2', '3', '4'],
-                startDate: '2012-04-01',
-                endDate: 'Present'
+				skills: ['1', '2', '3', '4', '6', '8', '9', '10', '11', '12', '13', '16', '17', '18', '20', '21', '22', '23', '24'],
+				startDate: '2012-04-01',
+				endDate: 'Present'
 			},
 			{
 				company: '2',
 				titles: ['3', '2'],
 				achievements: ['3'],
-				skills: ['5'],
-                startDate: '2010-07-01',
-                endDate: '2012-03-01'
+				skills: ['1', '3', '4', '5', '7', '6', '8', '14', '15', '16', '17', '20', '25', '26', '27'],
+				startDate: '2010-07-01',
+				endDate: '2012-03-01'
+			},
+			{
+				company: '3',
+				titles: ['4', '5'],
+				achievements: ['3'],
+				skills: ['1', '3', '4', '5', '7', '8', '14', '15', '25', '26', '27'],
+				startDate: '2009-11-01',
+				endDate: '2010-07-01'
+			},
+			{
+				company: '4',
+				titles: ['6', '7'],
+				achievements: ['3'],
+				skills: ['1', '3', '4', '5', '7', '8', '14', '15', '25', '26', '27'],
+				startDate: '2009-08-01',
+				endDate: '2009-11-01'
+			},
+			{
+				company: '5',
+				titles: ['8', '9'],
+				achievements: ['3'],
+				skills: ['1', '3', '4', '5', '7', '8', '14', '15', '25', '26', '27', '28'],
+				startDate: '2009-05-01',
+				endDate: '2009-08-01'
+			},
+			{
+				company: '6',
+				titles: ['10'],
+				achievements: ['3'],
+				skills: ['1', '3', '4', '5', '7', '8', '14', '15', '25', '26', '27', '29', '30'],
+				startDate: '2009-05-01',
+				endDate: '2009-08-01'
 			}]
 		}];
 
@@ -213,8 +478,8 @@ angular.module('codeboxsystems.mocks.PortfolioDataServiceMocks', [])
 								titles: fetchData(exp.titles, titlesDb),
 								achievements: fetchData(exp.achievements, achievementsDb),
 								skills: fetchData(exp.skills, skillsDb),
-                                startDate: exp.startDate,
-                                endDate: exp.endDate
+								startDate: exp.startDate,
+								endDate: exp.endDate
 							});
 						}
 					}
