@@ -19,8 +19,8 @@ angular.module('app.login', ['ui.state', 'placeholders', 'ui.bootstrap', 'codebo
 	$scope.login = function() {
 		console.log('LoginCtrl.login');
 		var callbacks = {
-			onSuccess: function() {
-				$rootScope.isLoggedIn = true;
+			onSuccess: function(user) {
+				$rootScope.currUser = user;
 				$location.path('/dashboard');
 			},
 			onErr: function(err) {

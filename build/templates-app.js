@@ -1,4 +1,4 @@
-angular.module('templates-app', ['account/account.tpl.html', 'dashboard/dashboard.tpl.html', 'login/login.tpl.html', 'logout/logout.tpl.html', 'register/register.tpl.html']);
+angular.module('templates-app', ['account/account.tpl.html', 'dashboard/dashboard.tpl.html', 'login/login.tpl.html', 'register/register.tpl.html', 'skills/skills.tpl.html']);
 
 angular.module("account/account.tpl.html", []).run(["$templateCache", function($templateCache) {
   $templateCache.put("account/account.tpl.html",
@@ -67,18 +67,6 @@ angular.module("login/login.tpl.html", []).run(["$templateCache", function($temp
     "");
 }]);
 
-angular.module("logout/logout.tpl.html", []).run(["$templateCache", function($templateCache) {
-  $templateCache.put("logout/logout.tpl.html",
-    "<div class=\"row\">\n" +
-    "    <div class=\"col-sm-offset-4 col-sm-4\">\n" +
-    "        <h1 class=\"page-header\">Logout</h1>\n" +
-    "        <p>Logging you out...</p>\n" +
-    "    </div>\n" +
-    "</div>\n" +
-    "\n" +
-    "");
-}]);
-
 angular.module("register/register.tpl.html", []).run(["$templateCache", function($templateCache) {
   $templateCache.put("register/register.tpl.html",
     "<div class=\"row\">\n" +
@@ -104,5 +92,10 @@ angular.module("register/register.tpl.html", []).run(["$templateCache", function
     "    </div>\n" +
     "</div>\n" +
     "\n" +
+    "");
+}]);
+
+angular.module("skills/skills.tpl.html", []).run(["$templateCache", function($templateCache) {
+  $templateCache.put("skills/skills.tpl.html",
     "");
 }]);

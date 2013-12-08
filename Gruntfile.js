@@ -333,7 +333,7 @@ module.exports = function(grunt) {
        */
 			build: {
 				dir: '<%= build_dir %>',
-				src: ['<%= vendor_files.js %>', '<%= build_dir %>/src/**/*.js', '!<%= build_dir %>/src/**/*.fixture.js', '<%= html2js.common.dest %>', '<%= html2js.app.dest %>', '<%= recess.build.dest %>', '<%= build_dir %>/src/**/*.fixture.js']
+                src: ['<%= vendor_files.js %>','<%= build_dir %>/src/**/*.js', '!<%= build_dir %>/src/common/com/codeboxsystems/canvas/**/*.js', '!<%= build_dir %>/src/common/com/codeboxsystems/core/**/*.js', '!<%= build_dir %>/src/common/com/codeboxsystems/dom/**/*.js', '!<%= build_dir %>/src/common/com/codeboxsystems/test/**/*.js', '!<%= build_dir %>/src/**/*.fixture.js', '<%= html2js.common.dest %>', '<%= html2js.app.dest %>', '<%= recess.build.dest %>', '<%= build_dir %>/src/**/*.fixture.js']
 			},
 
 			/**
@@ -504,7 +504,7 @@ module.exports = function(grunt) {
 	/**
    * The `build` task gets your app ready to run for development and testing.
    */
-	grunt.registerTask('build', ['clean', 'html2js', 'jshint', 'coffeelint', 'coffee', 'recess:build', 'concat:build_css', 'copy:build_assets', 'copy:build_appjs', 'copy:build_vendorjs', 'copy:build_fixturejs', 'index:build', 'karmaconfig', 'karma:continuous', 'karma:e2e']);
+    grunt.registerTask('build', ['clean', 'html2js', 'jshint', 'coffeelint', 'coffee', 'recess:build', 'concat:build_css', 'copy:build_assets', 'copy:build_appjs', 'copy:build_vendorjs', 'copy:build_fixturejs', 'index:build', 'karmaconfig', 'karma:continuous', 'karma:e2e']);
 
 	/**
    * The `compile` task gets your app ready for deployment by concatenating and

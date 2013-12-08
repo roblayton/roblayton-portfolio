@@ -48,11 +48,17 @@
 
           <!-- Collect the nav links, forms, and other content for toggling -->
           <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-            <ul ng-hide="!$root.isLoggedIn" class="nav navbar-nav">
+            <ul ng-hide="!$root.currUser" class="nav navbar-nav">
               <li ui-route="/dashboard" ng-class="{active:$uiRoute}">
                 <a href="#/dashboard">
                   <i class="icon-dashboard"></i>
                   Dashboard
+                </a>
+              </li>
+              <li ui-route="/skills" ng-class="{active:$uiRoute}">
+                <a href="#/skills">
+                  <i class="icon-dashboard"></i>
+                  Skills
                 </a>
               </li>
               
@@ -72,23 +78,25 @@
             </ul>
             
             <ul class="nav navbar-nav navbar-right">
-              <li ng-hide="!$root.isLoggedIn" ui-route="/account" ng-class="{active:$uiRoute}">
+              <li ng-hide="!$root.currUser" ui-route="/account" ng-class="{active:$uiRoute}">
                 <a href="#/account">
                   <i class="icon-gear"></i>
                   Account
                 </a>
               </li>
+              <!--
               <li  ui-route="/register" ng-class="{active:$uiRoute}">
                 <a href="#/register">
                   Register
                 </a>
               </li>
-              <li ng-hide="!$root.isLoggedIn" ui-route="/login" ng-class="{active:$uiRoute}">
+              -->
+              <li ng-hide="!$root.currUser" ui-route="/login" ng-class="{active:$uiRoute}">
                 <a href="#/logout" class="login">
                   Log Out
                 </a>
               </li>
-              <li ng-hide="$root.isLoggedIn" ui-route="/login" ng-class="{active:$uiRoute}">
+              <li ng-hide="$root.currUser" ui-route="/login" ng-class="{active:$uiRoute}">
                 <a href="#/login">
                   Log In
                 </a>

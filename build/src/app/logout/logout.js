@@ -15,7 +15,7 @@ angular.module('app.logout', ['ui.state', 'placeholders', 'ui.bootstrap'])
 })
 
 .controller('LogoutCtrl', function LogoutCtrl($scope, $rootScope, $location) {
-    $rootScope.isLoggedIn = false;
+    $rootScope.currUser = null;
     $location.path('/login');
 })
 ;

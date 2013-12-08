@@ -16,6 +16,10 @@ module.exports = function ( karma ) {
     ],
 
     exclude: [
+        'src/common/com/codeboxsystems/canvas/**/*.js',
+        'src/common/com/codeboxsystems/core/**/*.js',
+        'src/common/com/codeboxsystems/dom/**/*.js',
+        'src/common/com/codeboxsystems/test/**/*.js',
         'src/**/*.fixture.*',
         'src/**/*.scenario.*'
     ],

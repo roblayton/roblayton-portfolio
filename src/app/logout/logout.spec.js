@@ -35,6 +35,7 @@ describe('Unit', function() {
 
 		describe('#logout', function() {
 			it('should clear set isLoggedIn to false and reroute to the login page', inject(function($location) {
+                expect($scope.currUser).toBeNull();
 				expect($location.path()).toEqual('/login');
 			}));
 		});

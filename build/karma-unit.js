@@ -16,6 +16,7 @@ module.exports = function ( karma ) {
       'vendor/angular-ui-router/release/angular-ui-router.js',
       'vendor/angular-ui-utils/modules/route/route.js',
       'vendor/angular-mocks/angular-mocks.js',
+      'vendor/requirejs/require.js',
       'vendor/bootstrap/js/collapse.js',
       'vendor/bootstrap/js/transition.js',
       'vendor/bootstrap/js/modal.js',
@@ -34,6 +35,10 @@ module.exports = function ( karma ) {
     ],
 
     exclude: [
+        'src/common/com/codeboxsystems/canvas/**/*.js',
+        'src/common/com/codeboxsystems/core/**/*.js',
+        'src/common/com/codeboxsystems/dom/**/*.js',
+        'src/common/com/codeboxsystems/test/**/*.js',
         'src/**/*.fixture.*',
         'src/**/*.scenario.*'
     ],

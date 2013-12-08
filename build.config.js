@@ -21,6 +21,7 @@ module.exports = {
    */
   app_files: {
     js: [ 'src/**/*.js', '!src/**/*.spec.js', '!src/**/*.fixture.js', '!src/**/*.scenario.js'],
+    jslint: [ 'src/**/*.js', '!src/**/*.spec.js', '!src/**/*.fixture.js', '!src/**/*.scenario.js'],
     jsunit: [ 'src/**/*.spec.js' ],
 
     jsfixture: [ 'src/**/*.fixture.js' ],
@@ -60,6 +61,8 @@ module.exports = {
       'vendor/angular-ui-router/release/angular-ui-router.js',
       'vendor/angular-ui-utils/modules/route/route.js',
       'vendor/angular-mocks/angular-mocks.js',
+      //Requirejs
+      'vendor/requirejs/require.js',
       // Bootstrap
       'vendor/bootstrap/js/collapse.js',
       'vendor/bootstrap/js/transition.js',

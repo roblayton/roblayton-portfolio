@@ -6,8 +6,9 @@ angular.module('codeboxsystems.mocks.LoginServiceMocks', [])
 .factory('LoginServiceMocks', function() {
     var LoginServiceMocks = function() {
         var users = [{
-            username: 'test',
-            password: 'test'
+            id: '1',
+            username: 'admin',
+            password: 'admin'
         }];
         var currUser = users[0];
 
@@ -25,6 +26,7 @@ angular.module('codeboxsystems.mocks.LoginServiceMocks', [])
             var user = isUserExists(username);
             if (!user) {
                 var newUser = {
+                    id: '9',
                     username: username,
                     password: password
                 };
@@ -40,6 +42,9 @@ angular.module('codeboxsystems.mocks.LoginServiceMocks', [])
                 if (password == user.password) {
                     console.log('Login successful.');
                     currUser = user;
+                    return {
+                        id: currUser.id
+                    };
                 }
                 else {
                     throw new Error('Either username or password is incorrect.');

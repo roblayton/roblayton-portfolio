@@ -24,8 +24,8 @@ describe('e2e', function() {
             expect(element('form button#logout:visible').count()).toEqual(0);
 
 			// Fill out the form and login
-			input('username').enter('test');
-			input('password').enter('test');
+			input('username').enter('admin');
+			input('password').enter('admin');
 			element('form button#login').click();
 
 			// Check that user was redirected to dashboard, indicating success

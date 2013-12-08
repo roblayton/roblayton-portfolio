@@ -30,10 +30,10 @@ angular.module('codeboxsystems.data.LoginService', ['codeboxsystems.mocks.LoginS
         login: function(username, password, callbacks) {
             try {
                 //client.login(username, CryptoJS.SHA1(password));
-                client.login(username, password);
+                var user = client.login(username, password);
 
                 if (callbacks.onSuccess) {
-                    callbacks.onSuccess();
+                    callbacks.onSuccess(user);
                 }
             } catch(err) {
                 if (callbacks.onErr) {

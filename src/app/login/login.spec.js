@@ -40,10 +40,11 @@ describe('Unit', function() {
 		describe('#login', function() {
 			it('should redirect the user to the dashboard after a successful login', inject(function($location) {
 
-                $scope.username = 'test';
-                $scope.password = 'test';
+                $scope.username = 'admin';
+                $scope.password = 'admin';
                 $scope.login();
                 expect(LoginService.login).toHaveBeenCalled();
+                expect($scope.currUser).toBeDefined();
                 expect($location.path()).toEqual('/dashboard');
 			}));
 		});

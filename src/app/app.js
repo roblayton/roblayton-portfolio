@@ -18,7 +18,7 @@ angular.module( 'app', [
     // Need to implement a serverside barrier as well
     $rootScope.$on('$locationChangeStart', function(event, next, current) {
         var route = next.split('/').pop();
-        if (!$rootScope.isLoggedIn) {
+        if (!$rootScope.currUser) {
             // User is not logged in, so reroute
             if (route == 'login') {
                 // Already going to /login, so no need to redirect
