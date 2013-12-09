@@ -55,6 +55,19 @@ angular.module('codeboxsystems.data.PortfolioDataService', ['codeboxsystems.mock
 		},
 		getTotalTenure: function() {
 			return client.getTotalTenure();
+		},
+		fetchPortfolioByUser: function(user, callbacks) {
+			try {
+				var works = client.fetchPortfolioByUser(user);
+
+				if (callbacks.onSuccess) {
+					callbacks.onSuccess(works);
+				}
+			} catch(err) {
+				if (callbacks.onErr) {
+					callbacks.onErr(err);
+				}
+			}
 		}
 	};
 });

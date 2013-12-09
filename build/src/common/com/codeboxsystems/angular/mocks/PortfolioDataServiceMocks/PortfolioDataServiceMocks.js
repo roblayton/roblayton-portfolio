@@ -258,6 +258,18 @@ angular.module('codeboxsystems.mocks.PortfolioDataServiceMocks', ['codeboxsystem
 			title: 'Tools'
 		}];
 
+		var portfolioDb = [{
+			id: '1',
+			title: 'Portfolio',
+			link: 'http://www.roblayton.com'
+		},
+		{
+			id: '2',
+			title: 'Portfolio 2',
+			link: 'http://www.roblayton.com'
+		}
+        ];
+
 		var usersDb = [{
 			id: '1',
 			title: 'Rob Layton',
@@ -365,6 +377,14 @@ angular.module('codeboxsystems.mocks.PortfolioDataServiceMocks', ['codeboxsystem
 				}
                 ]
 			}],
+            portfolio: [{
+                value: '1',
+				skills: ['1', '2']
+            }, 
+            {
+                value: '2',
+				skills: ['3', '4']
+            }],
 			experience: [{
 				company: '1',
 				titles: ['1'],
@@ -499,6 +519,26 @@ angular.module('codeboxsystems.mocks.PortfolioDataServiceMocks', ['codeboxsystem
 					throw new Error('No skills for this user');
 				}
 			},
+            fetchPortfolioByUser: function(user) {
+                  var portfolio = [];
+                  for (var i = 0, len = user.portfolio.length; i < len; i++) {
+                      var p = user.portfolio[i];
+                      portfolio.push({
+                          value: fetchData(p.value, portfolioDb),
+                          skills: fetchData(p.skills, skillsDb)
+                      });
+                  }
+
+                  return portfolio;
+            },
+            //portfolio: [{
+                //value: '1',
+				//skills: ['1', '2']
+            //}, 
+            //{
+                //value: '2',
+				//skills: ['3', '4']
+            //}],
 			fetchExperienceByUser: function(user) {
 				var experience = [];
 

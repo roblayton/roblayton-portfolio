@@ -1,4 +1,4 @@
-angular.module('app', ['templates-app', 'templates-common', 'app.dashboard', 'app.skills', 'app.experience', 'app.register', 'app.login', 'app.logout', 'app.account', 'ui.state', 'ui.route', 'codeboxsystems.data.PortfolioDataService'])
+angular.module('app', ['templates-app', 'templates-common', 'app.dashboard', 'app.skills', 'app.experience', 'app.portfolio', 'app.register', 'app.login', 'app.logout', 'app.account', 'ui.state', 'ui.route', 'codeboxsystems.data.PortfolioDataService'])
 
 .config(function myAppConfig($stateProvider, $urlRouterProvider) {
 	$urlRouterProvider.otherwise('/dashboard');
