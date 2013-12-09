@@ -1,0 +1,34 @@
+<div class="row">
+    <div class="col-md-3">
+      <h3>
+        Requested Skills
+      </h3>
+      <div ng-repeat="skill in skills">
+        <div ng-repeat="set in skill.sets">
+        <div ng-repeat="value in set.value" ng-show="value.active" ng-click="remove(value)" class="pointer">
+            <span class="label label-success">{{value.title}} <i class="icon-star"> {{set.rating}}</i></span> <span class="label label-danger"></span><i class="icon-remove-sign"></i>
+        </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-9">
+      <h1 class="page-header">
+        Hire Me 
+      </h1>
+      <p>
+        I am currently available for part-time freelance web development and front end consulting.
+      </p>
+      <p>
+      The best way to contact me is through email. Reach me at <a href="mailto:hire.rob.layton@gmail.com">hire.rob.layton@gmail.com</a>
+      </p>
+      <p>
+      <a href="https://docs.google.com/document/d/1Iqkc-8_73aZsBJZyE4bMCEJtVsgQcXAJXdlBDHu26bc/pub">Resume</a>
+      </p>
+      <p>
+      <a href="http://beknown.com/roblayton">Monster</a>
+      </p>
+      <p>
+      <a href="http://www.linkedin.com/in/roblayton">LinkedIn</a>
+      </p>
+    </div>
+</div>

@@ -1,4 +1,4 @@
-angular.module('templates-app', ['account/account.tpl.html', 'dashboard/dashboard.tpl.html', 'experience/experience.tpl.html', 'login/login.tpl.html', 'portfolio/portfolio.tpl.html', 'register/register.tpl.html', 'skills/skills.tpl.html', 'social/social.tpl.html']);
+angular.module('templates-app', ['account/account.tpl.html', 'dashboard/dashboard.tpl.html', 'experience/experience.tpl.html', 'hireme/hireme.tpl.html', 'login/login.tpl.html', 'portfolio/portfolio.tpl.html', 'register/register.tpl.html', 'skills/skills.tpl.html', 'social/social.tpl.html']);
 
 angular.module("account/account.tpl.html", []).run(["$templateCache", function($templateCache) {
   $templateCache.put("account/account.tpl.html",
@@ -106,6 +106,45 @@ angular.module("experience/experience.tpl.html", []).run(["$templateCache", func
     "          <button button-toggle=\"active btn-success\" class=\"btn btn-default btn-xs\" ng-repeat=\"skill in exp.skills\" ng-model=\"skill\"></button> \n" +
     "        </p>\n" +
     "      </div>\n" +
+    "    </div>\n" +
+    "</div>\n" +
+    "");
+}]);
+
+angular.module("hireme/hireme.tpl.html", []).run(["$templateCache", function($templateCache) {
+  $templateCache.put("hireme/hireme.tpl.html",
+    "<div class=\"row\">\n" +
+    "    <div class=\"col-md-3\">\n" +
+    "      <h3>\n" +
+    "        Requested Skills\n" +
+    "      </h3>\n" +
+    "      <div ng-repeat=\"skill in skills\">\n" +
+    "        <div ng-repeat=\"set in skill.sets\">\n" +
+    "        <div ng-repeat=\"value in set.value\" ng-show=\"value.active\" ng-click=\"remove(value)\" class=\"pointer\">\n" +
+    "            <span class=\"label label-success\">{{value.title}} <i class=\"icon-star\"> {{set.rating}}</i></span> <span class=\"label label-danger\"></span><i class=\"icon-remove-sign\"></i>\n" +
+    "        </div>\n" +
+    "        </div>\n" +
+    "      </div>\n" +
+    "    </div>\n" +
+    "    <div class=\"col-md-9\">\n" +
+    "      <h1 class=\"page-header\">\n" +
+    "        Hire Me \n" +
+    "      </h1>\n" +
+    "      <p>\n" +
+    "        I am currently available for part-time freelance web development and front end consulting.\n" +
+    "      </p>\n" +
+    "      <p>\n" +
+    "      The best way to contact me is through email. Reach me at <a href=\"mailto:hire.rob.layton@gmail.com\">hire.rob.layton@gmail.com</a>\n" +
+    "      </p>\n" +
+    "      <p>\n" +
+    "      <a href=\"https://docs.google.com/document/d/1Iqkc-8_73aZsBJZyE4bMCEJtVsgQcXAJXdlBDHu26bc/pub\">Resume</a>\n" +
+    "      </p>\n" +
+    "      <p>\n" +
+    "      <a href=\"http://beknown.com/roblayton\">Monster</a>\n" +
+    "      </p>\n" +
+    "      <p>\n" +
+    "      <a href=\"http://www.linkedin.com/in/roblayton\">LinkedIn</a>\n" +
+    "      </p>\n" +
     "    </div>\n" +
     "</div>\n" +
     "");
