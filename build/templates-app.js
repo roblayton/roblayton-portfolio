@@ -1,4 +1,4 @@
-angular.module('templates-app', ['account/account.tpl.html', 'dashboard/dashboard.tpl.html', 'experience/experience.tpl.html', 'login/login.tpl.html', 'portfolio/portfolio.tpl.html', 'register/register.tpl.html', 'skills/skills.tpl.html']);
+angular.module('templates-app', ['account/account.tpl.html', 'dashboard/dashboard.tpl.html', 'experience/experience.tpl.html', 'login/login.tpl.html', 'portfolio/portfolio.tpl.html', 'register/register.tpl.html', 'skills/skills.tpl.html', 'social/social.tpl.html']);
 
 angular.module("account/account.tpl.html", []).run(["$templateCache", function($templateCache) {
   $templateCache.put("account/account.tpl.html",
@@ -248,6 +248,45 @@ angular.module("skills/skills.tpl.html", []).run(["$templateCache", function($te
     "            </div>\n" +
     "        </div>\n" +
     "      </div>\n" +
+    "</div>\n" +
+    "");
+}]);
+
+angular.module("social/social.tpl.html", []).run(["$templateCache", function($templateCache) {
+  $templateCache.put("social/social.tpl.html",
+    "<div class=\"row\">\n" +
+    "    <div class=\"col-md-3\">\n" +
+    "            <div class=\"form-group\">\n" +
+    "                <label for=\"filter\">Filter:</label>\n" +
+    "        <input ng-model=\"searchText\" class=\"form-control\">\n" +
+    "    </div>\n" +
+    "      <h3>\n" +
+    "        Requested Skills\n" +
+    "      </h3>\n" +
+    "      <div ng-repeat=\"skill in skills\">\n" +
+    "        <div ng-repeat=\"set in skill.sets\">\n" +
+    "        <div ng-repeat=\"value in set.value\" ng-show=\"value.active\" ng-click=\"remove(value)\" class=\"pointer\">\n" +
+    "            <span class=\"label label-success\">{{value.title}} <i class=\"icon-star\"> {{set.rating}}</i></span> <span class=\"label label-danger\"></span><i class=\"icon-remove-sign\"></i>\n" +
+    "        </div>\n" +
+    "        </div>\n" +
+    "      </div>\n" +
+    "    </div>\n" +
+    "    <div class=\"col-md-9\">\n" +
+    "      <h1 class=\"page-header\">\n" +
+    "          Social\n" +
+    "      </h1>\n" +
+    "      <p>\n" +
+    "      </p>\n" +
+    "      <div ng-repeat=\"s in social | filter:searchText\">\n" +
+    "      <div ng-repeat=\"value in s.value\">\n" +
+    "        <p>\n" +
+    "        <h3>{{value.title}}</h3>\n" +
+    "        </p>\n" +
+    "        <p>{{value.description}}</p>\n" +
+    "        <a href=\"{{value.link}}\">{{value.link}}</a>\n" +
+    "    </div>\n" +
+    "      </div>\n" +
+    "    </div>\n" +
     "</div>\n" +
     "");
 }]);

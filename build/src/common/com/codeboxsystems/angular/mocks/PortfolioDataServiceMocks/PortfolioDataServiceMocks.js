@@ -270,6 +270,18 @@ angular.module('codeboxsystems.mocks.PortfolioDataServiceMocks', ['codeboxsystem
 		}
         ];
 
+		var socialDb = [{
+			id: '1',
+			title: 'Tumblr',
+			link: 'http://roblayton.tumblr.com'
+		},
+		{
+			id: '2',
+			title: 'Twitter',
+			link: 'http://twitter.com/roblayton'
+		}
+        ];
+
 		var usersDb = [{
 			id: '1',
 			title: 'Rob Layton',
@@ -384,6 +396,12 @@ angular.module('codeboxsystems.mocks.PortfolioDataServiceMocks', ['codeboxsystem
             {
                 value: '2',
 				skills: ['3', '4']
+            }],
+            social: [{
+                value: '1'
+            }, 
+            {
+                value: '2'
             }],
 			experience: [{
 				company: '1',
@@ -531,14 +549,17 @@ angular.module('codeboxsystems.mocks.PortfolioDataServiceMocks', ['codeboxsystem
 
                   return portfolio;
             },
-            //portfolio: [{
-                //value: '1',
-				//skills: ['1', '2']
-            //}, 
-            //{
-                //value: '2',
-				//skills: ['3', '4']
-            //}],
+            fetchSocialByUser: function(user) {
+                  var social = [];
+                  for (var i = 0, len = user.social.length; i < len; i++) {
+                      var s = user.social[i];
+                      social.push({
+                          value: fetchData(s.value, socialDb)
+                      });
+                  }
+
+                  return social;
+            },
 			fetchExperienceByUser: function(user) {
 				var experience = [];
 

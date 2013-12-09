@@ -58,10 +58,23 @@ angular.module('codeboxsystems.data.PortfolioDataService', ['codeboxsystems.mock
 		},
 		fetchPortfolioByUser: function(user, callbacks) {
 			try {
-				var works = client.fetchPortfolioByUser(user);
+				var portfolio = client.fetchPortfolioByUser(user);
 
 				if (callbacks.onSuccess) {
-					callbacks.onSuccess(works);
+					callbacks.onSuccess(portfolio);
+				}
+			} catch(err) {
+				if (callbacks.onErr) {
+					callbacks.onErr(err);
+				}
+			}
+		},
+		fetchSocialByUser: function(user, callbacks) {
+			try {
+				var social = client.fetchSocialByUser(user);
+
+				if (callbacks.onSuccess) {
+					callbacks.onSuccess(social);
 				}
 			} catch(err) {
 				if (callbacks.onErr) {
