@@ -51,6 +51,10 @@ angular.module('app.dashboard', ['ui.state', 'codeboxsystems.data.PortfolioDataS
         PortfolioDataService.fetchSkillsByUser($rootScope.currUser, callbacks);
 	};
 
+    $scope.remove = function(prop) {
+        prop.active = false;
+    };
+
     $scope.fetch();
 })
 

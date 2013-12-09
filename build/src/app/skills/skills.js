@@ -29,5 +29,9 @@ angular.module('app.skills', ['ui.state', 'placeholders', 'ui.bootstrap', 'codeb
         PortfolioDataService.fetchSkillsByUser($rootScope.currUser, callbacks);
 	};
 
+    $scope.remove = function(prop) {
+        prop.active = false;
+    };
+
     $scope.fetch();
 });

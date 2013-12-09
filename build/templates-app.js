@@ -38,9 +38,11 @@ angular.module("dashboard/dashboard.tpl.html", []).run(["$templateCache", functi
     "        Requested Skills\n" +
     "      </h3>\n" +
     "      <div ng-repeat=\"skill in skills\">\n" +
-    "        <p ng-repeat=\"set in skill.sets\">\n" +
-    "        <span ng-repeat=\"value in set.value\" ng-show=\"value.active\">{{value.title}}</span>\n" +
-    "        </p>\n" +
+    "        <div ng-repeat=\"set in skill.sets\">\n" +
+    "        <div ng-repeat=\"value in set.value\" ng-show=\"value.active\" ng-click=\"remove(value)\" class=\"pointer\">\n" +
+    "            <span class=\"label label-success\">{{value.title}} <i class=\"icon-star\"> {{set.rating}}</i></span> <span class=\"label label-danger\"></span><i class=\"icon-remove-sign\"></i>\n" +
+    "        </div>\n" +
+    "        </div>\n" +
     "      </div>\n" +
     "    </div>\n" +
     "    <div class=\"col-md-9\">\n" +
@@ -74,9 +76,11 @@ angular.module("experience/experience.tpl.html", []).run(["$templateCache", func
     "        Requested Skills\n" +
     "      </h3>\n" +
     "      <div ng-repeat=\"skill in skills\">\n" +
-    "        <p ng-repeat=\"set in skill.sets\">\n" +
-    "        <span ng-repeat=\"value in set.value\" ng-show=\"value.active\">{{value.title}}</span>\n" +
-    "        </p>\n" +
+    "        <div ng-repeat=\"set in skill.sets\">\n" +
+    "        <div ng-repeat=\"value in set.value\" ng-show=\"value.active\" ng-click=\"remove(value)\" class=\"pointer\">\n" +
+    "            <span class=\"label label-success\">{{value.title}} <i class=\"icon-star\"> {{set.rating}}</i></span> <span class=\"label label-danger\"></span><i class=\"icon-remove-sign\"></i>\n" +
+    "        </div>\n" +
+    "        </div>\n" +
     "      </div>\n" +
     "    </div>\n" +
     "    <div class=\"col-md-9\">\n" +
@@ -176,9 +180,11 @@ angular.module("skills/skills.tpl.html", []).run(["$templateCache", function($te
     "        Requested Skills\n" +
     "      </h3>\n" +
     "      <div ng-repeat=\"skill in skills\">\n" +
-    "        <p ng-repeat=\"set in skill.sets\">\n" +
-    "        <span ng-repeat=\"value in set.value\" ng-show=\"value.active\">{{value.title}}</span>\n" +
-    "        </p>\n" +
+    "        <div ng-repeat=\"set in skill.sets\">\n" +
+    "        <div ng-repeat=\"value in set.value\" ng-show=\"value.active\" ng-click=\"remove(value)\" class=\"pointer\">\n" +
+    "            <span class=\"label label-success\">{{value.title}} <i class=\"icon-star\"> {{set.rating}}</i></span> <span class=\"label label-danger\"></span><i class=\"icon-remove-sign\"></i>\n" +
+    "        </div>\n" +
+    "        </div>\n" +
     "      </div>\n" +
     "    </div>\n" +
     "    <div class=\"col-md-9\">\n" +

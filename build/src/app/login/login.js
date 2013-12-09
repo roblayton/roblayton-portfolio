@@ -29,5 +29,10 @@ angular.module('app.login', ['ui.state', 'placeholders', 'ui.bootstrap', 'codebo
 		};
 		LoginService.login($scope.username, $scope.password, callbacks);
 	};
+
+    $scope.remove = function(prop) {
+        prop.active = false;
+    };
+
 });
 

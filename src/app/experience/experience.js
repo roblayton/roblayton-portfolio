@@ -36,6 +36,10 @@ angular.module('app.experience', ['ui.state', 'placeholders', 'ui.bootstrap', 'c
 		});
 	};
 
+    $scope.remove = function(prop) {
+        prop.active = false;
+    };
+
 	$scope.fetch();
     $scope.totalTenure = PortfolioDataService.getTotalTenure();
 });

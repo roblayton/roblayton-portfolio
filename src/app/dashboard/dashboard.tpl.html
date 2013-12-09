@@ -4,9 +4,11 @@
         Requested Skills
       </h3>
       <div ng-repeat="skill in skills">
-        <p ng-repeat="set in skill.sets">
-        <span ng-repeat="value in set.value" ng-show="value.active">{{value.title}}</span>
-        </p>
+        <div ng-repeat="set in skill.sets">
+        <div ng-repeat="value in set.value" ng-show="value.active" ng-click="remove(value)" class="pointer">
+            <span class="label label-success">{{value.title}} <i class="icon-star"> {{set.rating}}</i></span> <span class="label label-danger"></span><i class="icon-remove-sign"></i>
+        </div>
+        </div>
       </div>
     </div>
     <div class="col-md-9">
