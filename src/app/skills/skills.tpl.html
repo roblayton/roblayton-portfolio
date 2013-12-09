@@ -29,8 +29,14 @@
         <h3><span ng-repeat="category in skill.categories">{{category.title}}<span ng-show=" ! $last ">, </span></span></h4>
         </p>
         <div ng-repeat="set in skill.sets | orderBy:sortOrder:true | filter:searchText">
+            <div class="row">
+            <div class="col-md-6">
         <button class="btn btn-default" button-toggle="active btn-success" ng-repeat="value in set.value" ng-model="value"></button>
+        </div>
+            <div class="col-md-3">
         <rating value="set.rating" max="5" readonly="true"></rating>{{set.rating}}
+            </div>
+            </div>
         </div>
       </div>
 </div>

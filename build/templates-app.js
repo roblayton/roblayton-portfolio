@@ -81,7 +81,7 @@ angular.module("experience/experience.tpl.html", []).run(["$templateCache", func
     "    </div>\n" +
     "    <div class=\"col-md-9\">\n" +
     "      <h1 class=\"page-header\">\n" +
-    "          Experience <span class=\"label label-default\">{{totalTenure}}</span>\n" +
+    "          Experience <span class=\"label label-info\">{{totalTenure}}</span>\n" +
     "      </h1>\n" +
     "      <p>\n" +
     "      </p>\n" +
@@ -190,8 +190,14 @@ angular.module("skills/skills.tpl.html", []).run(["$templateCache", function($te
     "        <h3><span ng-repeat=\"category in skill.categories\">{{category.title}}<span ng-show=\" ! $last \">, </span></span></h4>\n" +
     "        </p>\n" +
     "        <div ng-repeat=\"set in skill.sets | orderBy:sortOrder:true | filter:searchText\">\n" +
+    "            <div class=\"row\">\n" +
+    "            <div class=\"col-md-6\">\n" +
     "        <button class=\"btn btn-default\" button-toggle=\"active btn-success\" ng-repeat=\"value in set.value\" ng-model=\"value\"></button>\n" +
+    "        </div>\n" +
+    "            <div class=\"col-md-3\">\n" +
     "        <rating value=\"set.rating\" max=\"5\" readonly=\"true\"></rating>{{set.rating}}\n" +
+    "            </div>\n" +
+    "            </div>\n" +
     "        </div>\n" +
     "      </div>\n" +
     "</div>\n" +
