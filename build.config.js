@@ -79,7 +79,9 @@ module.exports = {
       'vendor/canvasjs-1.3.0beta/CanvasJSChartFormatter.js',
       // Google
       'vendor/google/crypto-js/sha1.js',
-	  'vendor/google/gcharts/gcharts.js'
+	  'vendor/google/gcharts/gcharts.js',
+      // Zero Clipboard
+      'vendor/zeroclipboard/ZeroClipboard.min.js'
     ],
     css: [
       // bootstrap-tree

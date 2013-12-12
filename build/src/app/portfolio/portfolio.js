@@ -17,7 +17,6 @@ angular.module('app.portfolio', ['ui.state', 'placeholders', 'ui.bootstrap', 'co
 
 .controller('PortfolioCtrl', function PortfolioCtrl($scope, $rootScope, $location, PortfolioDataService) {
 	$scope.fetch = function() {
-		console.log('PortfolioCtrl.fetch');
 		PortfolioDataService.fetchSkillsByUser($rootScope.currUser, {
 			onSuccess: function(skills) {
 				$scope.skills = skills;
@@ -35,6 +34,38 @@ angular.module('app.portfolio', ['ui.state', 'placeholders', 'ui.bootstrap', 'co
 			}
 		});
 	};
+
+    $scope.copySkills = function() {
+        var str = "I'm interested in hiring you because you are proficient in: \n";
+        var skills = $scope.skills;
+        for (var i = 0, iLen = skills.length; i < iLen; i++) {
+            var skill = skills[i];
+            for (var j = 0, jLen = skill.sets.length; j < jLen; j++) {
+                var value = skill.sets[j].value[0];
+                if (value.active){
+                    str+= value.title + '\n';
+                }
+            }
+        }
+
+        return str;
+    };
+    
+    $scope.isActiveSkill = function() {
+        var ctr = 0;
+        var skills = $scope.skills;
+        for (var i = 0, iLen = skills.length; i < iLen; i++) {
+            var skill = skills[i];
+            for (var j = 0, jLen = skill.sets.length; j < jLen; j++) {
+                var value = skill.sets[j].value[0];
+                if (value.active){
+                    return true;
+                }
+            }
+        }
+
+        return false;
+    };
 
     $scope.remove = function(prop) {
         prop.active = false;

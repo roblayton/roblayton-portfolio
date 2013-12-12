@@ -8,7 +8,7 @@
 .list-group {
   // No need to set list-style: none; since .list-group-item is block level
   margin-bottom: 20px;
-  padding-left: 0; // reset padding because ul and ol
+  .padding-left(0); // reset padding because ul and ol
 }
 
 // Individual list items
@@ -23,37 +23,32 @@
   background-color: @list-group-bg;
   border: 1px solid @list-group-border;
 
-  // Round the first and last items
-  &:first-child {
-    .border-top-radius(@list-group-border-radius);
-  }
   &:last-child {
     margin-bottom: 0;
-    .border-bottom-radius(@list-group-border-radius);
   }
 
   // Align badges within list items
   > .badge {
-    float: right;
+    .float(right);
   }
   > .badge + .badge {
-    margin-right: 5px;
-  }
-}
-
-// Linked list items
-a.list-group-item {
-  color: @list-group-link-color;
-
-  .list-group-item-heading {
-    color: @list-group-link-heading-color;
+    .margin-right(5px);
   }
 
-  // Hover state
-  &:hover,
-  &:focus {
-    text-decoration: none;
-    background-color: @list-group-hover-bg;
+  // Linked list items
+  a& {
+    color: @list-group-link-color;
+
+    .list-group-item-heading {
+      color: @list-group-link-heading-color;
+    }
+
+    // Hover state
+    &:hover,
+    &:focus {
+      text-decoration: none;
+      background-color: @list-group-hover-bg;
+    }
   }
 
   // Active class on item itself, not parent

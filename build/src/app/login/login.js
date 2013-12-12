@@ -17,7 +17,6 @@ angular.module('app.login', ['ui.state', 'placeholders', 'ui.bootstrap', 'codebo
 
 .controller('LoginCtrl', function LoginCtrl($scope, $rootScope, $location, LoginService) {
 	$scope.login = function() {
-		console.log('LoginCtrl.login');
 		var callbacks = {
 			onSuccess: function(user) {
 				$rootScope.currUser = user;

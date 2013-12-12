@@ -1,4 +1,4 @@
-angular.module('app.home', ['ui.state', 'codeboxsystems.data.PortfolioDataService'])
+angular.module('app.home', ['ui.state','org.ngmodules.ngClipboard', 'codeboxsystems.data.PortfolioDataService'])
 
 /**
  * Each section or module of the site can also have its own routes. AngularJS
@@ -25,7 +25,6 @@ angular.module('app.home', ['ui.state', 'codeboxsystems.data.PortfolioDataServic
  */
 .controller('HomeCtrl', function HomeCtrl($scope, $rootScope, $location, PortfolioDataService) {
 	$scope.fetch = function() {
-		console.log('SkillsCtrl.fetch');
 		PortfolioDataService.fetchSkillsByUser($rootScope.currUser, {
 			onSuccess: function(skills) {
 				$scope.skills = skills;
@@ -43,6 +42,38 @@ angular.module('app.home', ['ui.state', 'codeboxsystems.data.PortfolioDataServic
 			}
 		});
 	};
+
+    $scope.copySkills = function() {
+        var str = "I'm interested in hiring you because you are proficient in: \n";
+        var skills = $scope.skills;
+        for (var i = 0, iLen = skills.length; i < iLen; i++) {
+            var skill = skills[i];
+            for (var j = 0, jLen = skill.sets.length; j < jLen; j++) {
+                var value = skill.sets[j].value[0];
+                if (value.active){
+                    str+= value.title + '\n';
+                }
+            }
+        }
+
+        return str;
+    };
+    
+    $scope.isActiveSkill = function() {
+        var ctr = 0;
+        var skills = $scope.skills;
+        for (var i = 0, iLen = skills.length; i < iLen; i++) {
+            var skill = skills[i];
+            for (var j = 0, jLen = skill.sets.length; j < jLen; j++) {
+                var value = skill.sets[j].value[0];
+                if (value.active){
+                    return true;
+                }
+            }
+        }
+
+        return false;
+    };
 
 	$scope.remove = function(prop) {
 		prop.active = false;
@@ -66,7 +97,6 @@ angular.module('app.home', ['ui.state', 'codeboxsystems.data.PortfolioDataServic
 						data.addColumn('string', 'Title');
 						data.addColumn('number', 'Value');
 
-                        console.log(scope.workload);
 						$.each(scope.workload.content[0].slices, function(index, value) {
 							data.addRow([value.title, value.value]);
 							colors.push(value.backgroundColor);

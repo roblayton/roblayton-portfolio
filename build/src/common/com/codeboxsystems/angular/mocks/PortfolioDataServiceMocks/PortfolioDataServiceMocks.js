@@ -154,7 +154,17 @@ angular.module('codeboxsystems.mocks.PortfolioDataServiceMocks', ['codeboxsystem
 			id: '31',
 			title: 'Code Reviews',
 			active: false
-		}
+		},
+        {
+            id: '32',
+            title: 'Backbone',
+            active: false
+        },
+        {
+            id: '33',
+            title: 'Selenium',
+            active: false
+        }
 		];
 
 		var companiesDb = [{
@@ -320,13 +330,9 @@ angular.module('codeboxsystems.mocks.PortfolioDataServiceMocks', ['codeboxsystem
 
 		var portfolioDb = [{
 			id: '1',
-			title: 'Portfolio',
-			link: 'http://www.roblayton.com'
-		},
-		{
-			id: '2',
-			title: 'Portfolio 2',
-			link: 'http://www.roblayton.com'
+			title: 'BackboneJS Portfolio',
+            description: 'This is a single-page application I built using BackboneJS to showcase my professional portfolio.',
+			link: 'http://www.roblayton.com/samples/backbonejs_portfolio/'
 		}
         ];
 
@@ -421,6 +427,10 @@ angular.module('codeboxsystems.mocks.PortfolioDataServiceMocks', ['codeboxsystem
 					value: '10',
 					rating: 3
 				},
+                {
+                    value: '32',
+                    rating: '2'
+                },
 				{
 					value: '12',
 					rating: 2
@@ -428,6 +438,10 @@ angular.module('codeboxsystems.mocks.PortfolioDataServiceMocks', ['codeboxsystem
 				{
 					value: '13',
 					rating: 2
+				},
+				{
+					value: '33',
+					rating: 3
 				}
                 ]
 			},
@@ -477,11 +491,7 @@ angular.module('codeboxsystems.mocks.PortfolioDataServiceMocks', ['codeboxsystem
 			}],
             portfolio: [{
                 value: '1',
-				skills: ['1', '2']
-            }, 
-            {
-                value: '2',
-				skills: ['3', '4']
+				skills: ['1', '3', '4', '8', '12', '13', '32']
             }],
             education: [{
                 value: '1'
@@ -490,7 +500,7 @@ angular.module('codeboxsystems.mocks.PortfolioDataServiceMocks', ['codeboxsystem
 				company: '1',
 				titles: ['1'],
 				achievements: ['13', '14', '15', '16', '17', '18'],
-				skills: ['1', '2', '3', '4', '6', '8', '9', '10', '11', '12', '13', '16', '17', '18', '20', '21', '22', '23', '31', '24'],
+				skills: ['1', '2', '3', '4', '6', '8', '9', '10', '11', '12', '13', '16', '17', '18', '20', '21', '22', '23', '31', '24', '33'],
 				startDate: '2012-04-01',
 				endDate: 'Present'
 			},

@@ -58,16 +58,24 @@ angular.module("education/education.tpl.html", []).run(["$templateCache", functi
     "                <h3 class=\"panel-title\">Requested Skills</h3>\n" +
     "            </div>\n" +
     "            <div class=\"panel-body\">\n" +
-    "                <div class=\"alert alert-warning alert-dismissable\">\n" +
-    "                    <strong>Looking to hire me?</strong> Selecting skills will store them in this panel to give you an easy overview.\n" +
-    "                    <button type=\"button\" class=\"close\" data-dismiss=\"alert\" aria-hidden=\"true\">x</button>\n" +
+    "                <div ng-hide=\"isActiveSkill()\">\n" +
+    "                <div class=\"alert alert-warning\">\n" +
+    "                    <strong>Looking for a consultant?</strong> Select desired skills as you browse to store them in this panel for easy viewing.\n" +
+    "                    <!--<button type=\"button\" class=\"close\" data-dismiss=\"alert\" aria-hidden=\"true\">x</button>-->\n" +
     "                </div>\n" +
+    "            </div>\n" +
+    "            <p></p>\n" +
     "                <div ng-repeat=\"skill in skills\">\n" +
     "                    <div ng-repeat=\"set in skill.sets\">\n" +
     "                        <div ng-repeat=\"value in set.value\" ng-show=\"value.active\" ng-click=\"remove(value)\" class=\"pointer\">\n" +
-    "                            <span class=\"label label-success\">{{value.title}} <i class=\"icon-star\"> {{set.rating}}</i></span> <span class=\"label label-danger\"></span><i class=\"icon-remove-sign\"></i>\n" +
+    "                                <p class=\"sidebar-spacer\">\n" +
+    "                                <span class=\"label label-success stored\">{{value.title}} <i class=\"icon-star\"> {{set.rating}}</i> <button type=\"button\" class=\"close stored\" data-dismiss=\"alert\" aria-hidden=\"true\"><strong>x</strong></button></span>\n" +
+    "                                </p>\n" +
     "                        </div>\n" +
     "                    </div>\n" +
+    "                </div>\n" +
+    "                <div ng-show=\"isActiveSkill()\">\n" +
+    "                <a href=\"\" clip-copy=\"copySkills()\" clip-click=\"copyLink()\">Copy to clipboard</a>\n" +
     "                </div>\n" +
     "            </div>\n" +
     "        </div>\n" +
@@ -81,7 +89,7 @@ angular.module("education/education.tpl.html", []).run(["$templateCache", functi
     "            <div class=\"panel-body\">\n" +
     "                <h4>{{value.title}}</h4>\n" +
     "                </p>\n" +
-    "                <h5><span class=\"label label-default\">{{value.startDate}} - {{value.endDate}}</span></h5>\n" +
+    "                <p>{{value.startDate}} - {{value.endDate}}</p>\n" +
     "                <p>{{value.description}}</p>\n" +
     "            </div>\n" +
     "        </div>\n" +
@@ -118,10 +126,13 @@ angular.module("experience/experience.tpl.html", []).run(["$templateCache", func
     "                <h3 class=\"panel-title\">Requested Skills</h3>\n" +
     "            </div>\n" +
     "            <div class=\"panel-body\">\n" +
-    "                <div class=\"alert alert-warning alert-dismissable\">\n" +
+    "                <div ng-hide=\"isActiveSkill()\">\n" +
+    "                <div class=\"alert alert-warning\">\n" +
     "                    <strong>Looking for a consultant?</strong> Select desired skills as you browse to store them in this panel for easy viewing.\n" +
-    "                    <button type=\"button\" class=\"close\" data-dismiss=\"alert\" aria-hidden=\"true\">x</button>\n" +
+    "                    <!--<button type=\"button\" class=\"close\" data-dismiss=\"alert\" aria-hidden=\"true\">x</button>-->\n" +
     "                </div>\n" +
+    "            </div>\n" +
+    "            <p></p>\n" +
     "                <div ng-repeat=\"skill in skills\">\n" +
     "                    <div ng-repeat=\"set in skill.sets\">\n" +
     "                        <div ng-repeat=\"value in set.value\" ng-show=\"value.active\" ng-click=\"remove(value)\" class=\"pointer\">\n" +
@@ -130,6 +141,9 @@ angular.module("experience/experience.tpl.html", []).run(["$templateCache", func
     "                                </p>\n" +
     "                        </div>\n" +
     "                    </div>\n" +
+    "                </div>\n" +
+    "                <div ng-show=\"isActiveSkill()\">\n" +
+    "                <a href=\"\" clip-copy=\"copySkills()\" clip-click=\"copyLink()\">Copy to clipboard</a>\n" +
     "                </div>\n" +
     "            </div>\n" +
     "        </div>\n" +
@@ -140,8 +154,8 @@ angular.module("experience/experience.tpl.html", []).run(["$templateCache", func
     "                    <h3 class=\"panel-title\">{{exp.company.title}}</h3>\n" +
     "                </div>\n" +
     "                <div class=\"panel-body\">\n" +
-    "                    <h4><span ng-repeat=\"title in exp.titles\">{{title.title}}<span ng-show=\" ! $last \">, </span></span></h4>\n" +
-    "                    <p class=\"tenure\"><span class=\"label label-default\">{{exp.startDate}} - {{exp.endDate}}</span> <span class=\"label label-warning\">{{exp.tenure}}</span></p>\n" +
+    "                    <h4><span ng-repeat=\"title in exp.titles\">{{title.title}}<span ng-show=\" ! $last \">, </span></span></h3>\n" +
+    "                    <p class=\"tenure\">{{exp.startDate}} - {{exp.endDate}} | {{exp.tenure}}</p>\n" +
     "                    </p>\n" +
     "                    <p>\n" +
     "                    <ul>\n" +
@@ -187,16 +201,24 @@ angular.module("hireme/hireme.tpl.html", []).run(["$templateCache", function($te
     "                <h3 class=\"panel-title\">Requested Skills</h3>\n" +
     "            </div>\n" +
     "            <div class=\"panel-body\">\n" +
-    "                <div class=\"alert alert-warning alert-dismissable\">\n" +
-    "                    <strong>Looking to hire me?</strong> Selecting skills will store them in this panel to give you an easy overview.\n" +
-    "                    <button type=\"button\" class=\"close\" data-dismiss=\"alert\" aria-hidden=\"true\">x</button>\n" +
+    "                <div ng-hide=\"isActiveSkill()\">\n" +
+    "                <div class=\"alert alert-warning\">\n" +
+    "                    <strong>Looking for a consultant?</strong> Select desired skills as you browse to store them in this panel for easy viewing.\n" +
+    "                    <!--<button type=\"button\" class=\"close\" data-dismiss=\"alert\" aria-hidden=\"true\">x</button>-->\n" +
     "                </div>\n" +
+    "            </div>\n" +
+    "            <p></p>\n" +
     "                <div ng-repeat=\"skill in skills\">\n" +
     "                    <div ng-repeat=\"set in skill.sets\">\n" +
     "                        <div ng-repeat=\"value in set.value\" ng-show=\"value.active\" ng-click=\"remove(value)\" class=\"pointer\">\n" +
-    "                            <span class=\"label label-success\">{{value.title}} <i class=\"icon-star\"> {{set.rating}}</i></span> <span class=\"label label-danger\"></span><i class=\"icon-remove-sign\"></i>\n" +
+    "                                <p class=\"sidebar-spacer\">\n" +
+    "                                <span class=\"label label-success stored\">{{value.title}} <i class=\"icon-star\"> {{set.rating}}</i> <button type=\"button\" class=\"close stored\" data-dismiss=\"alert\" aria-hidden=\"true\"><strong>x</strong></button></span>\n" +
+    "                                </p>\n" +
     "                        </div>\n" +
     "                    </div>\n" +
+    "                </div>\n" +
+    "                <div ng-show=\"isActiveSkill()\">\n" +
+    "                <a href=\"\" clip-copy=\"copySkills()\" clip-click=\"copyLink()\">Copy to clipboard</a>\n" +
     "                </div>\n" +
     "            </div>\n" +
     "        </div>\n" +
@@ -208,11 +230,9 @@ angular.module("hireme/hireme.tpl.html", []).run(["$templateCache", function($te
     "            </div>\n" +
     "            <div class=\"panel-body\">\n" +
     "                <p>\n" +
-    "                I am currently available for part-time freelance web development and front end consulting. The best way to contact me is by email.\n" +
+    "                I am currently available for part-time freelance web development and front end consulting. The best way to contact me is by <a href=\"mailto:hire.rob.layton@gmail.com\" target=\"_blank\" width=\"33%\">email</a>.\n" +
     "                </p>\n" +
-    "                <p>\n" +
-    "                <span class=\"glyphicon glyphicon-envelope\"></span> <a href=\"mailto:hire.rob.layton@gmail.com\">hire.rob.layton@gmail.com</a>\n" +
-    "                </p>\n" +
+    "                        <p><a href=\"https://docs.google.com/document/d/1Iqkc-8_73aZsBJZyE4bMCEJtVsgQcXAJXdlBDHu26bc/pub\" target=\"_blank\" class=\"btn btn-primary btn-sm pull-right\" role=\"button\">Resume</a></p>\n" +
     "            </div>\n" +
     "        </div>\n" +
     "        <div class=\"panel panel-default\">\n" +
@@ -222,14 +242,14 @@ angular.module("hireme/hireme.tpl.html", []).run(["$templateCache", function($te
     "            <div class=\"panel-body\">\n" +
     "                <table class=\"table\">\n" +
     "                    <tr>\n" +
-    "                        <td><a href=\"https://docs.google.com/document/d/1Iqkc-8_73aZsBJZyE4bMCEJtVsgQcXAJXdlBDHu26bc/pub\">Resume</a></td>\n" +
-    "                        <td><a href=\"http://beknown.com/roblayton\">Monster</a></td>\n" +
-    "                        <td><a href=\"http://www.linkedin.com/in/roblayton\">LinkedIn</a></td>\n" +
+    "                            <td><a href=\"https://github.com/roblayton\" target=\"_blank\">Github</a>\n" +
+    "                        <td><a href=\"http://beknown.com/roblayton\" target=\"_blank\">Monster</a></td>\n" +
+    "                        <td><a href=\"http://www.linkedin.com/in/roblayton\" target=\"_blank\">LinkedIn</a></td>\n" +
     "                    </td>\n" +
     "                    <tr>\n" +
-    "                        <td><a href=\"http://roblayton.tumblr.com\">Tumblr</td>\n" +
-    "                        <td><a href=\"http://www.twitter.com/roblayton\">Twitter</td>\n" +
-    "                        <td></td>\n" +
+    "                        <td><a href=\"http://www.twitter.com/roblayton\" target=\"_blank\">Twitter</td>\n" +
+    "                        <td><a href=\"http://www.facebook.com/robertblascolayton\" target=\"_blank\">Facebook</td>\n" +
+    "                        <td><a href=\"http://roblayton.tumblr.com\" target=\"_blank\">Tumblr</td>\n" +
     "                    </tr>\n" +
     "                </table>\n" +
     "            </div>\n" +
@@ -267,10 +287,13 @@ angular.module("home/home.tpl.html", []).run(["$templateCache", function($templa
     "                <h3 class=\"panel-title\">Requested Skills</h3>\n" +
     "            </div>\n" +
     "            <div class=\"panel-body\">\n" +
-    "                <div class=\"alert alert-warning alert-dismissable\">\n" +
+    "                <div ng-hide=\"isActiveSkill()\">\n" +
+    "                <div class=\"alert alert-warning\">\n" +
     "                    <strong>Looking for a consultant?</strong> Select desired skills as you browse to store them in this panel for easy viewing.\n" +
-    "                    <button type=\"button\" class=\"close\" data-dismiss=\"alert\" aria-hidden=\"true\">x</button>\n" +
+    "                    <!--<button type=\"button\" class=\"close\" data-dismiss=\"alert\" aria-hidden=\"true\">x</button>-->\n" +
     "                </div>\n" +
+    "            </div>\n" +
+    "            <p></p>\n" +
     "                <div ng-repeat=\"skill in skills\">\n" +
     "                    <div ng-repeat=\"set in skill.sets\">\n" +
     "                        <div ng-repeat=\"value in set.value\" ng-show=\"value.active\" ng-click=\"remove(value)\" class=\"pointer\">\n" +
@@ -279,6 +302,9 @@ angular.module("home/home.tpl.html", []).run(["$templateCache", function($templa
     "                                </p>\n" +
     "                        </div>\n" +
     "                    </div>\n" +
+    "                </div>\n" +
+    "                <div ng-show=\"isActiveSkill()\">\n" +
+    "                <a href=\"\" clip-copy=\"copySkills()\" clip-click=\"copyLink()\">Copy to clipboard</a>\n" +
     "                </div>\n" +
     "            </div>\n" +
     "        </div>\n" +
@@ -296,12 +322,18 @@ angular.module("home/home.tpl.html", []).run(["$templateCache", function($templa
     "                <div id=\"collapseOne\" class=\"panel-collapse collapse in\">\n" +
     "                    <div class=\"panel-body\">\n" +
     "                        <p>\n" +
-    "                        I am the Director of Web Engineering at Adcade, a freelance Sr. Web Developer, and Front End Consultant.\n" +
+    "                        I am the Director of Web Engineering at Adcade, a freelance Sr. Web Developer, and Front End Consultant. My primary focus is front end web development, but i also specialize in back end development, deployment, and management. \n" +
     "                        </p>\n" +
     "                        <p>\n" +
-    "                        My primary focus is front end web development, but i also specialize in back end development, deployment, and project management.\n" +
+    "                        I'm currently working with a tech startup where I am the direct supervisor to a team of 4 web engineers. My daily responsibilities involve strategic planning, mentoring, hands-on development, writing automated tests, performing code reviews, managing product releases, leading scrum meetings, and communicating and carrying out JAD sessions with other department leads.\n" +
     "                        </p>\n" +
-    "                        <p><a href=\"https://docs.google.com/document/d/1Iqkc-8_73aZsBJZyE4bMCEJtVsgQcXAJXdlBDHu26bc/pub\" class=\"btn btn-primary btn-sm\" role=\"button\">Resume</a></p>\n" +
+    "                        <p>\n" +
+    "                        Professionally, my number one passion is working with teams of developers. Outside of work, my passions include rock climbing, bouldering, playing the guitar, digital illustration, photography, electrical engineering, and archery. I'm 28 years old. I love NY.\n" +
+    "                        </p>\n" +
+    "                        <p>\n" +
+    "                        I built this portfolio using <a href=\"http://angularjs.org/\" target=\"_blank\">AngularJS</a>.\n" +
+    "                        </p>\n" +
+    "                        <p><a href=\"https://docs.google.com/document/d/1Iqkc-8_73aZsBJZyE4bMCEJtVsgQcXAJXdlBDHu26bc/pub\" target=\"_blank\" class=\"btn btn-primary btn-sm pull-right\" role=\"button\">Resume</a></p>\n" +
     "                    </div>\n" +
     "                </div>\n" +
     "            </div>\n" +
@@ -403,16 +435,24 @@ angular.module("portfolio/portfolio.tpl.html", []).run(["$templateCache", functi
     "                <h3 class=\"panel-title\">Requested Skills</h3>\n" +
     "            </div>\n" +
     "            <div class=\"panel-body\">\n" +
-    "                <div class=\"alert alert-warning alert-dismissable\">\n" +
-    "                    <strong>Looking to hire me?</strong> Selecting skills will store them in this panel to give you an easy overview.\n" +
-    "                    <button type=\"button\" class=\"close\" data-dismiss=\"alert\" aria-hidden=\"true\">x</button>\n" +
+    "                <div ng-hide=\"isActiveSkill()\">\n" +
+    "                <div class=\"alert alert-warning\">\n" +
+    "                    <strong>Looking for a consultant?</strong> Select desired skills as you browse to store them in this panel for easy viewing.\n" +
+    "                    <!--<button type=\"button\" class=\"close\" data-dismiss=\"alert\" aria-hidden=\"true\">x</button>-->\n" +
     "                </div>\n" +
+    "            </div>\n" +
+    "            <p></p>\n" +
     "                <div ng-repeat=\"skill in skills\">\n" +
     "                    <div ng-repeat=\"set in skill.sets\">\n" +
     "                        <div ng-repeat=\"value in set.value\" ng-show=\"value.active\" ng-click=\"remove(value)\" class=\"pointer\">\n" +
-    "                            <span class=\"label label-success\">{{value.title}} <i class=\"icon-star\"> {{set.rating}}</i></span> <span class=\"label label-danger\"></span><i class=\"icon-remove-sign\"></i>\n" +
+    "                                <p class=\"sidebar-spacer\">\n" +
+    "                                <span class=\"label label-success stored\">{{value.title}} <i class=\"icon-star\"> {{set.rating}}</i> <button type=\"button\" class=\"close stored\" data-dismiss=\"alert\" aria-hidden=\"true\"><strong>x</strong></button></span>\n" +
+    "                                </p>\n" +
     "                        </div>\n" +
     "                    </div>\n" +
+    "                </div>\n" +
+    "                <div ng-show=\"isActiveSkill()\">\n" +
+    "                <a href=\"\" clip-copy=\"copySkills()\" clip-click=\"copyLink()\">Copy to clipboard</a>\n" +
     "                </div>\n" +
     "            </div>\n" +
     "        </div>\n" +
@@ -425,7 +465,7 @@ angular.module("portfolio/portfolio.tpl.html", []).run(["$templateCache", functi
     "                </div>\n" +
     "                <div class=\"panel-body\">\n" +
     "                    <p>{{value.description}}</p>\n" +
-    "                    <p><a href=\"{{value.link}}\">{{value.link}}</a></p>\n" +
+    "                    <p><a href=\"{{value.link}}\" target=\"_blank\">{{value.link}}</a></p>\n" +
     "                <p>\n" +
     "                <button button-toggle=\"active btn-success\" class=\"btn btn-default btn-xs\" ng-repeat=\"skill in p.skills\" ng-model=\"skill\"></button> \n" +
     "                </p>\n" +
@@ -493,10 +533,13 @@ angular.module("skills/skills.tpl.html", []).run(["$templateCache", function($te
     "                <h3 class=\"panel-title\">Requested Skills</h3>\n" +
     "            </div>\n" +
     "            <div class=\"panel-body\">\n" +
-    "                <div class=\"alert alert-warning alert-dismissable\">\n" +
+    "                <div ng-hide=\"isActiveSkill()\">\n" +
+    "                <div class=\"alert alert-warning\">\n" +
     "                    <strong>Looking for a consultant?</strong> Select desired skills as you browse to store them in this panel for easy viewing.\n" +
-    "                    <button type=\"button\" class=\"close\" data-dismiss=\"alert\" aria-hidden=\"true\">x</button>\n" +
+    "                    <!--<button type=\"button\" class=\"close\" data-dismiss=\"alert\" aria-hidden=\"true\">x</button>-->\n" +
     "                </div>\n" +
+    "            </div>\n" +
+    "            <p></p>\n" +
     "                <div ng-repeat=\"skill in skills\">\n" +
     "                    <div ng-repeat=\"set in skill.sets\">\n" +
     "                        <div ng-repeat=\"value in set.value\" ng-show=\"value.active\" ng-click=\"remove(value)\" class=\"pointer\">\n" +
@@ -505,6 +548,9 @@ angular.module("skills/skills.tpl.html", []).run(["$templateCache", function($te
     "                                </p>\n" +
     "                        </div>\n" +
     "                    </div>\n" +
+    "                </div>\n" +
+    "                <div ng-show=\"isActiveSkill()\">\n" +
+    "                <a href=\"\" clip-copy=\"copySkills()\" clip-click=\"copyLink()\">Copy to clipboard</a>\n" +
     "                </div>\n" +
     "            </div>\n" +
     "        </div>\n" +

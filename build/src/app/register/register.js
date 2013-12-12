@@ -19,7 +19,6 @@ angular.module('app.register', ['ui.state', 'placeholders', 'ui.bootstrap', 'cod
     var defer = $q.defer();
 
 	$scope.register = function() {
-		console.log('RegisterCtrl.register');
 
         var callbacks = {
             onSuccess: function() {

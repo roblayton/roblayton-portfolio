@@ -24,10 +24,13 @@
                 <h3 class="panel-title">Requested Skills</h3>
             </div>
             <div class="panel-body">
-                <div class="alert alert-warning alert-dismissable">
+                <div ng-hide="isActiveSkill()">
+                <div class="alert alert-warning">
                     <strong>Looking for a consultant?</strong> Select desired skills as you browse to store them in this panel for easy viewing.
-                    <button type="button" class="close" data-dismiss="alert" aria-hidden="true">x</button>
+                    <!--<button type="button" class="close" data-dismiss="alert" aria-hidden="true">x</button>-->
                 </div>
+            </div>
+            <p></p>
                 <div ng-repeat="skill in skills">
                     <div ng-repeat="set in skill.sets">
                         <div ng-repeat="value in set.value" ng-show="value.active" ng-click="remove(value)" class="pointer">
@@ -36,6 +39,9 @@
                                 </p>
                         </div>
                     </div>
+                </div>
+                <div ng-show="isActiveSkill()">
+                <a href="" clip-copy="copySkills()" clip-click="copyLink()">Copy to clipboard</a>
                 </div>
             </div>
         </div>
@@ -53,12 +59,18 @@
                 <div id="collapseOne" class="panel-collapse collapse in">
                     <div class="panel-body">
                         <p>
-                        I am the Director of Web Engineering at Adcade, a freelance Sr. Web Developer, and Front End Consultant.
+                        I am the Director of Web Engineering at Adcade, a freelance Sr. Web Developer, and Front End Consultant. My primary focus is front end web development, but i also specialize in back end development, deployment, and management. 
                         </p>
                         <p>
-                        My primary focus is front end web development, but i also specialize in back end development, deployment, and project management.
+                        I'm currently working with a tech startup where I am the direct supervisor to a team of 4 web engineers. My daily responsibilities involve strategic planning, mentoring, hands-on development, writing automated tests, performing code reviews, managing product releases, leading scrum meetings, and communicating and carrying out JAD sessions with other department leads.
                         </p>
-                        <p><a href="https://docs.google.com/document/d/1Iqkc-8_73aZsBJZyE4bMCEJtVsgQcXAJXdlBDHu26bc/pub" class="btn btn-primary btn-sm" role="button">Resume</a></p>
+                        <p>
+                        Professionally, my number one passion is working with teams of developers. Outside of work, my passions include rock climbing, bouldering, playing the guitar, digital illustration, photography, electrical engineering, and archery. I'm 28 years old. I love NY.
+                        </p>
+                        <p>
+                        I built this portfolio using <a href="http://angularjs.org/" target="_blank">AngularJS</a>.
+                        </p>
+                        <p><a href="https://docs.google.com/document/d/1Iqkc-8_73aZsBJZyE4bMCEJtVsgQcXAJXdlBDHu26bc/pub" target="_blank" class="btn btn-primary btn-sm pull-right" role="button">Resume</a></p>
                     </div>
                 </div>
             </div>

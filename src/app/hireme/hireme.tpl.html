@@ -24,16 +24,24 @@
                 <h3 class="panel-title">Requested Skills</h3>
             </div>
             <div class="panel-body">
-                <div class="alert alert-warning alert-dismissable">
-                    <strong>Looking to hire me?</strong> Selecting skills will store them in this panel to give you an easy overview.
-                    <button type="button" class="close" data-dismiss="alert" aria-hidden="true">x</button>
+                <div ng-hide="isActiveSkill()">
+                <div class="alert alert-warning">
+                    <strong>Looking for a consultant?</strong> Select desired skills as you browse to store them in this panel for easy viewing.
+                    <!--<button type="button" class="close" data-dismiss="alert" aria-hidden="true">x</button>-->
                 </div>
+            </div>
+            <p></p>
                 <div ng-repeat="skill in skills">
                     <div ng-repeat="set in skill.sets">
                         <div ng-repeat="value in set.value" ng-show="value.active" ng-click="remove(value)" class="pointer">
-                            <span class="label label-success">{{value.title}} <i class="icon-star"> {{set.rating}}</i></span> <span class="label label-danger"></span><i class="icon-remove-sign"></i>
+                                <p class="sidebar-spacer">
+                                <span class="label label-success stored">{{value.title}} <i class="icon-star"> {{set.rating}}</i> <button type="button" class="close stored" data-dismiss="alert" aria-hidden="true"><strong>x</strong></button></span>
+                                </p>
                         </div>
                     </div>
+                </div>
+                <div ng-show="isActiveSkill()">
+                <a href="" clip-copy="copySkills()" clip-click="copyLink()">Copy to clipboard</a>
                 </div>
             </div>
         </div>
@@ -45,11 +53,9 @@
             </div>
             <div class="panel-body">
                 <p>
-                I am currently available for part-time freelance web development and front end consulting. The best way to contact me is by email.
+                I am currently available for part-time freelance web development and front end consulting. The best way to contact me is by <a href="mailto:hire.rob.layton@gmail.com" target="_blank" width="33%">email</a>.
                 </p>
-                <p>
-                <span class="glyphicon glyphicon-envelope"></span> <a href="mailto:hire.rob.layton@gmail.com">hire.rob.layton@gmail.com</a>
-                </p>
+                        <p><a href="https://docs.google.com/document/d/1Iqkc-8_73aZsBJZyE4bMCEJtVsgQcXAJXdlBDHu26bc/pub" target="_blank" class="btn btn-primary btn-sm pull-right" role="button">Resume</a></p>
             </div>
         </div>
         <div class="panel panel-default">
@@ -59,14 +65,14 @@
             <div class="panel-body">
                 <table class="table">
                     <tr>
-                        <td><a href="https://docs.google.com/document/d/1Iqkc-8_73aZsBJZyE4bMCEJtVsgQcXAJXdlBDHu26bc/pub">Resume</a></td>
-                        <td><a href="http://beknown.com/roblayton">Monster</a></td>
-                        <td><a href="http://www.linkedin.com/in/roblayton">LinkedIn</a></td>
+                            <td><a href="https://github.com/roblayton" target="_blank">Github</a>
+                        <td><a href="http://beknown.com/roblayton" target="_blank">Monster</a></td>
+                        <td><a href="http://www.linkedin.com/in/roblayton" target="_blank">LinkedIn</a></td>
                     </td>
                     <tr>
-                        <td><a href="http://roblayton.tumblr.com">Tumblr</td>
-                        <td><a href="http://www.twitter.com/roblayton">Twitter</td>
-                        <td></td>
+                        <td><a href="http://www.twitter.com/roblayton" target="_blank">Twitter</td>
+                        <td><a href="http://www.facebook.com/robertblascolayton" target="_blank">Facebook</td>
+                        <td><a href="http://roblayton.tumblr.com" target="_blank">Tumblr</td>
                     </tr>
                 </table>
             </div>

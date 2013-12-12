@@ -24,16 +24,24 @@
                 <h3 class="panel-title">Requested Skills</h3>
             </div>
             <div class="panel-body">
-                <div class="alert alert-warning alert-dismissable">
-                    <strong>Looking to hire me?</strong> Selecting skills will store them in this panel to give you an easy overview.
-                    <button type="button" class="close" data-dismiss="alert" aria-hidden="true">x</button>
+                <div ng-hide="isActiveSkill()">
+                <div class="alert alert-warning">
+                    <strong>Looking for a consultant?</strong> Select desired skills as you browse to store them in this panel for easy viewing.
+                    <!--<button type="button" class="close" data-dismiss="alert" aria-hidden="true">x</button>-->
                 </div>
+            </div>
+            <p></p>
                 <div ng-repeat="skill in skills">
                     <div ng-repeat="set in skill.sets">
                         <div ng-repeat="value in set.value" ng-show="value.active" ng-click="remove(value)" class="pointer">
-                            <span class="label label-success">{{value.title}} <i class="icon-star"> {{set.rating}}</i></span> <span class="label label-danger"></span><i class="icon-remove-sign"></i>
+                                <p class="sidebar-spacer">
+                                <span class="label label-success stored">{{value.title}} <i class="icon-star"> {{set.rating}}</i> <button type="button" class="close stored" data-dismiss="alert" aria-hidden="true"><strong>x</strong></button></span>
+                                </p>
                         </div>
                     </div>
+                </div>
+                <div ng-show="isActiveSkill()">
+                <a href="" clip-copy="copySkills()" clip-click="copyLink()">Copy to clipboard</a>
                 </div>
             </div>
         </div>
@@ -47,7 +55,7 @@
             <div class="panel-body">
                 <h4>{{value.title}}</h4>
                 </p>
-                <h5><span class="label label-default">{{value.startDate}} - {{value.endDate}}</span></h5>
+                <p>{{value.startDate}} - {{value.endDate}}</p>
                 <p>{{value.description}}</p>
             </div>
         </div>

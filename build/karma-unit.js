@@ -29,6 +29,7 @@ module.exports = function ( karma ) {
       'vendor/canvasjs-1.3.0beta/CanvasJSChartFormatter.js',
       'vendor/google/crypto-js/sha1.js',
       'vendor/google/gcharts/gcharts.js',
+      'vendor/zeroclipboard/ZeroClipboard.min.js',
       'build/templates-app.js',
       'build/templates-common.js',
       

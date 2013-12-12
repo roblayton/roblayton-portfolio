@@ -1,14 +1,15 @@
 //
-// Code (inline and block)
+// Code (inline and blocK)
 // --------------------------------------------------
 
 
 // Inline and block code styles
 code,
-kbd,
+kdb,
 pre,
 samp {
   font-family: @font-family-monospace;
+  direction: ltr;
 }
 
 // Inline code
@@ -18,7 +19,6 @@ code {
   color: @code-color;
   background-color: @code-bg;
   white-space: nowrap;
-  border-radius: @border-radius-base;
 }
 
 // Blocks of code
@@ -33,7 +33,6 @@ pre {
   color: @pre-color;
   background-color: @pre-bg;
   border: 1px solid @pre-border-color;
-  border-radius: @border-radius-base;
 
   // Account for some code outputs that place code tags in pre tags
   code {
@@ -42,7 +41,7 @@ pre {
     color: inherit;
     white-space: pre-wrap;
     background-color: transparent;
-    border-radius: 0;
+    border: 0;
   }
 }
 
