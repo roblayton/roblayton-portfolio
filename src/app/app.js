@@ -1,7 +1,7 @@
-angular.module('app', ['templates-app', 'templates-common', 'app.dashboard', 'app.skills', 'app.experience', 'app.portfolio', 'app.social', 'app.hireme', 'app.register', 'app.login', 'app.logout', 'app.account', 'ui.state', 'ui.route', 'codeboxsystems.data.PortfolioDataService'])
+angular.module('app', ['templates-app', 'templates-common', 'app.home', 'app.skills', 'app.experience', 'app.portfolio', 'app.education', 'app.hireme', 'app.register', 'app.login', 'app.logout', 'app.account', 'ui.state', 'ui.route', 'codeboxsystems.data.PortfolioDataService'])
 
 .config(function myAppConfig($stateProvider, $urlRouterProvider) {
-	$urlRouterProvider.otherwise('/dashboard');
+	$urlRouterProvider.otherwise('/home');
 })
 
 .run(function run($rootScope, $location, PortfolioDataService) {
@@ -20,8 +20,8 @@ angular.module('app', ['templates-app', 'templates-common', 'app.dashboard', 'ap
 				// Already going to /login, so no need to redirect
 			} else if (route == 'register') {
 				// They are permitted to register without logging in
-			} else if (route == 'dashboard') {
-				// They are permitted to view the dashboard without logging in
+			} else if (route == 'home') {
+				// They are permitted to view home without logging in
 			} else {
 				$location.path('/login');
 			}

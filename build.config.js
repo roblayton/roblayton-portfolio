@@ -64,6 +64,7 @@ module.exports = {
       //Requirejs
       'vendor/requirejs/require.js',
       // Bootstrap
+      'vendor/bootstrap/js/alert.js',
       'vendor/bootstrap/js/collapse.js',
       'vendor/bootstrap/js/transition.js',
       'vendor/bootstrap/js/modal.js',
@@ -77,7 +78,8 @@ module.exports = {
       'vendor/canvasjs-1.3.0beta/canvasjs-chart.js',
       'vendor/canvasjs-1.3.0beta/CanvasJSChartFormatter.js',
       // Google
-      'vendor/google/crypto-js/sha1.js'
+      'vendor/google/crypto-js/sha1.js',
+	  'vendor/google/gcharts/gcharts.js'
     ],
     css: [
       // bootstrap-tree

@@ -1,44 +1,68 @@
 <div class="row">
     <div class="col-md-3">
-            <div class="form-group">
-                <label for="filter">Filter:</label>
-        <input ng-model="searchText" class="form-control">
-    </div>
-            <div class="form-group">
-                <label for="filter">Sort:</label>
-        <select ng-model="sortOrder" class="form-control">
-            <option value="value[0].title">Alphabetical</option>
-            <option value="rating">Proficiency</option>
-        </select>
-    </div>
-      <h3>
-        Requested Skills
-      </h3>
-      <div ng-repeat="skill in skills">
-        <div ng-repeat="set in skill.sets">
-        <div ng-repeat="value in set.value" ng-show="value.active" ng-click="remove(value)" class="pointer">
-            <span class="label label-success">{{value.title}} <i class="icon-star"> {{set.rating}}</i></span> <span class="label label-danger"></span><i class="icon-remove-sign"></i>
+        <div class="form-group">
+            <div class="input-group">
+                <input ng-model="searchText" class="form-control">
+                <span class="input-group-addon">
+                    <span class="glyphicon glyphicon-search"></span>
+                </span>
+            </div>
         </div>
+        <div class="form-group">
+            <div class="input-group">
+                <select ng-model="sortOrder" class="form-control">
+                    <option value="value[0].title">Alphabetical</option>
+                    <option value="rating">Proficiency</option>
+                </select>
+                <span class="input-group-addon">
+                    <span class="glyphicon glyphicon-sort"></span>
+                </span>
+            </div>
         </div>
-      </div>
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h3 class="panel-title">Requested Skills</h3>
+            </div>
+            <div class="panel-body">
+                <div class="alert alert-warning alert-dismissable">
+                    <strong>Looking for a consultant?</strong> Select desired skills as you browse to store them in this panel for easy viewing.
+                    <button type="button" class="close" data-dismiss="alert" aria-hidden="true">x</button>
+                </div>
+                <div ng-repeat="skill in skills">
+                    <div ng-repeat="set in skill.sets">
+                        <div ng-repeat="value in set.value" ng-show="value.active" ng-click="remove(value)" class="pointer">
+                                <p class="sidebar-spacer">
+                                <span class="label label-success stored">{{value.title}} <i class="icon-star"> {{set.rating}}</i> <button type="button" class="close stored" data-dismiss="alert" aria-hidden="true"><strong>x</strong></button></span>
+                                </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
     <div class="col-md-9">
-      <h1 class="page-header">
-        Skills 
-      </h1>
-      <div ng-repeat="skill in skills">
-        <p>
-        <h3><span ng-repeat="category in skill.categories">{{category.title}}<span ng-show=" ! $last ">, </span></span></h4>
-        </p>
-        <div ng-repeat="set in skill.sets | orderBy:sortOrder:true | filter:searchText">
-            <div class="row">
-            <div class="col-md-6">
-        <button class="btn btn-default" button-toggle="active btn-success" ng-repeat="value in set.value" ng-model="value"></button>
-        </div>
-            <div class="col-md-3">
-        <rating value="set.rating" max="5" readonly="true"></rating>{{set.rating}}
+        <div ng-repeat="skill in skills">
+            <div class="panel panel-default" ng-repeat="category in skill.categories">
+                <div class="panel-heading">
+                    <h3 class="panel-title">{{category.title}}</h3>
+                </div>
+                <div class="panel-body">
+
+                    <div ng-repeat="set in skill.sets | orderBy:sortOrder:true | filter:searchText">
+                        <div class="row">
+                            <div class="col-md-5">
+                                <p>
+                                <button class="btn btn-default btn-sm" button-toggle="active btn-primary" ng-repeat="value in set.value" ng-model="value"></button>
+                                </p>
+                            </div>
+                            <div class="col-md-4">
+                                <rating value="set.rating" max="5" readonly="true"></rating>{{set.rating}}
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
-            </div>
         </div>
-      </div>
+
+    </div>
 </div>

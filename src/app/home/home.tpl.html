@@ -1,0 +1,103 @@
+<div class="row">
+    <div class="col-md-3">
+        <div class="form-group">
+            <div class="input-group">
+                <input ng-model="searchText" class="form-control" disabled>
+                <span class="input-group-addon">
+                    <span class="glyphicon glyphicon-search"></span>
+                </span>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="input-group">
+                <select ng-model="sortOrder" class="form-control" disabled>
+                    <option value="value[0].title">Alphabetical</option>
+                    <option value="rating">Proficiency</option>
+                </select>
+                <span class="input-group-addon">
+                    <span class="glyphicon glyphicon-sort"></span>
+                </span>
+            </div>
+        </div>
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h3 class="panel-title">Requested Skills</h3>
+            </div>
+            <div class="panel-body">
+                <div class="alert alert-warning alert-dismissable">
+                    <strong>Looking for a consultant?</strong> Select desired skills as you browse to store them in this panel for easy viewing.
+                    <button type="button" class="close" data-dismiss="alert" aria-hidden="true">x</button>
+                </div>
+                <div ng-repeat="skill in skills">
+                    <div ng-repeat="set in skill.sets">
+                        <div ng-repeat="value in set.value" ng-show="value.active" ng-click="remove(value)" class="pointer">
+                                <p class="sidebar-spacer">
+                                <span class="label label-success stored">{{value.title}} <i class="icon-star"> {{set.rating}}</i> <button type="button" class="close stored" data-dismiss="alert" aria-hidden="true"><strong>x</strong></button></span>
+                                </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-9">
+        <div class="panel-group" id="accordion">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h4 class="panel-title">
+                        <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne">
+                            Identity
+                        </a>
+                    </h4>
+                </div>
+                <div id="collapseOne" class="panel-collapse collapse in">
+                    <div class="panel-body">
+                        <p>
+                        I am the Director of Web Engineering at Adcade, a freelance Sr. Web Developer, and Front End Consultant.
+                        </p>
+                        <p>
+                        My primary focus is front end web development, but i also specialize in back end development, deployment, and project management.
+                        </p>
+                        <p><a href="https://docs.google.com/document/d/1Iqkc-8_73aZsBJZyE4bMCEJtVsgQcXAJXdlBDHu26bc/pub" class="btn btn-primary btn-sm" role="button">Resume</a></p>
+                    </div>
+                </div>
+            </div>
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h4 class="panel-title">
+                        <a data-toggle="collapse" data-parent="#accordion" href="#collapseTwo">
+                            Daily Workload
+                        </a>
+                    </h4>
+                </div>
+                <div id="collapseTwo" class="panel-collapse collapse">
+                    <div class="panel-body">
+                        <div workload id="chart_div" style="width:400; height:300"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h4 class="panel-title">
+                        <a data-toggle="collapse" data-parent="#accordion" href="#collapseThree">
+                            Current Reads
+                        </a>
+                    </h4>
+                </div>
+                <div id="collapseThree" class="panel-collapse collapse">
+                    <div class="panel-body">
+                        <ul>
+                            <li><strong>The Lean Startup</strong> by Eric Ries</li>
+                            <li><strong>Succeeding with Agile: Software Development</strong> by Mike Cohn</li>
+                            <li><strong>Test Driven JavaScript Development</strong> by David Flanagan</li>
+                            <li><strong>Social Engineering: The Art of Human Hacking</strong> by Christopher Hadnagy</li>
+                            <li><strong>Service Design Patterns</strong> by Robert Daigneau</li>
+                            <li><strong>Building Web Reputation Systems</strong> by Randy Farmer and Bryce Glass</li>
+                            <li><strong>Visualize This: The FlowingData Guide to Design, Visualization and Statistics</strong> by Nathan Yau</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

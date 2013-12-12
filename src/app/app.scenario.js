@@ -29,7 +29,7 @@ describe('e2e', function() {
 			element('form button#login').click();
 
 			// Check that user was redirected to dashboard, indicating success
-			expect(browser().window().hash()).toEqual('/dashboard');
+			expect(browser().window().hash()).toEqual('/home');
 
             // ===================
             // /login Logging out

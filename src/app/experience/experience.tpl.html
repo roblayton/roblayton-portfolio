@@ -1,49 +1,64 @@
 <div class="row">
     <div class="col-md-3">
-            <div class="form-group">
-                <label for="filter">Filter:</label>
-        <input ng-model="searchText" class="form-control">
-    </div>
-            <div class="form-group">
-                <label for="filter">Sort:</label>
-        <select ng-model="sortOrder" class="form-control">
-            <option value="">Chronological</option>
-            <option value="months">Tenure</option>
-        </select>
-    </div>
-      <h3>
-        Requested Skills
-      </h3>
-      <div ng-repeat="skill in skills">
-        <div ng-repeat="set in skill.sets">
-        <div ng-repeat="value in set.value" ng-show="value.active" ng-click="remove(value)" class="pointer">
-            <span class="label label-success">{{value.title}} <i class="icon-star"> {{set.rating}}</i></span> <span class="label label-danger"></span><i class="icon-remove-sign"></i>
+        <div class="form-group">
+            <div class="input-group">
+                <input ng-model="searchText" class="form-control">
+                <span class="input-group-addon">
+                    <span class="glyphicon glyphicon-search"></span>
+                </span>
+            </div>
         </div>
+        <div class="form-group">
+            <div class="input-group">
+                <select ng-model="sortOrder" class="form-control">
+                    <option value="">Chronological</option>
+                    <option value="months">Tenure</option>
+                </select>
+                <span class="input-group-addon">
+                    <span class="glyphicon glyphicon-sort"></span>
+                </span>
+            </div>
         </div>
-      </div>
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h3 class="panel-title">Requested Skills</h3>
+            </div>
+            <div class="panel-body">
+                <div class="alert alert-warning alert-dismissable">
+                    <strong>Looking for a consultant?</strong> Select desired skills as you browse to store them in this panel for easy viewing.
+                    <button type="button" class="close" data-dismiss="alert" aria-hidden="true">x</button>
+                </div>
+                <div ng-repeat="skill in skills">
+                    <div ng-repeat="set in skill.sets">
+                        <div ng-repeat="value in set.value" ng-show="value.active" ng-click="remove(value)" class="pointer">
+                                <p class="sidebar-spacer">
+                                <span class="label label-success stored">{{value.title}} <i class="icon-star"> {{set.rating}}</i> <button type="button" class="close stored" data-dismiss="alert" aria-hidden="true"><strong>x</strong></button></span>
+                                </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
     <div class="col-md-9">
-      <h1 class="page-header">
-          Experience <span class="label label-info">{{totalTenure}}</span>
-      </h1>
-      <p>
-      </p>
-      <div ng-repeat="exp in experience | orderBy:sortOrder:true | filter:searchText">
-        <p>
-        <h3>{{exp.company.title}}</h3>
-        </p>
-        <p>
-        <h4><span ng-repeat="title in exp.titles">{{title.title}}<span ng-show=" ! $last ">, </span></span></h4>
-        <h5><span class="label label-default">{{exp.startDate}} - {{exp.endDate}}</span> <span class="label label-info">{{exp.tenure}}</span></h5>
-        </p>
-        <p>
-        <ul>
-          <li ng-repeat="achievement in exp.achievements">{{achievement.title}}</li>
-        </ul>
-        </p>
-        <p>
-          <button button-toggle="active btn-success" class="btn btn-default btn-xs" ng-repeat="skill in exp.skills" ng-model="skill"></button> 
-        </p>
-      </div>
+            <div class="panel panel-default" ng-repeat="exp in experience | orderBy:sortOrder:true | filter:searchText">
+                <div class="panel-heading">
+                    <h3 class="panel-title">{{exp.company.title}}</h3>
+                </div>
+                <div class="panel-body">
+                    <h4><span ng-repeat="title in exp.titles">{{title.title}}<span ng-show=" ! $last ">, </span></span></h4>
+                    <p class="tenure"><span class="label label-default">{{exp.startDate}} - {{exp.endDate}}</span> <span class="label label-warning">{{exp.tenure}}</span></p>
+                    </p>
+                    <p>
+                    <ul>
+                        <li ng-repeat="achievement in exp.achievements">{{achievement.title}}</li>
+                    </ul>
+                    </p>
+                    <p>
+                    <button button-toggle="active btn-primary" class="btn btn-default btn-xs pill-spacer" ng-repeat="skill in exp.skills" ng-model="skill"></button> 
+                    </p>
+                </div>
+            </div>
+
     </div>
 </div>

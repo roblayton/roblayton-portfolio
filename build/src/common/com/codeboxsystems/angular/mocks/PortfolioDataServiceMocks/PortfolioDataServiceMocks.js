@@ -226,15 +226,75 @@ angular.module('codeboxsystems.mocks.PortfolioDataServiceMocks', ['codeboxsystem
 
 		var achievementsDb = [{
 			id: '1',
-			title: 'Manage and mentor the Web Engineering team'
+			title: 'Designed and developed interactive exhibits, with the task of researching historical case data, conceptualizing, and producing professional presentations for litigation.'
 		},
 		{
 			id: '2',
-			title: 'Performs Code Reviews'
+			title: 'Interacted directly with clients in order to gather real-time feedback during production and advise on ways to best represent the facts of the case.'
 		},
 		{
 			id: '3',
-			title: 'Manage and mentor Web Development'
+			title: 'Designed and developed an interactive map of the campus lands.'
+		},
+		{
+			id: '4',
+			title: 'Wrote a scalable system for managing map data and assets.'
+		},
+		{
+			id: '5',
+			title: 'Implemented a cost-efficient workflow for maintaining the map to reduce the dependency on technical expertise.'
+		},
+		{
+			id: '6',
+			title: 'Worked with instructional designers to develop e-learning modules.'
+		},
+		{
+			id: '7',
+			title: 'Designed and developed interactive advertisements and web content'
+		},
+		{
+			id: '8',
+			title: 'Developed mobile-accessible backend systems to allow the team and clients to monitor user-generated content.'
+		},
+		{
+			id: '9',
+			title: 'Managed a team of 9 web developers, training them to learn all the core responsibilities of the position and follow proper design and development standards. I was also a hands-on developer who created e-learning applications, assessments, and games.'
+		},
+		{
+			id: '10',
+			title: 'Wrote an e-learning toolkit for the team to efficiently produce e-learning applications in a rapid course development environment. The e-learning toolkit is modular, provides a platform to easily build features upon, and is implemented in all courses currently being developed in-house.'
+		},
+		{
+			id: '11',
+			title: 'Implemented cost-saving strategies by communicating directly with vendors to enforce web standards and ensure deliverables were produced according to strict guidelines focused on scalability and modularity.'
+		},
+		{
+			id: '12',
+			title: 'Filled the roles of Web Developer, Team Lead and Manager. Attended IT Leadership meetings, led Web Development meetings, and led Web Development onboarding.'
+		},
+		{
+			id: '13',
+			title: 'Manages and mentors the Web Engineering team and performs code reviews.'
+		},
+		{
+			id: '14',
+			title: 'Defines the technical strategy, architecture and standards for design, development, implementation, execution, and maintenance of scalable, multiplatform web frameworks.'
+		},
+		{
+			id: '15',
+			title: 'Creates detailed architectural specifications for each product release, and ensures that compliance is met by the development and quality assurance teams.'
+		},
+		{
+			id: '16',
+			title: 'Identifies the most efficient, low-cost technical solutions to business problems through the gathering of metrics, product comparisons, and the development of prototypes.'
+		},
+		{
+			id: '17',
+			title: 'Integrates agile process, project management tools, source control, automated unit-testing, and analytics.'
+		},
+		{
+			id: '18',
+			title: 'Defines the documentation guidelines and workflow to ensure operations are systematic and scalable.'
 		}];
 
 		var categoriesDb = [{
@@ -270,15 +330,13 @@ angular.module('codeboxsystems.mocks.PortfolioDataServiceMocks', ['codeboxsystem
 		}
         ];
 
-		var socialDb = [{
+		var educationDb = [{
 			id: '1',
-			title: 'Tumblr',
-			link: 'http://roblayton.tumblr.com'
-		},
-		{
-			id: '2',
-			title: 'Twitter',
-			link: 'http://twitter.com/roblayton'
+			title: 'Digital Media, B.A., Interactive Systems Concentration',
+            facility: 'University of Central Florida',
+			startDate: 'Spring 2004',
+			endDate: 'Fall 2008',
+            description: 'Combines the multiple domains of technology, communications, and art to provide extended experience in working in multidisciplinary teams on realistic problems.'
 		}
         ];
 
@@ -386,7 +444,35 @@ angular.module('codeboxsystems.mocks.PortfolioDataServiceMocks', ['codeboxsystem
 				{
 					value: '24',
 					rating: 4
-				}
+				},
+				{
+					value: '25',
+					rating: 4
+				},
+				{
+					value: '26',
+					rating: 2
+				},
+				{
+					value: '27',
+					rating: 2
+				},
+				{
+					value: '28',
+					rating: 2
+				},
+				{
+					value: '29',
+					rating: 3
+				},
+				{
+					value: '30',
+					rating: 3
+				},
+                {
+                    value: '11',
+                    rating: 2
+                }
                 ]
 			}],
             portfolio: [{
@@ -397,16 +483,13 @@ angular.module('codeboxsystems.mocks.PortfolioDataServiceMocks', ['codeboxsystem
                 value: '2',
 				skills: ['3', '4']
             }],
-            social: [{
+            education: [{
                 value: '1'
-            }, 
-            {
-                value: '2'
             }],
 			experience: [{
 				company: '1',
 				titles: ['1'],
-				achievements: ['1', '2'],
+				achievements: ['13', '14', '15', '16', '17', '18'],
 				skills: ['1', '2', '3', '4', '6', '8', '9', '10', '11', '12', '13', '16', '17', '18', '20', '21', '22', '23', '31', '24'],
 				startDate: '2012-04-01',
 				endDate: 'Present'
@@ -414,7 +497,7 @@ angular.module('codeboxsystems.mocks.PortfolioDataServiceMocks', ['codeboxsystem
 			{
 				company: '2',
 				titles: ['2'],
-				achievements: ['3'],
+				achievements: ['9', '10', '11', '12'],
 				skills: ['1', '3', '4', '5', '7', '6', '8', '14', '15', '16', '17', '20', '25', '26', '27'],
 				startDate: '2010-07-01',
 				endDate: '2012-03-01'
@@ -422,7 +505,7 @@ angular.module('codeboxsystems.mocks.PortfolioDataServiceMocks', ['codeboxsystem
 			{
 				company: '3',
 				titles: ['5'],
-				achievements: ['3'],
+				achievements: ['7', '8'],
 				skills: ['1', '3', '4', '5', '7', '8', '14', '15', '25', '26', '27'],
 				startDate: '2009-11-01',
 				endDate: '2010-07-01'
@@ -430,7 +513,7 @@ angular.module('codeboxsystems.mocks.PortfolioDataServiceMocks', ['codeboxsystem
 			{
 				company: '4',
 				titles: ['6', '7'],
-				achievements: ['3'],
+				achievements: ['6'],
 				skills: ['1', '3', '4', '5', '7', '8', '14', '15', '25', '26', '27'],
 				startDate: '2009-08-01',
 				endDate: '2009-11-01'
@@ -438,7 +521,7 @@ angular.module('codeboxsystems.mocks.PortfolioDataServiceMocks', ['codeboxsystem
 			{
 				company: '5',
 				titles: ['8', '9'],
-				achievements: ['3'],
+				achievements: ['3', '4', '5'],
 				skills: ['1', '3', '4', '5', '7', '8', '14', '15', '25', '26', '27', '28'],
 				startDate: '2009-05-01',
 				endDate: '2009-08-01'
@@ -446,7 +529,7 @@ angular.module('codeboxsystems.mocks.PortfolioDataServiceMocks', ['codeboxsystem
 			{
 				company: '6',
 				titles: ['10'],
-				achievements: ['3'],
+				achievements: ['1', '2'],
 				skills: ['1', '3', '4', '5', '7', '8', '14', '15', '25', '26', '27', '29', '30'],
 				startDate: '2004-05-01',
 				endDate: '2009-05-01'
@@ -549,16 +632,16 @@ angular.module('codeboxsystems.mocks.PortfolioDataServiceMocks', ['codeboxsystem
 
                   return portfolio;
             },
-            fetchSocialByUser: function(user) {
-                  var social = [];
-                  for (var i = 0, len = user.social.length; i < len; i++) {
-                      var s = user.social[i];
-                      social.push({
-                          value: fetchData(s.value, socialDb)
+            fetchEducationByUser: function(user) {
+                  var education = [];
+                  for (var i = 0, len = user.education.length; i < len; i++) {
+                      var edu = user.education[i];
+                      education.push({
+                          value: fetchData(edu.value, educationDb)
                       });
                   }
 
-                  return social;
+                  return education;
             },
 			fetchExperienceByUser: function(user) {
 				var experience = [];
@@ -587,6 +670,47 @@ angular.module('codeboxsystems.mocks.PortfolioDataServiceMocks', ['codeboxsystem
 				} else {
 					throw new Error('No experience for this user');
 				}
+			},
+			fetchWorkloadData: function() {
+				var chartData = {
+					type: 'chart',
+					title: 'Daily Workload',
+					content: [{
+						type: 'pie',
+						slices: [{
+							title: 'Development',
+							value: 3,
+							backgroundColor: '#c0440e'
+						},
+						{
+							title: 'Source control',
+							value: 1,
+							backgroundColor: '#e0440e'
+						},
+						{
+							title: 'Unit testing',
+							value: 2,
+							backgroundColor: '#e6693e'
+						},
+						{
+							title: 'Automation',
+							value: 2,
+							backgroundColor: '#ec8f6e'
+						},
+						{
+							title: 'Agile principles',
+							value: 2,
+							backgroundColor: '#f3b49f'
+						},
+						{
+							title: 'Project management',
+							value: 2,
+							backgroundColor: '#f6c7b6'
+						}]
+					}]
+				};
+				
+				return chartData;
 			}
 		};
 	};

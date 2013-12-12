@@ -1,4 +1,4 @@
-angular.module('templates-app', ['account/account.tpl.html', 'dashboard/dashboard.tpl.html', 'experience/experience.tpl.html', 'hireme/hireme.tpl.html', 'login/login.tpl.html', 'portfolio/portfolio.tpl.html', 'register/register.tpl.html', 'skills/skills.tpl.html', 'social/social.tpl.html']);
+angular.module('templates-app', ['account/account.tpl.html', 'education/education.tpl.html', 'experience/experience.tpl.html', 'hireme/hireme.tpl.html', 'home/home.tpl.html', 'login/login.tpl.html', 'portfolio/portfolio.tpl.html', 'register/register.tpl.html', 'skills/skills.tpl.html']);
 
 angular.module("account/account.tpl.html", []).run(["$templateCache", function($templateCache) {
   $templateCache.put("account/account.tpl.html",
@@ -30,28 +30,61 @@ angular.module("account/account.tpl.html", []).run(["$templateCache", function($
     "");
 }]);
 
-angular.module("dashboard/dashboard.tpl.html", []).run(["$templateCache", function($templateCache) {
-  $templateCache.put("dashboard/dashboard.tpl.html",
+angular.module("education/education.tpl.html", []).run(["$templateCache", function($templateCache) {
+  $templateCache.put("education/education.tpl.html",
     "<div class=\"row\">\n" +
     "    <div class=\"col-md-3\">\n" +
-    "      <h3>\n" +
-    "        Requested Skills\n" +
-    "      </h3>\n" +
-    "      <div ng-repeat=\"skill in skills\">\n" +
-    "        <div ng-repeat=\"set in skill.sets\">\n" +
-    "        <div ng-repeat=\"value in set.value\" ng-show=\"value.active\" ng-click=\"remove(value)\" class=\"pointer\">\n" +
-    "            <span class=\"label label-success\">{{value.title}} <i class=\"icon-star\"> {{set.rating}}</i></span> <span class=\"label label-danger\"></span><i class=\"icon-remove-sign\"></i>\n" +
+    "        <div class=\"form-group\">\n" +
+    "            <div class=\"input-group\">\n" +
+    "                <input ng-model=\"searchText\" class=\"form-control\">\n" +
+    "                <span class=\"input-group-addon\">\n" +
+    "                    <span class=\"glyphicon glyphicon-search\"></span>\n" +
+    "                </span>\n" +
+    "            </div>\n" +
     "        </div>\n" +
+    "        <div class=\"form-group\">\n" +
+    "            <div class=\"input-group\">\n" +
+    "                <select ng-model=\"sortOrder\" class=\"form-control\" disabled>\n" +
+    "                    <option value=\"value[0].title\">Alphabetical</option>\n" +
+    "                    <option value=\"rating\">Proficiency</option>\n" +
+    "                </select>\n" +
+    "                <span class=\"input-group-addon\">\n" +
+    "                    <span class=\"glyphicon glyphicon-sort\"></span>\n" +
+    "                </span>\n" +
+    "            </div>\n" +
     "        </div>\n" +
-    "      </div>\n" +
+    "        <div class=\"panel panel-default\">\n" +
+    "            <div class=\"panel-heading\">\n" +
+    "                <h3 class=\"panel-title\">Requested Skills</h3>\n" +
+    "            </div>\n" +
+    "            <div class=\"panel-body\">\n" +
+    "                <div class=\"alert alert-warning alert-dismissable\">\n" +
+    "                    <strong>Looking to hire me?</strong> Selecting skills will store them in this panel to give you an easy overview.\n" +
+    "                    <button type=\"button\" class=\"close\" data-dismiss=\"alert\" aria-hidden=\"true\">x</button>\n" +
+    "                </div>\n" +
+    "                <div ng-repeat=\"skill in skills\">\n" +
+    "                    <div ng-repeat=\"set in skill.sets\">\n" +
+    "                        <div ng-repeat=\"value in set.value\" ng-show=\"value.active\" ng-click=\"remove(value)\" class=\"pointer\">\n" +
+    "                            <span class=\"label label-success\">{{value.title}} <i class=\"icon-star\"> {{set.rating}}</i></span> <span class=\"label label-danger\"></span><i class=\"icon-remove-sign\"></i>\n" +
+    "                        </div>\n" +
+    "                    </div>\n" +
+    "                </div>\n" +
+    "            </div>\n" +
+    "        </div>\n" +
     "    </div>\n" +
     "    <div class=\"col-md-9\">\n" +
-    "      <h1 class=\"page-header\">\n" +
-    "        Dashboard \n" +
-    "      </h1>\n" +
-    "      <p>\n" +
-    "        Stuff goes here.\n" +
-    "      </p>\n" +
+    "        <div ng-repeat=\"edu in education | filter:searchText\">\n" +
+    "        <div class=\"panel panel-default\" ng-repeat=\"value in edu.value\">\n" +
+    "            <div class=\"panel-heading\">\n" +
+    "                <h3 class=\"panel-title\">{{value.facility}}</h3>\n" +
+    "            </div>\n" +
+    "            <div class=\"panel-body\">\n" +
+    "                <h4>{{value.title}}</h4>\n" +
+    "                </p>\n" +
+    "                <h5><span class=\"label label-default\">{{value.startDate}} - {{value.endDate}}</span></h5>\n" +
+    "                <p>{{value.description}}</p>\n" +
+    "            </div>\n" +
+    "        </div>\n" +
     "    </div>\n" +
     "</div>\n" +
     "");
@@ -61,51 +94,66 @@ angular.module("experience/experience.tpl.html", []).run(["$templateCache", func
   $templateCache.put("experience/experience.tpl.html",
     "<div class=\"row\">\n" +
     "    <div class=\"col-md-3\">\n" +
-    "            <div class=\"form-group\">\n" +
-    "                <label for=\"filter\">Filter:</label>\n" +
-    "        <input ng-model=\"searchText\" class=\"form-control\">\n" +
-    "    </div>\n" +
-    "            <div class=\"form-group\">\n" +
-    "                <label for=\"filter\">Sort:</label>\n" +
-    "        <select ng-model=\"sortOrder\" class=\"form-control\">\n" +
-    "            <option value=\"\">Chronological</option>\n" +
-    "            <option value=\"months\">Tenure</option>\n" +
-    "        </select>\n" +
-    "    </div>\n" +
-    "      <h3>\n" +
-    "        Requested Skills\n" +
-    "      </h3>\n" +
-    "      <div ng-repeat=\"skill in skills\">\n" +
-    "        <div ng-repeat=\"set in skill.sets\">\n" +
-    "        <div ng-repeat=\"value in set.value\" ng-show=\"value.active\" ng-click=\"remove(value)\" class=\"pointer\">\n" +
-    "            <span class=\"label label-success\">{{value.title}} <i class=\"icon-star\"> {{set.rating}}</i></span> <span class=\"label label-danger\"></span><i class=\"icon-remove-sign\"></i>\n" +
+    "        <div class=\"form-group\">\n" +
+    "            <div class=\"input-group\">\n" +
+    "                <input ng-model=\"searchText\" class=\"form-control\">\n" +
+    "                <span class=\"input-group-addon\">\n" +
+    "                    <span class=\"glyphicon glyphicon-search\"></span>\n" +
+    "                </span>\n" +
+    "            </div>\n" +
     "        </div>\n" +
+    "        <div class=\"form-group\">\n" +
+    "            <div class=\"input-group\">\n" +
+    "                <select ng-model=\"sortOrder\" class=\"form-control\">\n" +
+    "                    <option value=\"\">Chronological</option>\n" +
+    "                    <option value=\"months\">Tenure</option>\n" +
+    "                </select>\n" +
+    "                <span class=\"input-group-addon\">\n" +
+    "                    <span class=\"glyphicon glyphicon-sort\"></span>\n" +
+    "                </span>\n" +
+    "            </div>\n" +
     "        </div>\n" +
-    "      </div>\n" +
+    "        <div class=\"panel panel-default\">\n" +
+    "            <div class=\"panel-heading\">\n" +
+    "                <h3 class=\"panel-title\">Requested Skills</h3>\n" +
+    "            </div>\n" +
+    "            <div class=\"panel-body\">\n" +
+    "                <div class=\"alert alert-warning alert-dismissable\">\n" +
+    "                    <strong>Looking for a consultant?</strong> Select desired skills as you browse to store them in this panel for easy viewing.\n" +
+    "                    <button type=\"button\" class=\"close\" data-dismiss=\"alert\" aria-hidden=\"true\">x</button>\n" +
+    "                </div>\n" +
+    "                <div ng-repeat=\"skill in skills\">\n" +
+    "                    <div ng-repeat=\"set in skill.sets\">\n" +
+    "                        <div ng-repeat=\"value in set.value\" ng-show=\"value.active\" ng-click=\"remove(value)\" class=\"pointer\">\n" +
+    "                                <p class=\"sidebar-spacer\">\n" +
+    "                                <span class=\"label label-success stored\">{{value.title}} <i class=\"icon-star\"> {{set.rating}}</i> <button type=\"button\" class=\"close stored\" data-dismiss=\"alert\" aria-hidden=\"true\"><strong>x</strong></button></span>\n" +
+    "                                </p>\n" +
+    "                        </div>\n" +
+    "                    </div>\n" +
+    "                </div>\n" +
+    "            </div>\n" +
+    "        </div>\n" +
     "    </div>\n" +
     "    <div class=\"col-md-9\">\n" +
-    "      <h1 class=\"page-header\">\n" +
-    "          Experience <span class=\"label label-info\">{{totalTenure}}</span>\n" +
-    "      </h1>\n" +
-    "      <p>\n" +
-    "      </p>\n" +
-    "      <div ng-repeat=\"exp in experience | orderBy:sortOrder:true | filter:searchText\">\n" +
-    "        <p>\n" +
-    "        <h3>{{exp.company.title}}</h3>\n" +
-    "        </p>\n" +
-    "        <p>\n" +
-    "        <h4><span ng-repeat=\"title in exp.titles\">{{title.title}}<span ng-show=\" ! $last \">, </span></span></h4>\n" +
-    "        <h5><span class=\"label label-default\">{{exp.startDate}} - {{exp.endDate}}</span> <span class=\"label label-info\">{{exp.tenure}}</span></h5>\n" +
-    "        </p>\n" +
-    "        <p>\n" +
-    "        <ul>\n" +
-    "          <li ng-repeat=\"achievement in exp.achievements\">{{achievement.title}}</li>\n" +
-    "        </ul>\n" +
-    "        </p>\n" +
-    "        <p>\n" +
-    "          <button button-toggle=\"active btn-success\" class=\"btn btn-default btn-xs\" ng-repeat=\"skill in exp.skills\" ng-model=\"skill\"></button> \n" +
-    "        </p>\n" +
-    "      </div>\n" +
+    "            <div class=\"panel panel-default\" ng-repeat=\"exp in experience | orderBy:sortOrder:true | filter:searchText\">\n" +
+    "                <div class=\"panel-heading\">\n" +
+    "                    <h3 class=\"panel-title\">{{exp.company.title}}</h3>\n" +
+    "                </div>\n" +
+    "                <div class=\"panel-body\">\n" +
+    "                    <h4><span ng-repeat=\"title in exp.titles\">{{title.title}}<span ng-show=\" ! $last \">, </span></span></h4>\n" +
+    "                    <p class=\"tenure\"><span class=\"label label-default\">{{exp.startDate}} - {{exp.endDate}}</span> <span class=\"label label-warning\">{{exp.tenure}}</span></p>\n" +
+    "                    </p>\n" +
+    "                    <p>\n" +
+    "                    <ul>\n" +
+    "                        <li ng-repeat=\"achievement in exp.achievements\">{{achievement.title}}</li>\n" +
+    "                    </ul>\n" +
+    "                    </p>\n" +
+    "                    <p>\n" +
+    "                    <button button-toggle=\"active btn-primary\" class=\"btn btn-default btn-xs pill-spacer\" ng-repeat=\"skill in exp.skills\" ng-model=\"skill\"></button> \n" +
+    "                    </p>\n" +
+    "                </div>\n" +
+    "            </div>\n" +
+    "\n" +
     "    </div>\n" +
     "</div>\n" +
     "");
@@ -115,36 +163,185 @@ angular.module("hireme/hireme.tpl.html", []).run(["$templateCache", function($te
   $templateCache.put("hireme/hireme.tpl.html",
     "<div class=\"row\">\n" +
     "    <div class=\"col-md-3\">\n" +
-    "      <h3>\n" +
-    "        Requested Skills\n" +
-    "      </h3>\n" +
-    "      <div ng-repeat=\"skill in skills\">\n" +
-    "        <div ng-repeat=\"set in skill.sets\">\n" +
-    "        <div ng-repeat=\"value in set.value\" ng-show=\"value.active\" ng-click=\"remove(value)\" class=\"pointer\">\n" +
-    "            <span class=\"label label-success\">{{value.title}} <i class=\"icon-star\"> {{set.rating}}</i></span> <span class=\"label label-danger\"></span><i class=\"icon-remove-sign\"></i>\n" +
+    "        <div class=\"form-group\">\n" +
+    "            <div class=\"input-group\">\n" +
+    "                <input ng-model=\"searchText\" class=\"form-control\">\n" +
+    "                <span class=\"input-group-addon\">\n" +
+    "                    <span class=\"glyphicon glyphicon-search\"></span>\n" +
+    "                </span>\n" +
+    "            </div>\n" +
     "        </div>\n" +
+    "        <div class=\"form-group\">\n" +
+    "            <div class=\"input-group\">\n" +
+    "                <select ng-model=\"sortOrder\" class=\"form-control\" disabled>\n" +
+    "                    <option value=\"value[0].title\">Alphabetical</option>\n" +
+    "                    <option value=\"rating\">Proficiency</option>\n" +
+    "                </select>\n" +
+    "                <span class=\"input-group-addon\">\n" +
+    "                    <span class=\"glyphicon glyphicon-sort\"></span>\n" +
+    "                </span>\n" +
+    "            </div>\n" +
     "        </div>\n" +
-    "      </div>\n" +
+    "        <div class=\"panel panel-default\">\n" +
+    "            <div class=\"panel-heading\">\n" +
+    "                <h3 class=\"panel-title\">Requested Skills</h3>\n" +
+    "            </div>\n" +
+    "            <div class=\"panel-body\">\n" +
+    "                <div class=\"alert alert-warning alert-dismissable\">\n" +
+    "                    <strong>Looking to hire me?</strong> Selecting skills will store them in this panel to give you an easy overview.\n" +
+    "                    <button type=\"button\" class=\"close\" data-dismiss=\"alert\" aria-hidden=\"true\">x</button>\n" +
+    "                </div>\n" +
+    "                <div ng-repeat=\"skill in skills\">\n" +
+    "                    <div ng-repeat=\"set in skill.sets\">\n" +
+    "                        <div ng-repeat=\"value in set.value\" ng-show=\"value.active\" ng-click=\"remove(value)\" class=\"pointer\">\n" +
+    "                            <span class=\"label label-success\">{{value.title}} <i class=\"icon-star\"> {{set.rating}}</i></span> <span class=\"label label-danger\"></span><i class=\"icon-remove-sign\"></i>\n" +
+    "                        </div>\n" +
+    "                    </div>\n" +
+    "                </div>\n" +
+    "            </div>\n" +
+    "        </div>\n" +
     "    </div>\n" +
     "    <div class=\"col-md-9\">\n" +
-    "      <h1 class=\"page-header\">\n" +
-    "        Hire Me \n" +
-    "      </h1>\n" +
-    "      <p>\n" +
-    "        I am currently available for part-time freelance web development and front end consulting.\n" +
-    "      </p>\n" +
-    "      <p>\n" +
-    "      The best way to contact me is through email. Reach me at <a href=\"mailto:hire.rob.layton@gmail.com\">hire.rob.layton@gmail.com</a>\n" +
-    "      </p>\n" +
-    "      <p>\n" +
-    "      <a href=\"https://docs.google.com/document/d/1Iqkc-8_73aZsBJZyE4bMCEJtVsgQcXAJXdlBDHu26bc/pub\">Resume</a>\n" +
-    "      </p>\n" +
-    "      <p>\n" +
-    "      <a href=\"http://beknown.com/roblayton\">Monster</a>\n" +
-    "      </p>\n" +
-    "      <p>\n" +
-    "      <a href=\"http://www.linkedin.com/in/roblayton\">LinkedIn</a>\n" +
-    "      </p>\n" +
+    "        <div class=\"panel panel-default\">\n" +
+    "            <div class=\"panel-heading\">\n" +
+    "                <h3 class=\"panel-title\">Contact Info</h3>\n" +
+    "            </div>\n" +
+    "            <div class=\"panel-body\">\n" +
+    "                <p>\n" +
+    "                I am currently available for part-time freelance web development and front end consulting. The best way to contact me is by email.\n" +
+    "                </p>\n" +
+    "                <p>\n" +
+    "                <span class=\"glyphicon glyphicon-envelope\"></span> <a href=\"mailto:hire.rob.layton@gmail.com\">hire.rob.layton@gmail.com</a>\n" +
+    "                </p>\n" +
+    "            </div>\n" +
+    "        </div>\n" +
+    "        <div class=\"panel panel-default\">\n" +
+    "            <div class=\"panel-heading\">\n" +
+    "                <h3 class=\"panel-title\">Social Networks</h3>\n" +
+    "            </div>\n" +
+    "            <div class=\"panel-body\">\n" +
+    "                <table class=\"table\">\n" +
+    "                    <tr>\n" +
+    "                        <td><a href=\"https://docs.google.com/document/d/1Iqkc-8_73aZsBJZyE4bMCEJtVsgQcXAJXdlBDHu26bc/pub\">Resume</a></td>\n" +
+    "                        <td><a href=\"http://beknown.com/roblayton\">Monster</a></td>\n" +
+    "                        <td><a href=\"http://www.linkedin.com/in/roblayton\">LinkedIn</a></td>\n" +
+    "                    </td>\n" +
+    "                    <tr>\n" +
+    "                        <td><a href=\"http://roblayton.tumblr.com\">Tumblr</td>\n" +
+    "                        <td><a href=\"http://www.twitter.com/roblayton\">Twitter</td>\n" +
+    "                        <td></td>\n" +
+    "                    </tr>\n" +
+    "                </table>\n" +
+    "            </div>\n" +
+    "        </div>\n" +
+    "    </div>\n" +
+    "</div>\n" +
+    "");
+}]);
+
+angular.module("home/home.tpl.html", []).run(["$templateCache", function($templateCache) {
+  $templateCache.put("home/home.tpl.html",
+    "<div class=\"row\">\n" +
+    "    <div class=\"col-md-3\">\n" +
+    "        <div class=\"form-group\">\n" +
+    "            <div class=\"input-group\">\n" +
+    "                <input ng-model=\"searchText\" class=\"form-control\" disabled>\n" +
+    "                <span class=\"input-group-addon\">\n" +
+    "                    <span class=\"glyphicon glyphicon-search\"></span>\n" +
+    "                </span>\n" +
+    "            </div>\n" +
+    "        </div>\n" +
+    "        <div class=\"form-group\">\n" +
+    "            <div class=\"input-group\">\n" +
+    "                <select ng-model=\"sortOrder\" class=\"form-control\" disabled>\n" +
+    "                    <option value=\"value[0].title\">Alphabetical</option>\n" +
+    "                    <option value=\"rating\">Proficiency</option>\n" +
+    "                </select>\n" +
+    "                <span class=\"input-group-addon\">\n" +
+    "                    <span class=\"glyphicon glyphicon-sort\"></span>\n" +
+    "                </span>\n" +
+    "            </div>\n" +
+    "        </div>\n" +
+    "        <div class=\"panel panel-default\">\n" +
+    "            <div class=\"panel-heading\">\n" +
+    "                <h3 class=\"panel-title\">Requested Skills</h3>\n" +
+    "            </div>\n" +
+    "            <div class=\"panel-body\">\n" +
+    "                <div class=\"alert alert-warning alert-dismissable\">\n" +
+    "                    <strong>Looking for a consultant?</strong> Select desired skills as you browse to store them in this panel for easy viewing.\n" +
+    "                    <button type=\"button\" class=\"close\" data-dismiss=\"alert\" aria-hidden=\"true\">x</button>\n" +
+    "                </div>\n" +
+    "                <div ng-repeat=\"skill in skills\">\n" +
+    "                    <div ng-repeat=\"set in skill.sets\">\n" +
+    "                        <div ng-repeat=\"value in set.value\" ng-show=\"value.active\" ng-click=\"remove(value)\" class=\"pointer\">\n" +
+    "                                <p class=\"sidebar-spacer\">\n" +
+    "                                <span class=\"label label-success stored\">{{value.title}} <i class=\"icon-star\"> {{set.rating}}</i> <button type=\"button\" class=\"close stored\" data-dismiss=\"alert\" aria-hidden=\"true\"><strong>x</strong></button></span>\n" +
+    "                                </p>\n" +
+    "                        </div>\n" +
+    "                    </div>\n" +
+    "                </div>\n" +
+    "            </div>\n" +
+    "        </div>\n" +
+    "    </div>\n" +
+    "    <div class=\"col-md-9\">\n" +
+    "        <div class=\"panel-group\" id=\"accordion\">\n" +
+    "            <div class=\"panel panel-default\">\n" +
+    "                <div class=\"panel-heading\">\n" +
+    "                    <h4 class=\"panel-title\">\n" +
+    "                        <a data-toggle=\"collapse\" data-parent=\"#accordion\" href=\"#collapseOne\">\n" +
+    "                            Identity\n" +
+    "                        </a>\n" +
+    "                    </h4>\n" +
+    "                </div>\n" +
+    "                <div id=\"collapseOne\" class=\"panel-collapse collapse in\">\n" +
+    "                    <div class=\"panel-body\">\n" +
+    "                        <p>\n" +
+    "                        I am the Director of Web Engineering at Adcade, a freelance Sr. Web Developer, and Front End Consultant.\n" +
+    "                        </p>\n" +
+    "                        <p>\n" +
+    "                        My primary focus is front end web development, but i also specialize in back end development, deployment, and project management.\n" +
+    "                        </p>\n" +
+    "                        <p><a href=\"https://docs.google.com/document/d/1Iqkc-8_73aZsBJZyE4bMCEJtVsgQcXAJXdlBDHu26bc/pub\" class=\"btn btn-primary btn-sm\" role=\"button\">Resume</a></p>\n" +
+    "                    </div>\n" +
+    "                </div>\n" +
+    "            </div>\n" +
+    "            <div class=\"panel panel-default\">\n" +
+    "                <div class=\"panel-heading\">\n" +
+    "                    <h4 class=\"panel-title\">\n" +
+    "                        <a data-toggle=\"collapse\" data-parent=\"#accordion\" href=\"#collapseTwo\">\n" +
+    "                            Daily Workload\n" +
+    "                        </a>\n" +
+    "                    </h4>\n" +
+    "                </div>\n" +
+    "                <div id=\"collapseTwo\" class=\"panel-collapse collapse\">\n" +
+    "                    <div class=\"panel-body\">\n" +
+    "                        <div workload id=\"chart_div\" style=\"width:400; height:300\"></div>\n" +
+    "                    </div>\n" +
+    "                </div>\n" +
+    "            </div>\n" +
+    "            <div class=\"panel panel-default\">\n" +
+    "                <div class=\"panel-heading\">\n" +
+    "                    <h4 class=\"panel-title\">\n" +
+    "                        <a data-toggle=\"collapse\" data-parent=\"#accordion\" href=\"#collapseThree\">\n" +
+    "                            Current Reads\n" +
+    "                        </a>\n" +
+    "                    </h4>\n" +
+    "                </div>\n" +
+    "                <div id=\"collapseThree\" class=\"panel-collapse collapse\">\n" +
+    "                    <div class=\"panel-body\">\n" +
+    "                        <ul>\n" +
+    "                            <li><strong>The Lean Startup</strong> by Eric Ries</li>\n" +
+    "                            <li><strong>Succeeding with Agile: Software Development</strong> by Mike Cohn</li>\n" +
+    "                            <li><strong>Test Driven JavaScript Development</strong> by David Flanagan</li>\n" +
+    "                            <li><strong>Social Engineering: The Art of Human Hacking</strong> by Christopher Hadnagy</li>\n" +
+    "                            <li><strong>Service Design Patterns</strong> by Robert Daigneau</li>\n" +
+    "                            <li><strong>Building Web Reputation Systems</strong> by Randy Farmer and Bryce Glass</li>\n" +
+    "                            <li><strong>Visualize This: The FlowingData Guide to Design, Visualization and Statistics</strong> by Nathan Yau</li>\n" +
+    "                        </ul>\n" +
+    "                    </div>\n" +
+    "                </div>\n" +
+    "            </div>\n" +
+    "        </div>\n" +
     "    </div>\n" +
     "</div>\n" +
     "");
@@ -154,7 +351,11 @@ angular.module("login/login.tpl.html", []).run(["$templateCache", function($temp
   $templateCache.put("login/login.tpl.html",
     "<div class=\"row\">\n" +
     "    <div class=\"col-sm-offset-4 col-sm-4\">\n" +
-    "        <h1 class=\"page-header\">Login</h1>\n" +
+    "        <div class=\"panel panel-default\">\n" +
+    "            <div class=\"panel-heading\">\n" +
+    "                <h3 class=\"panel-title\">Login</h3>\n" +
+    "            </div>\n" +
+    "            <div class=\"panel-body\">\n" +
     "        <form role=\"form\">\n" +
     "            <div class=\"form-group\">\n" +
     "                <label for=\"username\">Username</label>\n" +
@@ -166,6 +367,8 @@ angular.module("login/login.tpl.html", []).run(["$templateCache", function($temp
     "            </div>\n" +
     "            <button class=\"btn btn-default\" id=\"login\" ng-click=\"login()\">Login</button>\n" +
     "        </form>\n" +
+    "            </div>\n" +
+    "        </div>\n" +
     "    </div>\n" +
     "</div>\n" +
     "\n" +
@@ -176,39 +379,59 @@ angular.module("portfolio/portfolio.tpl.html", []).run(["$templateCache", functi
   $templateCache.put("portfolio/portfolio.tpl.html",
     "<div class=\"row\">\n" +
     "    <div class=\"col-md-3\">\n" +
-    "            <div class=\"form-group\">\n" +
-    "                <label for=\"filter\">Filter:</label>\n" +
-    "        <input ng-model=\"searchText\" class=\"form-control\">\n" +
-    "    </div>\n" +
-    "      <h3>\n" +
-    "        Requested Skills\n" +
-    "      </h3>\n" +
-    "      <div ng-repeat=\"skill in skills\">\n" +
-    "        <div ng-repeat=\"set in skill.sets\">\n" +
-    "        <div ng-repeat=\"value in set.value\" ng-show=\"value.active\" ng-click=\"remove(value)\" class=\"pointer\">\n" +
-    "            <span class=\"label label-success\">{{value.title}} <i class=\"icon-star\"> {{set.rating}}</i></span> <span class=\"label label-danger\"></span><i class=\"icon-remove-sign\"></i>\n" +
+    "        <div class=\"form-group\">\n" +
+    "            <div class=\"input-group\">\n" +
+    "                <input ng-model=\"searchText\" class=\"form-control\">\n" +
+    "                <span class=\"input-group-addon\">\n" +
+    "                    <span class=\"glyphicon glyphicon-search\"></span>\n" +
+    "                </span>\n" +
+    "            </div>\n" +
     "        </div>\n" +
+    "        <div class=\"form-group\">\n" +
+    "            <div class=\"input-group\">\n" +
+    "                <select ng-model=\"sortOrder\" class=\"form-control\" disabled>\n" +
+    "                    <option value=\"value[0].title\">Alphabetical</option>\n" +
+    "                    <option value=\"rating\">Proficiency</option>\n" +
+    "                </select>\n" +
+    "                <span class=\"input-group-addon\">\n" +
+    "                    <span class=\"glyphicon glyphicon-sort\"></span>\n" +
+    "                </span>\n" +
+    "            </div>\n" +
     "        </div>\n" +
-    "      </div>\n" +
+    "        <div class=\"panel panel-default\">\n" +
+    "            <div class=\"panel-heading\">\n" +
+    "                <h3 class=\"panel-title\">Requested Skills</h3>\n" +
+    "            </div>\n" +
+    "            <div class=\"panel-body\">\n" +
+    "                <div class=\"alert alert-warning alert-dismissable\">\n" +
+    "                    <strong>Looking to hire me?</strong> Selecting skills will store them in this panel to give you an easy overview.\n" +
+    "                    <button type=\"button\" class=\"close\" data-dismiss=\"alert\" aria-hidden=\"true\">x</button>\n" +
+    "                </div>\n" +
+    "                <div ng-repeat=\"skill in skills\">\n" +
+    "                    <div ng-repeat=\"set in skill.sets\">\n" +
+    "                        <div ng-repeat=\"value in set.value\" ng-show=\"value.active\" ng-click=\"remove(value)\" class=\"pointer\">\n" +
+    "                            <span class=\"label label-success\">{{value.title}} <i class=\"icon-star\"> {{set.rating}}</i></span> <span class=\"label label-danger\"></span><i class=\"icon-remove-sign\"></i>\n" +
+    "                        </div>\n" +
+    "                    </div>\n" +
+    "                </div>\n" +
+    "            </div>\n" +
+    "        </div>\n" +
     "    </div>\n" +
     "    <div class=\"col-md-9\">\n" +
-    "      <h1 class=\"page-header\">\n" +
-    "          Portfolio\n" +
-    "      </h1>\n" +
-    "      <p>\n" +
-    "      </p>\n" +
-    "      <div ng-repeat=\"p in portfolio | filter:searchText\">\n" +
-    "      <div ng-repeat=\"value in p.value\">\n" +
-    "        <p>\n" +
-    "        <h3>{{value.title}}</h3>\n" +
-    "        </p>\n" +
-    "        <p>{{value.description}}</p>\n" +
-    "        <a href=\"{{value.link}}\">{{value.link}}</a>\n" +
-    "    </div>\n" +
-    "        <p>\n" +
-    "          <button button-toggle=\"active btn-success\" class=\"btn btn-default btn-xs\" ng-repeat=\"skill in p.skills\" ng-model=\"skill\"></button> \n" +
-    "        </p>\n" +
-    "      </div>\n" +
+    "        <div ng-repeat=\"p in portfolio | filter:searchText\">\n" +
+    "            <div class=\"panel panel-default\" ng-repeat=\"value in p.value\">\n" +
+    "                <div class=\"panel-heading\">\n" +
+    "                    <h3 class=\"panel-title\">{{value.title}}</h3>\n" +
+    "                </div>\n" +
+    "                <div class=\"panel-body\">\n" +
+    "                    <p>{{value.description}}</p>\n" +
+    "                    <p><a href=\"{{value.link}}\">{{value.link}}</a></p>\n" +
+    "                <p>\n" +
+    "                <button button-toggle=\"active btn-success\" class=\"btn btn-default btn-xs\" ng-repeat=\"skill in p.skills\" ng-model=\"skill\"></button> \n" +
+    "                </p>\n" +
+    "                </div>\n" +
+    "            </div>\n" +
+    "        </div>\n" +
     "    </div>\n" +
     "</div>\n" +
     "");
@@ -246,85 +469,70 @@ angular.module("skills/skills.tpl.html", []).run(["$templateCache", function($te
   $templateCache.put("skills/skills.tpl.html",
     "<div class=\"row\">\n" +
     "    <div class=\"col-md-3\">\n" +
-    "            <div class=\"form-group\">\n" +
-    "                <label for=\"filter\">Filter:</label>\n" +
-    "        <input ng-model=\"searchText\" class=\"form-control\">\n" +
-    "    </div>\n" +
-    "            <div class=\"form-group\">\n" +
-    "                <label for=\"filter\">Sort:</label>\n" +
-    "        <select ng-model=\"sortOrder\" class=\"form-control\">\n" +
-    "            <option value=\"value[0].title\">Alphabetical</option>\n" +
-    "            <option value=\"rating\">Proficiency</option>\n" +
-    "        </select>\n" +
-    "    </div>\n" +
-    "      <h3>\n" +
-    "        Requested Skills\n" +
-    "      </h3>\n" +
-    "      <div ng-repeat=\"skill in skills\">\n" +
-    "        <div ng-repeat=\"set in skill.sets\">\n" +
-    "        <div ng-repeat=\"value in set.value\" ng-show=\"value.active\" ng-click=\"remove(value)\" class=\"pointer\">\n" +
-    "            <span class=\"label label-success\">{{value.title}} <i class=\"icon-star\"> {{set.rating}}</i></span> <span class=\"label label-danger\"></span><i class=\"icon-remove-sign\"></i>\n" +
-    "        </div>\n" +
-    "        </div>\n" +
-    "      </div>\n" +
-    "    </div>\n" +
-    "    <div class=\"col-md-9\">\n" +
-    "      <h1 class=\"page-header\">\n" +
-    "        Skills \n" +
-    "      </h1>\n" +
-    "      <div ng-repeat=\"skill in skills\">\n" +
-    "        <p>\n" +
-    "        <h3><span ng-repeat=\"category in skill.categories\">{{category.title}}<span ng-show=\" ! $last \">, </span></span></h4>\n" +
-    "        </p>\n" +
-    "        <div ng-repeat=\"set in skill.sets | orderBy:sortOrder:true | filter:searchText\">\n" +
-    "            <div class=\"row\">\n" +
-    "            <div class=\"col-md-6\">\n" +
-    "        <button class=\"btn btn-default\" button-toggle=\"active btn-success\" ng-repeat=\"value in set.value\" ng-model=\"value\"></button>\n" +
-    "        </div>\n" +
-    "            <div class=\"col-md-3\">\n" +
-    "        <rating value=\"set.rating\" max=\"5\" readonly=\"true\"></rating>{{set.rating}}\n" +
-    "            </div>\n" +
+    "        <div class=\"form-group\">\n" +
+    "            <div class=\"input-group\">\n" +
+    "                <input ng-model=\"searchText\" class=\"form-control\">\n" +
+    "                <span class=\"input-group-addon\">\n" +
+    "                    <span class=\"glyphicon glyphicon-search\"></span>\n" +
+    "                </span>\n" +
     "            </div>\n" +
     "        </div>\n" +
-    "      </div>\n" +
-    "</div>\n" +
-    "");
-}]);
-
-angular.module("social/social.tpl.html", []).run(["$templateCache", function($templateCache) {
-  $templateCache.put("social/social.tpl.html",
-    "<div class=\"row\">\n" +
-    "    <div class=\"col-md-3\">\n" +
-    "            <div class=\"form-group\">\n" +
-    "                <label for=\"filter\">Filter:</label>\n" +
-    "        <input ng-model=\"searchText\" class=\"form-control\">\n" +
-    "    </div>\n" +
-    "      <h3>\n" +
-    "        Requested Skills\n" +
-    "      </h3>\n" +
-    "      <div ng-repeat=\"skill in skills\">\n" +
-    "        <div ng-repeat=\"set in skill.sets\">\n" +
-    "        <div ng-repeat=\"value in set.value\" ng-show=\"value.active\" ng-click=\"remove(value)\" class=\"pointer\">\n" +
-    "            <span class=\"label label-success\">{{value.title}} <i class=\"icon-star\"> {{set.rating}}</i></span> <span class=\"label label-danger\"></span><i class=\"icon-remove-sign\"></i>\n" +
+    "        <div class=\"form-group\">\n" +
+    "            <div class=\"input-group\">\n" +
+    "                <select ng-model=\"sortOrder\" class=\"form-control\">\n" +
+    "                    <option value=\"value[0].title\">Alphabetical</option>\n" +
+    "                    <option value=\"rating\">Proficiency</option>\n" +
+    "                </select>\n" +
+    "                <span class=\"input-group-addon\">\n" +
+    "                    <span class=\"glyphicon glyphicon-sort\"></span>\n" +
+    "                </span>\n" +
+    "            </div>\n" +
     "        </div>\n" +
+    "        <div class=\"panel panel-default\">\n" +
+    "            <div class=\"panel-heading\">\n" +
+    "                <h3 class=\"panel-title\">Requested Skills</h3>\n" +
+    "            </div>\n" +
+    "            <div class=\"panel-body\">\n" +
+    "                <div class=\"alert alert-warning alert-dismissable\">\n" +
+    "                    <strong>Looking for a consultant?</strong> Select desired skills as you browse to store them in this panel for easy viewing.\n" +
+    "                    <button type=\"button\" class=\"close\" data-dismiss=\"alert\" aria-hidden=\"true\">x</button>\n" +
+    "                </div>\n" +
+    "                <div ng-repeat=\"skill in skills\">\n" +
+    "                    <div ng-repeat=\"set in skill.sets\">\n" +
+    "                        <div ng-repeat=\"value in set.value\" ng-show=\"value.active\" ng-click=\"remove(value)\" class=\"pointer\">\n" +
+    "                                <p class=\"sidebar-spacer\">\n" +
+    "                                <span class=\"label label-success stored\">{{value.title}} <i class=\"icon-star\"> {{set.rating}}</i> <button type=\"button\" class=\"close stored\" data-dismiss=\"alert\" aria-hidden=\"true\"><strong>x</strong></button></span>\n" +
+    "                                </p>\n" +
+    "                        </div>\n" +
+    "                    </div>\n" +
+    "                </div>\n" +
+    "            </div>\n" +
     "        </div>\n" +
-    "      </div>\n" +
     "    </div>\n" +
     "    <div class=\"col-md-9\">\n" +
-    "      <h1 class=\"page-header\">\n" +
-    "          Social\n" +
-    "      </h1>\n" +
-    "      <p>\n" +
-    "      </p>\n" +
-    "      <div ng-repeat=\"s in social | filter:searchText\">\n" +
-    "      <div ng-repeat=\"value in s.value\">\n" +
-    "        <p>\n" +
-    "        <h3>{{value.title}}</h3>\n" +
-    "        </p>\n" +
-    "        <p>{{value.description}}</p>\n" +
-    "        <a href=\"{{value.link}}\">{{value.link}}</a>\n" +
-    "    </div>\n" +
-    "      </div>\n" +
+    "        <div ng-repeat=\"skill in skills\">\n" +
+    "            <div class=\"panel panel-default\" ng-repeat=\"category in skill.categories\">\n" +
+    "                <div class=\"panel-heading\">\n" +
+    "                    <h3 class=\"panel-title\">{{category.title}}</h3>\n" +
+    "                </div>\n" +
+    "                <div class=\"panel-body\">\n" +
+    "\n" +
+    "                    <div ng-repeat=\"set in skill.sets | orderBy:sortOrder:true | filter:searchText\">\n" +
+    "                        <div class=\"row\">\n" +
+    "                            <div class=\"col-md-5\">\n" +
+    "                                <p>\n" +
+    "                                <button class=\"btn btn-default btn-sm\" button-toggle=\"active btn-primary\" ng-repeat=\"value in set.value\" ng-model=\"value\"></button>\n" +
+    "                                </p>\n" +
+    "                            </div>\n" +
+    "                            <div class=\"col-md-4\">\n" +
+    "                                <rating value=\"set.rating\" max=\"5\" readonly=\"true\"></rating>{{set.rating}}\n" +
+    "                            </div>\n" +
+    "                        </div>\n" +
+    "                    </div>\n" +
+    "                </div>\n" +
+    "            </div>\n" +
+    "        </div>\n" +
+    "\n" +
     "    </div>\n" +
     "</div>\n" +
     "");

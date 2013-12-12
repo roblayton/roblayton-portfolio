@@ -69,12 +69,25 @@ angular.module('codeboxsystems.data.PortfolioDataService', ['codeboxsystems.mock
 				}
 			}
 		},
-		fetchSocialByUser: function(user, callbacks) {
+		fetchEducationByUser: function(user, callbacks) {
 			try {
-				var social = client.fetchSocialByUser(user);
+				var education = client.fetchEducationByUser(user);
 
 				if (callbacks.onSuccess) {
-					callbacks.onSuccess(social);
+					callbacks.onSuccess(education);
+				}
+			} catch(err) {
+				if (callbacks.onErr) {
+					callbacks.onErr(err);
+				}
+			}
+		},
+		fetchWorkloadData: function(callbacks) {
+			try {
+				var workload = client.fetchWorkloadData();
+
+				if (callbacks.onSuccess) {
+					callbacks.onSuccess(workload);
 				}
 			} catch(err) {
 				if (callbacks.onErr) {

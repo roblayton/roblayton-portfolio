@@ -17,6 +17,7 @@ module.exports = function ( karma ) {
       'vendor/angular-ui-utils/modules/route/route.js',
       'vendor/angular-mocks/angular-mocks.js',
       'vendor/requirejs/require.js',
+      'vendor/bootstrap/js/alert.js',
       'vendor/bootstrap/js/collapse.js',
       'vendor/bootstrap/js/transition.js',
       'vendor/bootstrap/js/modal.js',
@@ -27,6 +28,7 @@ module.exports = function ( karma ) {
       'vendor/canvasjs-1.3.0beta/canvasjs-chart.js',
       'vendor/canvasjs-1.3.0beta/CanvasJSChartFormatter.js',
       'vendor/google/crypto-js/sha1.js',
+      'vendor/google/gcharts/gcharts.js',
       'build/templates-app.js',
       'build/templates-common.js',
       

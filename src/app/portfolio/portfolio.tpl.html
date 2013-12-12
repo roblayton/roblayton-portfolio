@@ -1,37 +1,57 @@
 <div class="row">
     <div class="col-md-3">
-            <div class="form-group">
-                <label for="filter">Filter:</label>
-        <input ng-model="searchText" class="form-control">
-    </div>
-      <h3>
-        Requested Skills
-      </h3>
-      <div ng-repeat="skill in skills">
-        <div ng-repeat="set in skill.sets">
-        <div ng-repeat="value in set.value" ng-show="value.active" ng-click="remove(value)" class="pointer">
-            <span class="label label-success">{{value.title}} <i class="icon-star"> {{set.rating}}</i></span> <span class="label label-danger"></span><i class="icon-remove-sign"></i>
+        <div class="form-group">
+            <div class="input-group">
+                <input ng-model="searchText" class="form-control">
+                <span class="input-group-addon">
+                    <span class="glyphicon glyphicon-search"></span>
+                </span>
+            </div>
         </div>
+        <div class="form-group">
+            <div class="input-group">
+                <select ng-model="sortOrder" class="form-control" disabled>
+                    <option value="value[0].title">Alphabetical</option>
+                    <option value="rating">Proficiency</option>
+                </select>
+                <span class="input-group-addon">
+                    <span class="glyphicon glyphicon-sort"></span>
+                </span>
+            </div>
         </div>
-      </div>
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h3 class="panel-title">Requested Skills</h3>
+            </div>
+            <div class="panel-body">
+                <div class="alert alert-warning alert-dismissable">
+                    <strong>Looking to hire me?</strong> Selecting skills will store them in this panel to give you an easy overview.
+                    <button type="button" class="close" data-dismiss="alert" aria-hidden="true">x</button>
+                </div>
+                <div ng-repeat="skill in skills">
+                    <div ng-repeat="set in skill.sets">
+                        <div ng-repeat="value in set.value" ng-show="value.active" ng-click="remove(value)" class="pointer">
+                            <span class="label label-success">{{value.title}} <i class="icon-star"> {{set.rating}}</i></span> <span class="label label-danger"></span><i class="icon-remove-sign"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
     <div class="col-md-9">
-      <h1 class="page-header">
-          Portfolio
-      </h1>
-      <p>
-      </p>
-      <div ng-repeat="p in portfolio | filter:searchText">
-      <div ng-repeat="value in p.value">
-        <p>
-        <h3>{{value.title}}</h3>
-        </p>
-        <p>{{value.description}}</p>
-        <a href="{{value.link}}">{{value.link}}</a>
-    </div>
-        <p>
-          <button button-toggle="active btn-success" class="btn btn-default btn-xs" ng-repeat="skill in p.skills" ng-model="skill"></button> 
-        </p>
-      </div>
+        <div ng-repeat="p in portfolio | filter:searchText">
+            <div class="panel panel-default" ng-repeat="value in p.value">
+                <div class="panel-heading">
+                    <h3 class="panel-title">{{value.title}}</h3>
+                </div>
+                <div class="panel-body">
+                    <p>{{value.description}}</p>
+                    <p><a href="{{value.link}}">{{value.link}}</a></p>
+                <p>
+                <button button-toggle="active btn-success" class="btn btn-default btn-xs" ng-repeat="skill in p.skills" ng-model="skill"></button> 
+                </p>
+                </div>
+            </div>
+        </div>
     </div>
 </div>

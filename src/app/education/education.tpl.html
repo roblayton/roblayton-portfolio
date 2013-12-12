@@ -39,36 +39,16 @@
         </div>
     </div>
     <div class="col-md-9">
-        <div class="panel panel-default">
+        <div ng-repeat="edu in education | filter:searchText">
+        <div class="panel panel-default" ng-repeat="value in edu.value">
             <div class="panel-heading">
-                <h3 class="panel-title">Contact Info</h3>
+                <h3 class="panel-title">{{value.facility}}</h3>
             </div>
             <div class="panel-body">
-                <p>
-                I am currently available for part-time freelance web development and front end consulting. The best way to contact me is by email.
+                <h4>{{value.title}}</h4>
                 </p>
-                <p>
-                <span class="glyphicon glyphicon-envelope"></span> <a href="mailto:hire.rob.layton@gmail.com">hire.rob.layton@gmail.com</a>
-                </p>
-            </div>
-        </div>
-        <div class="panel panel-default">
-            <div class="panel-heading">
-                <h3 class="panel-title">Social Networks</h3>
-            </div>
-            <div class="panel-body">
-                <table class="table">
-                    <tr>
-                        <td><a href="https://docs.google.com/document/d/1Iqkc-8_73aZsBJZyE4bMCEJtVsgQcXAJXdlBDHu26bc/pub">Resume</a></td>
-                        <td><a href="http://beknown.com/roblayton">Monster</a></td>
-                        <td><a href="http://www.linkedin.com/in/roblayton">LinkedIn</a></td>
-                    </td>
-                    <tr>
-                        <td><a href="http://roblayton.tumblr.com">Tumblr</td>
-                        <td><a href="http://www.twitter.com/roblayton">Twitter</td>
-                        <td></td>
-                    </tr>
-                </table>
+                <h5><span class="label label-default">{{value.startDate}} - {{value.endDate}}</span></h5>
+                <p>{{value.description}}</p>
             </div>
         </div>
     </div>
