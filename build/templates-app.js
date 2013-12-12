@@ -43,15 +43,10 @@ angular.module("education/education.tpl.html", []).run(["$templateCache", functi
     "            </div>\n" +
     "        </div>\n" +
     "        <div class=\"form-group\">\n" +
-    "            <div class=\"input-group\">\n" +
-    "                <select ng-model=\"sortOrder\" class=\"form-control\" disabled>\n" +
-    "                    <option value=\"value[0].title\">Alphabetical</option>\n" +
-    "                    <option value=\"rating\">Proficiency</option>\n" +
-    "                </select>\n" +
-    "                <span class=\"input-group-addon\">\n" +
-    "                    <span class=\"glyphicon glyphicon-sort\"></span>\n" +
-    "                </span>\n" +
-    "            </div>\n" +
+    "            <select ng-model=\"sortOrder\" class=\"form-control\" disabled>\n" +
+    "                <option value=\"value[0].title\">Alphabetical</option>\n" +
+    "                <option value=\"rating\">Proficiency</option>\n" +
+    "            </select>\n" +
     "        </div>\n" +
     "        <div class=\"panel panel-default\">\n" +
     "            <div class=\"panel-heading\">\n" +
@@ -111,15 +106,10 @@ angular.module("experience/experience.tpl.html", []).run(["$templateCache", func
     "            </div>\n" +
     "        </div>\n" +
     "        <div class=\"form-group\">\n" +
-    "            <div class=\"input-group\">\n" +
-    "                <select ng-model=\"sortOrder\" class=\"form-control\">\n" +
-    "                    <option value=\"\">Chronological</option>\n" +
-    "                    <option value=\"months\">Tenure</option>\n" +
-    "                </select>\n" +
-    "                <span class=\"input-group-addon\">\n" +
-    "                    <span class=\"glyphicon glyphicon-sort\"></span>\n" +
-    "                </span>\n" +
-    "            </div>\n" +
+    "            <select ng-model=\"sortOrder\" class=\"form-control\">\n" +
+    "                <option value=\"\">Chronological</option>\n" +
+    "                <option value=\"months\">Tenure</option>\n" +
+    "            </select>\n" +
     "        </div>\n" +
     "        <div class=\"panel panel-default\">\n" +
     "            <div class=\"panel-heading\">\n" +
@@ -186,15 +176,10 @@ angular.module("hireme/hireme.tpl.html", []).run(["$templateCache", function($te
     "            </div>\n" +
     "        </div>\n" +
     "        <div class=\"form-group\">\n" +
-    "            <div class=\"input-group\">\n" +
-    "                <select ng-model=\"sortOrder\" class=\"form-control\" disabled>\n" +
-    "                    <option value=\"value[0].title\">Alphabetical</option>\n" +
-    "                    <option value=\"rating\">Proficiency</option>\n" +
-    "                </select>\n" +
-    "                <span class=\"input-group-addon\">\n" +
-    "                    <span class=\"glyphicon glyphicon-sort\"></span>\n" +
-    "                </span>\n" +
-    "            </div>\n" +
+    "            <select ng-model=\"sortOrder\" class=\"form-control\" disabled>\n" +
+    "                <option value=\"value[0].title\">Alphabetical</option>\n" +
+    "                <option value=\"rating\">Proficiency</option>\n" +
+    "            </select>\n" +
     "        </div>\n" +
     "        <div class=\"panel panel-default\">\n" +
     "            <div class=\"panel-heading\">\n" +
@@ -272,15 +257,10 @@ angular.module("home/home.tpl.html", []).run(["$templateCache", function($templa
     "            </div>\n" +
     "        </div>\n" +
     "        <div class=\"form-group\">\n" +
-    "            <div class=\"input-group\">\n" +
-    "                <select ng-model=\"sortOrder\" class=\"form-control\" disabled>\n" +
-    "                    <option value=\"value[0].title\">Alphabetical</option>\n" +
-    "                    <option value=\"rating\">Proficiency</option>\n" +
-    "                </select>\n" +
-    "                <span class=\"input-group-addon\">\n" +
-    "                    <span class=\"glyphicon glyphicon-sort\"></span>\n" +
-    "                </span>\n" +
-    "            </div>\n" +
+    "            <select ng-model=\"sortOrder\" class=\"form-control\" disabled>\n" +
+    "                <option value=\"value[0].title\">Alphabetical</option>\n" +
+    "                <option value=\"rating\">Proficiency</option>\n" +
+    "            </select>\n" +
     "        </div>\n" +
     "        <div class=\"panel panel-default\">\n" +
     "            <div class=\"panel-heading\">\n" +
@@ -322,13 +302,13 @@ angular.module("home/home.tpl.html", []).run(["$templateCache", function($templa
     "                <div id=\"collapseOne\" class=\"panel-collapse collapse in\">\n" +
     "                    <div class=\"panel-body\">\n" +
     "                        <p>\n" +
-    "                        I am the Director of Web Engineering at Adcade, a freelance Sr. Web Developer, and Front End Consultant. My primary focus is front end web development, but i also specialize in back end development, deployment, and management. \n" +
+    "                        I am the Director of Web Engineering at Adcade, a freelance Sr. Web Developer, and Front End Consultant. My primary focus is front end web development, but I also specialize in back end development, deployment, and management. \n" +
     "                        </p>\n" +
     "                        <p>\n" +
     "                        I'm currently working with a tech startup where I am the direct supervisor to a team of 4 web engineers. My daily responsibilities involve strategic planning, mentoring, hands-on development, writing automated tests, performing code reviews, managing product releases, leading scrum meetings, and communicating and carrying out JAD sessions with other department leads.\n" +
     "                        </p>\n" +
     "                        <p>\n" +
-    "                        Professionally, my number one passion is working with teams of developers. Outside of work, my passions include rock climbing, bouldering, playing the guitar, digital illustration, photography, electrical engineering, and archery. I'm 28 years old. I love NY.\n" +
+    "                        Professionally, my number one passion is working with teams of developers. Outside of work, my passions include rock climbing, bouldering, playing the guitar, digital illustration, photography, electrical engineering, and archery.\n" +
     "                        </p>\n" +
     "                        <p>\n" +
     "                        I built this portfolio using <a href=\"http://angularjs.org/\" target=\"_blank\">AngularJS</a>.\n" +
@@ -420,15 +400,10 @@ angular.module("portfolio/portfolio.tpl.html", []).run(["$templateCache", functi
     "            </div>\n" +
     "        </div>\n" +
     "        <div class=\"form-group\">\n" +
-    "            <div class=\"input-group\">\n" +
-    "                <select ng-model=\"sortOrder\" class=\"form-control\" disabled>\n" +
-    "                    <option value=\"value[0].title\">Alphabetical</option>\n" +
-    "                    <option value=\"rating\">Proficiency</option>\n" +
-    "                </select>\n" +
-    "                <span class=\"input-group-addon\">\n" +
-    "                    <span class=\"glyphicon glyphicon-sort\"></span>\n" +
-    "                </span>\n" +
-    "            </div>\n" +
+    "            <select ng-model=\"sortOrder\" class=\"form-control\" disabled>\n" +
+    "                <option value=\"value[0].title\">Alphabetical</option>\n" +
+    "                <option value=\"rating\">Proficiency</option>\n" +
+    "            </select>\n" +
     "        </div>\n" +
     "        <div class=\"panel panel-default\">\n" +
     "            <div class=\"panel-heading\">\n" +
@@ -518,15 +493,10 @@ angular.module("skills/skills.tpl.html", []).run(["$templateCache", function($te
     "            </div>\n" +
     "        </div>\n" +
     "        <div class=\"form-group\">\n" +
-    "            <div class=\"input-group\">\n" +
-    "                <select ng-model=\"sortOrder\" class=\"form-control\">\n" +
-    "                    <option value=\"value[0].title\">Alphabetical</option>\n" +
-    "                    <option value=\"rating\">Proficiency</option>\n" +
-    "                </select>\n" +
-    "                <span class=\"input-group-addon\">\n" +
-    "                    <span class=\"glyphicon glyphicon-sort\"></span>\n" +
-    "                </span>\n" +
-    "            </div>\n" +
+    "            <select ng-model=\"sortOrder\" class=\"form-control\">\n" +
+    "                <option value=\"value[0].title\">Alphabetical</option>\n" +
+    "                <option value=\"rating\">Proficiency</option>\n" +
+    "            </select>\n" +
     "        </div>\n" +
     "        <div class=\"panel panel-default\">\n" +
     "            <div class=\"panel-heading\">\n" +
