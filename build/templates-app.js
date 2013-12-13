@@ -55,7 +55,7 @@ angular.module("education/education.tpl.html", []).run(["$templateCache", functi
     "            <div class=\"panel-body\">\n" +
     "                <div ng-hide=\"isActiveSkill()\">\n" +
     "                <div class=\"alert alert-warning\">\n" +
-    "                    <strong>Looking for a consultant?</strong> Select desired skills as you browse to store them in this panel for easy viewing.\n" +
+    "                    <strong>Looking to hire me on as a consultant?</strong> Select desired skills as you browse for easy copying to your clipboard.\n" +
     "                    <!--<button type=\"button\" class=\"close\" data-dismiss=\"alert\" aria-hidden=\"true\">x</button>-->\n" +
     "                </div>\n" +
     "            </div>\n" +
@@ -118,7 +118,7 @@ angular.module("experience/experience.tpl.html", []).run(["$templateCache", func
     "            <div class=\"panel-body\">\n" +
     "                <div ng-hide=\"isActiveSkill()\">\n" +
     "                <div class=\"alert alert-warning\">\n" +
-    "                    <strong>Looking for a consultant?</strong> Select desired skills as you browse to store them in this panel for easy viewing.\n" +
+    "                    <strong>Looking to hire me on as a consultant?</strong> Select desired skills as you browse for easy copying to your clipboard.\n" +
     "                    <!--<button type=\"button\" class=\"close\" data-dismiss=\"alert\" aria-hidden=\"true\">x</button>-->\n" +
     "                </div>\n" +
     "            </div>\n" +
@@ -188,7 +188,7 @@ angular.module("hireme/hireme.tpl.html", []).run(["$templateCache", function($te
     "            <div class=\"panel-body\">\n" +
     "                <div ng-hide=\"isActiveSkill()\">\n" +
     "                <div class=\"alert alert-warning\">\n" +
-    "                    <strong>Looking for a consultant?</strong> Select desired skills as you browse to store them in this panel for easy viewing.\n" +
+    "                    <strong>Looking to hire me on as a consultant?</strong> Select desired skills as you browse for easy copying to your clipboard.\n" +
     "                    <!--<button type=\"button\" class=\"close\" data-dismiss=\"alert\" aria-hidden=\"true\">x</button>-->\n" +
     "                </div>\n" +
     "            </div>\n" +
@@ -269,7 +269,7 @@ angular.module("home/home.tpl.html", []).run(["$templateCache", function($templa
     "            <div class=\"panel-body\">\n" +
     "                <div ng-hide=\"isActiveSkill()\">\n" +
     "                <div class=\"alert alert-warning\">\n" +
-    "                    <strong>Looking for a consultant?</strong> Select desired skills as you browse to store them in this panel for easy viewing.\n" +
+    "                    <strong>Looking to hire me on as a consultant?</strong> Select desired skills as you browse for easy copying to your clipboard.\n" +
     "                    <!--<button type=\"button\" class=\"close\" data-dismiss=\"alert\" aria-hidden=\"true\">x</button>-->\n" +
     "                </div>\n" +
     "            </div>\n" +
@@ -308,7 +308,7 @@ angular.module("home/home.tpl.html", []).run(["$templateCache", function($templa
     "                        I'm currently working with a tech startup where I am the direct supervisor to a team of 4 web engineers. My daily responsibilities involve strategic planning, mentoring, hands-on development, writing automated tests, performing code reviews, managing product releases, leading scrum meetings, and communicating and carrying out JAD sessions with other department leads.\n" +
     "                        </p>\n" +
     "                        <p>\n" +
-    "                        Professionally, my number one passion is working with teams of developers. Outside of work, my passions include rock climbing, bouldering, playing the guitar, digital illustration, photography, electrical engineering, and archery.\n" +
+    "                        Professionally, my number one passion is working with teams of developers. Outside of work, my passions include rock climbing, bouldering, playing the guitar, digital illustration, photography, electrical engineering, and archery. I currently reside in New York City.\n" +
     "                        </p>\n" +
     "                        <p>\n" +
     "                        I built this portfolio using <a href=\"http://angularjs.org/\" target=\"_blank\">AngularJS</a>.\n" +
@@ -412,7 +412,7 @@ angular.module("portfolio/portfolio.tpl.html", []).run(["$templateCache", functi
     "            <div class=\"panel-body\">\n" +
     "                <div ng-hide=\"isActiveSkill()\">\n" +
     "                <div class=\"alert alert-warning\">\n" +
-    "                    <strong>Looking for a consultant?</strong> Select desired skills as you browse to store them in this panel for easy viewing.\n" +
+    "                    <strong>Looking to hire me on as a consultant?</strong> Select desired skills as you browse for easy copying to your clipboard.\n" +
     "                    <!--<button type=\"button\" class=\"close\" data-dismiss=\"alert\" aria-hidden=\"true\">x</button>-->\n" +
     "                </div>\n" +
     "            </div>\n" +
@@ -442,7 +442,7 @@ angular.module("portfolio/portfolio.tpl.html", []).run(["$templateCache", functi
     "                    <p>{{value.description}}</p>\n" +
     "                    <p><a href=\"{{value.link}}\" target=\"_blank\">{{value.link}}</a></p>\n" +
     "                <p>\n" +
-    "                <button button-toggle=\"active btn-success\" class=\"btn btn-default btn-xs\" ng-repeat=\"skill in p.skills\" ng-model=\"skill\"></button> \n" +
+    "                <button button-toggle=\"active btn-primary\" class=\"btn btn-default btn-xs\" ng-repeat=\"skill in p.skills\" ng-model=\"skill\"></button> \n" +
     "                </p>\n" +
     "                </div>\n" +
     "            </div>\n" +
@@ -505,7 +505,7 @@ angular.module("skills/skills.tpl.html", []).run(["$templateCache", function($te
     "            <div class=\"panel-body\">\n" +
     "                <div ng-hide=\"isActiveSkill()\">\n" +
     "                <div class=\"alert alert-warning\">\n" +
-    "                    <strong>Looking for a consultant?</strong> Select desired skills as you browse to store them in this panel for easy viewing.\n" +
+    "                    <strong>Looking to hire me on as a consultant?</strong> Select desired skills as you browse for easy copying to your clipboard.\n" +
     "                    <!--<button type=\"button\" class=\"close\" data-dismiss=\"alert\" aria-hidden=\"true\">x</button>-->\n" +
     "                </div>\n" +
     "            </div>\n" +
