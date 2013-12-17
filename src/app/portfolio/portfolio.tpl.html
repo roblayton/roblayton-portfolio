@@ -1,5 +1,5 @@
 <div class="row">
-    <div class="col-md-3">
+    <div class="sidebar col-md-3">
         <div class="form-group">
             <div class="input-group">
                 <input ng-model="searchText" class="form-control">
@@ -21,22 +21,24 @@
             <div class="panel-body">
                 <div ng-hide="isActiveSkill()">
                 <div class="alert alert-warning">
-                    <strong>Looking for a consultant?</strong> Select desired skills as you browse to store them in this panel for easy viewing.
+                    <strong>Looking to hire me on as a consultant?</strong> Select desired skills as you browse to store them in this panel for easy viewing.
                     <!--<button type="button" class="close" data-dismiss="alert" aria-hidden="true">x</button>-->
                 </div>
             </div>
             <p></p>
-                <div ng-repeat="skill in skills">
-                    <div ng-repeat="set in skill.sets">
-                        <div ng-repeat="value in set.value" ng-show="value.active" ng-click="remove(value)" class="pointer">
-                                <p class="sidebar-spacer">
-                                <span class="label label-success stored">{{value.title}} <i class="icon-star"> {{set.rating}}</i> <button type="button" class="close stored" data-dismiss="alert" aria-hidden="true"><strong>x</strong></button></span>
-                                </p>
+                <div class="skill" ng-repeat="skill in skills">
+                    <div class="skill" ng-repeat="set in skill.sets">
+                        <div class="skill" ng-repeat="value in set.value" ng-show="value.active" ng-click="remove(value)" class="pointer">
+                            <div class="skill-cont"><div class="btn btn-success stored">{{value.title}} <i class="icon-star">{{set.rating}} </i><button type="button" class="stored" data-dismiss="alert" aria-hidden="true"><strong>x</strong></button></div></div>
                         </div>
                     </div>
                 </div>
+                <p></p>
                 <div ng-show="isActiveSkill()">
-                <a href="" clip-copy="copySkills()" clip-click="copyLink()">Copy to clipboard</a>
+                    <a class="link" href="" clip-copy="copySkills()" clip-click="copyLink()">Copy to clipboard</a>
+                    <div class="alert alert-success alert-dismissable" style="display: none">
+                        Copied!
+                    </div>
                 </div>
             </div>
         </div>
@@ -51,7 +53,7 @@
                     <p>{{value.description}}</p>
                     <p><a href="{{value.link}}" target="_blank">{{value.link}}</a></p>
                 <p>
-                <button button-toggle="active btn-success" class="btn btn-default btn-xs" ng-repeat="skill in p.skills" ng-model="skill"></button> 
+                <div class="skill-cont"><button button-simple="active btn-primary" class="btn btn-default btn-xs" ng-repeat="skill in p.skills" ng-model="skill"></button></div>
                 </p>
                 </div>
             </div>

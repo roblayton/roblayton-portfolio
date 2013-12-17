@@ -21,6 +21,8 @@ module.exports = function ( karma ) {
       'vendor/bootstrap/js/collapse.js',
       'vendor/bootstrap/js/transition.js',
       'vendor/bootstrap/js/modal.js',
+      'vendor/bootstrap/js/tooltip.js',
+      'vendor/bootstrap/js/popover.js',
       'vendor/bootstrap-tree/js/bootstrap-tree.js',
       'vendor/bootstrap-datetimepicker/js/bootstrap-datetimepicker.lib.min.js',
       'vendor/bootstrap-datetimepicker/js/bootstrap-datetimepicker.js',

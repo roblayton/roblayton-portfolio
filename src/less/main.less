@@ -10,9 +10,12 @@
  * project should be imported as the rest are just wasting space.
  */
 
+@import '../../vendor/bootstrap/less/responsive-utilities.less';
 @import '../../vendor/bootstrap/less/glyphicons.less';
 @import '../../vendor/bootstrap/less/close.less';
 @import '../../vendor/bootstrap/less/list-group.less';
+@import '../../vendor/bootstrap/less/tooltip.less';
+@import '../../vendor/bootstrap/less/popovers.less';
 @import '../../vendor/bootstrap/less/tables.less';
 @import '../../vendor/bootstrap/less/mixins.less';
 @import '../../vendor/bootstrap/less/labels.less';
@@ -190,17 +193,13 @@ h2 {
 }
 
 .stored {
-    padding: 5px;
+    /*padding: 5px;*/
     font-size: 12px;
     font-weight: normal;
-}
-
-.sidebar-spacer {
-    margin: 0 0 24px 0;
-}
-
-.pill-spacer {
-    margin: 12px 12px 0 0;
+    button {
+        border: none;
+        background-color: #fff;
+    }
 }
 
 .navbar-nav > li > a {
@@ -221,13 +220,41 @@ h2 {
     font-size: 12px;
     }
 
-.btn {
-    padding: 10px;
-    }
-
 .panel-title {
     font-size: 14px;
     }
+
+.skill, .skill-cont, .skill-cont-sm {
+    display: inline;
+    margin: 0;
+    padding: 0;
+}
+
+.skill-cont .btn{
+    text-align: left
+}
+
+.btn {
+    padding: 10px;
+    margin: 4px;
+}
+
+.skills {
+    .btn {
+    margin: 6px 4px;
+
+        }
+}
+
+/*Responsive*/
+@media (min-width: @screen-md-min) {
+    .sidebar .skill {
+        display: block;
+    }
+}
+
+@media (max-width: @screen-md-max) {
+}
 
 /**
  * Now that all app-wide styles have been applied, we can load the styles for

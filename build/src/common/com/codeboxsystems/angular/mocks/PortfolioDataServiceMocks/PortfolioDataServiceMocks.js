@@ -17,7 +17,7 @@ angular.module('codeboxsystems.mocks.PortfolioDataServiceMocks', ['codeboxsystem
 		},
 		{
 			id: '3',
-			title: 'HTML(4/5)',
+			title: 'HTML',
 			active: false
 		},
 		{
@@ -381,10 +381,6 @@ angular.module('codeboxsystems.mocks.PortfolioDataServiceMocks', ['codeboxsystem
 					rating: 5
 				},
 				{
-					value: '2',
-					rating: 3
-				},
-				{
 					value: '3',
 					rating: 5
 				},
@@ -393,8 +389,16 @@ angular.module('codeboxsystems.mocks.PortfolioDataServiceMocks', ['codeboxsystem
 					rating: 5
 				},
 				{
+					value: '5',
+					rating: 4
+				},
+				{
 					value: '7',
 					rating: 4
+				},
+				{
+					value: '2',
+					rating: 3
 				},
 				{
 					value: '14',
@@ -416,20 +420,24 @@ angular.module('codeboxsystems.mocks.PortfolioDataServiceMocks', ['codeboxsystem
 					rating: 5
 				},
 				{
-					value: '8',
-					rating: 3
-				},
-				{
 					value: '9',
 					rating: 5
+				},
+				{
+					value: '8',
+					rating: 3
 				},
 				{
 					value: '10',
 					rating: 3
 				},
+				{
+					value: '33',
+					rating: 3
+				},
                 {
                     value: '32',
-                    rating: '2'
+                    rating: 2
                 },
 				{
 					value: '12',
@@ -438,10 +446,6 @@ angular.module('codeboxsystems.mocks.PortfolioDataServiceMocks', ['codeboxsystem
 				{
 					value: '13',
 					rating: 2
-				},
-				{
-					value: '33',
-					rating: 3
 				}
                 ]
 			},
@@ -452,16 +456,24 @@ angular.module('codeboxsystems.mocks.PortfolioDataServiceMocks', ['codeboxsystem
 					rating: 5
 				},
 				{
-					value: '17',
-					rating: 3
-				},
-				{
 					value: '24',
 					rating: 4
 				},
 				{
 					value: '25',
 					rating: 4
+				},
+				{
+					value: '17',
+					rating: 3
+				},
+				{
+					value: '29',
+					rating: 3
+				},
+				{
+					value: '30',
+					rating: 3
 				},
 				{
 					value: '26',
@@ -474,14 +486,6 @@ angular.module('codeboxsystems.mocks.PortfolioDataServiceMocks', ['codeboxsystem
 				{
 					value: '28',
 					rating: 2
-				},
-				{
-					value: '29',
-					rating: 3
-				},
-				{
-					value: '30',
-					rating: 3
 				},
                 {
                     value: '11',
