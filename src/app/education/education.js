@@ -35,41 +35,42 @@ angular.module('app.education', ['ui.state', 'placeholders', 'ui.bootstrap', 'co
 		});
 	};
 
-    $scope.copySkills = function() {
-        var str = "I'm interested in hiring you because you are proficient in: \n";
-        var skills = $scope.skills;
-        for (var i = 0, iLen = skills.length; i < iLen; i++) {
-            var skill = skills[i];
-            for (var j = 0, jLen = skill.sets.length; j < jLen; j++) {
-                var value = skill.sets[j].value[0];
-                if (value.active){
-                    str+= value.title + '\n';
-                }
-            }
-        }
+	$scope.copySkills = function() {
+		var str = "I'm interested in hiring you because you are proficient in: \n";
+		var skills = $scope.skills;
+		for (var i = 0, iLen = skills.length; i < iLen; i++) {
+			var skill = skills[i];
+			for (var j = 0, jLen = skill.sets.length; j < jLen; j++) {
+				var value = skill.sets[j].value[0];
+				if (value.active) {
+					str += value.title + '\n';
+				}
+			}
+		}
 
-        return str;
-    };
-    
-    $scope.isActiveSkill = function() {
-        var ctr = 0;
-        var skills = $scope.skills;
-        for (var i = 0, iLen = skills.length; i < iLen; i++) {
-            var skill = skills[i];
-            for (var j = 0, jLen = skill.sets.length; j < jLen; j++) {
-                var value = skill.sets[j].value[0];
-                if (value.active){
-                    return true;
-                }
-            }
-        }
+		return str;
+	};
 
-        return false;
-    };
+	$scope.isActiveSkill = function() {
+		var ctr = 0;
+		var skills = $scope.skills;
+		for (var i = 0, iLen = skills.length; i < iLen; i++) {
+			var skill = skills[i];
+			for (var j = 0, jLen = skill.sets.length; j < jLen; j++) {
+				var value = skill.sets[j].value[0];
+				if (value.active) {
+					return true;
+				}
+			}
+		}
 
-    $scope.remove = function(prop) {
-        prop.active = false;
-    };
+		return false;
+	};
+
+	$scope.remove = function(prop) {
+		prop.active = false;
+	};
 
 	$scope.fetch();
 });
+

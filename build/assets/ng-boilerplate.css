@@ -5831,6 +5831,8 @@ body.modal-open,
  * Typography-related.
  */
 
+/* Colors */
+
 /**
  * Typography
  */
@@ -5979,8 +5981,7 @@ body {
   font-weight: normal;
 }
 
-.stored button {
-  background-color: #fff;
+.btn {
   border: none;
 }
 
@@ -5995,6 +5996,27 @@ body {
 
 .navbar-collapse {
   padding-right: 24px;
+}
+
+.navbar-default {
+  -webkit-border-radius: 0;
+  -webkit-box-shadow: 1px 0 0 #fff inset, 0 1px 0 #fff inset;
+  -webkit-box-shadow: 0 0 46px rgba(0, 0, 0, 0.5);
+     -moz-box-shadow: 1px 0 0 #fff inset, 0 1px 0 #fff inset;
+          box-shadow: 0 0 46px rgba(0, 0, 0, 0.5);
+}
+
+.container {
+  margin-top: 90px;
+}
+
+.panel-default {
+  background-color: #f5f5f5;
+  border: none;
+}
+
+.panel-heading {
+  border-bottom: 1px solid #ddd;
 }
 
 .label {
@@ -6027,6 +6049,46 @@ body {
   margin: 6px 4px;
 }
 
+.alert-warning {
+  color: #fff;
+  background-color: #D9765F;
+  border: none;
+}
+
+.alert-success {
+  color: #fff;
+  background-color: #AAC789;
+}
+
+.btn {
+  border: none;
+}
+
+.btn-primary {
+  background-color: #58A3A6;
+  border: none;
+}
+
+.btn-primary:hover {
+  background-color: #58A3A6;
+  border: none;
+}
+
+.btn-primary.active {
+  color: #000;
+  background-color: #F2D5A0;
+  border: none;
+}
+
+.btn-success {
+  background-color: #58A3A6;
+  border: none;
+}
+
+.btn-success:hover {
+  background-color: #58A3A6;
+}
+
 /*Responsive*/
 
 @media (min-width: 992px) {
@@ -6035,8 +6097,26 @@ body {
   }
 }
 
+a {
+  color: #D9765F;
+}
+
+a:hover {
+  color: #D9765F;
+}
+
+input.form-control:focus {
+  outline: #D9765F;
+}
+
 @media (max-width: 1199px) {
   
+}
+
+textarea,
+input,
+button {
+  outline: #D9765F;
 }
 
 /**

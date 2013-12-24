@@ -343,6 +343,14 @@ angular.module('codeboxsystems.mocks.PortfolioDataServiceMocks', ['codeboxsystem
 			startDate: 'Spring 2004',
 			endDate: 'Fall 2008',
             description: 'Combines the multiple domains of technology, communications, and art to provide extended experience in working in multidisciplinary teams on realistic problems.'
+            },
+            {
+			id: '2',
+			title: 'Computer Science, B.S.',
+            facility: 'Oregon State University',
+			startDate: 'Spring 2014',
+			endDate: 'Fall 2014',
+            description: 'Provides a systems view of computing, emphasizing the interdependence of design, object orientation, and distributed systems and networks, from basic software through systems design.'
 		}
         ];
 
@@ -498,6 +506,8 @@ angular.module('codeboxsystems.mocks.PortfolioDataServiceMocks', ['codeboxsystem
 				skills: ['1', '3', '4', '8', '12', '13', '32']
             }],
             education: [{
+                value: '2'
+            }, {
                 value: '1'
             }],
 			experience: [{

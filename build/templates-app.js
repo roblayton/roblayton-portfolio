@@ -54,11 +54,11 @@ angular.module("education/education.tpl.html", []).run(["$templateCache", functi
     "            </div>\n" +
     "            <div class=\"panel-body\">\n" +
     "                <div ng-hide=\"isActiveSkill()\">\n" +
-    "                    <div class=\"alert alert-warning\">\n" +
+    "                <div class=\"alert alert-warning\">\n" +
     "                    <strong>Looking to hire me on as a consultant?</strong> Select desired skills as you browse to store them in this panel for easy viewing.\n" +
-    "                        <!--<button type=\"button\" class=\"close\" data-dismiss=\"alert\" aria-hidden=\"true\">x</button>-->\n" +
-    "                    </div>\n" +
+    "                    <!--<button type=\"button\" class=\"close\" data-dismiss=\"alert\" aria-hidden=\"true\">x</button>-->\n" +
     "                </div>\n" +
+    "            </div>\n" +
     "                <p></p>\n" +
     "                <div class=\"skill\" ng-repeat=\"skill in skills\">\n" +
     "                    <div class=\"skill\" ng-repeat=\"set in skill.sets\">\n" +
@@ -223,7 +223,7 @@ angular.module("hireme/hireme.tpl.html", []).run(["$templateCache", function($te
     "                <p>\n" +
     "                I am currently available for part-time freelance web development and front end consulting. The best way to contact me is by <a href=\"mailto:hire.rob.layton@gmail.com\" target=\"_blank\" width=\"33%\">email</a>.\n" +
     "                </p>\n" +
-    "                        <p><a href=\"https://docs.google.com/document/d/1Iqkc-8_73aZsBJZyE4bMCEJtVsgQcXAJXdlBDHu26bc/pub\" target=\"_blank\" class=\"btn btn-primary btn-sm pull-right\" role=\"button\">Resume</a></p>\n" +
+    "                    <p>My <a href=\"https://docs.google.com/document/d/1Iqkc-8_73aZsBJZyE4bMCEJtVsgQcXAJXdlBDHu26bc/pub\" target=\"_blank\">resume</a> can be found here.</p>\n" +
     "            </div>\n" +
     "        </div>\n" +
     "        <div class=\"panel panel-default\">\n" +
@@ -298,7 +298,6 @@ angular.module("home/home.tpl.html", []).run(["$templateCache", function($templa
     "        </div>\n" +
     "    </div>\n" +
     "    <div class=\"col-md-9\">\n" +
-    "        <div class=\"panel-group\" id=\"accordion\">\n" +
     "            <div class=\"panel panel-default\">\n" +
     "                <div class=\"panel-heading\">\n" +
     "                    <h4 class=\"panel-title\">\n" +
@@ -307,7 +306,6 @@ angular.module("home/home.tpl.html", []).run(["$templateCache", function($templa
     "                        </a>\n" +
     "                    </h4>\n" +
     "                </div>\n" +
-    "                <div id=\"collapseOne\" class=\"panel-collapse collapse in\">\n" +
     "                    <div class=\"panel-body\">\n" +
     "                        <p>\n" +
     "                        I am the Director of Web Engineering at Adcade, a freelance Sr. Web Developer, and Front End Consultant. My primary focus is front end web development, but I also specialize in back end development, deployment, and management. \n" +
@@ -318,12 +316,8 @@ angular.module("home/home.tpl.html", []).run(["$templateCache", function($templa
     "                        <p>\n" +
     "                        Professionally, my number one passion is working with teams of developers. Outside of work, my passions include rock climbing, bouldering, playing the guitar, digital illustration, photography, electrical engineering, and archery.\n" +
     "                        </p>\n" +
-    "                        <p>\n" +
-    "                        I built this portfolio using <a href=\"http://angularjs.org/\" target=\"_blank\">AngularJS</a>.\n" +
-    "                        </p>\n" +
-    "                        <p><a href=\"https://docs.google.com/document/d/1Iqkc-8_73aZsBJZyE4bMCEJtVsgQcXAJXdlBDHu26bc/pub\" target=\"_blank\" class=\"btn btn-primary btn-sm pull-right\" role=\"button\">Resume</a></p>\n" +
+    "                        <p><a href=\"https://docs.google.com/document/d/1Iqkc-8_73aZsBJZyE4bMCEJtVsgQcXAJXdlBDHu26bc/pub\" target=\"_blank\">Click here</a> to skip right to my resume.</p>\n" +
     "                    </div>\n" +
-    "                </div>\n" +
     "            </div>\n" +
     "            <div class=\"panel panel-default\">\n" +
     "                <div class=\"panel-heading\">\n" +
@@ -333,11 +327,9 @@ angular.module("home/home.tpl.html", []).run(["$templateCache", function($templa
     "                        </a>\n" +
     "                    </h4>\n" +
     "                </div>\n" +
-    "                <div id=\"collapseTwo\" class=\"panel-collapse collapse\">\n" +
     "                    <div class=\"panel-body\">\n" +
     "                        <div workload id=\"chart_div\" style=\"width:400; height:300\"></div>\n" +
     "                    </div>\n" +
-    "                </div>\n" +
     "            </div>\n" +
     "            <div class=\"panel panel-default\">\n" +
     "                <div class=\"panel-heading\">\n" +
@@ -347,7 +339,6 @@ angular.module("home/home.tpl.html", []).run(["$templateCache", function($templa
     "                        </a>\n" +
     "                    </h4>\n" +
     "                </div>\n" +
-    "                <div id=\"collapseThree\" class=\"panel-collapse collapse\">\n" +
     "                    <div class=\"panel-body\">\n" +
     "                        <ul>\n" +
     "                            <li><strong>The Lean Startup</strong> by Eric Ries</li>\n" +
@@ -359,9 +350,7 @@ angular.module("home/home.tpl.html", []).run(["$templateCache", function($templa
     "                            <li><strong>Visualize This: The FlowingData Guide to Design, Visualization and Statistics</strong> by Nathan Yau</li>\n" +
     "                        </ul>\n" +
     "                    </div>\n" +
-    "                </div>\n" +
     "            </div>\n" +
-    "        </div>\n" +
     "    </div>\n" +
     "</div>\n" +
     "");
@@ -514,11 +503,11 @@ angular.module("skills/skills.tpl.html", []).run(["$templateCache", function($te
     "            </div>\n" +
     "            <div class=\"panel-body\">\n" +
     "                <div ng-hide=\"isActiveSkill()\">\n" +
-    "                    <div class=\"alert alert-warning\">\n" +
+    "                <div class=\"alert alert-warning\">\n" +
     "                    <strong>Looking to hire me on as a consultant?</strong> Select desired skills as you browse to store them in this panel for easy viewing.\n" +
-    "                        <!--<button type=\"button\" class=\"close\" data-dismiss=\"alert\" aria-hidden=\"true\">x</button>-->\n" +
-    "                    </div>\n" +
+    "                    <!--<button type=\"button\" class=\"close\" data-dismiss=\"alert\" aria-hidden=\"true\">x</button>-->\n" +
     "                </div>\n" +
+    "            </div>\n" +
     "                <p></p>\n" +
     "                <div class=\"skill\" ng-repeat=\"skill in skills\">\n" +
     "                    <div class=\"skill\" ng-repeat=\"set in skill.sets\">\n" +

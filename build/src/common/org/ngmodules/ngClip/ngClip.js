@@ -9,9 +9,15 @@ directive('clipCopy', ['$window', 'ZeroClipboardPath', function($window, ZeroCli
 		restrict: 'A',
 		link: function(scope, element, attrs) {
 			// Create the clip object
+            if ((/Android|webOS|iPhone|iPod|iPad|BlackBerry/i.test(navigator.userAgent))) {
+                $(element).hide();
+                return false;
+            }
+
 			var clip = new ZeroClipboard(element, {
 				moviePath: ZeroClipboardPath
 			});
+
 
 			// Create the tooltip
 			//var tooltip = $(element[0]).children('.tooltip');
