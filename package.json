@@ -1,16 +1,16 @@
 {
-  "author": "Josh David Miller",
-  "name": "ng-boilerplate",
-  "version": "0.3.0",
-  "homepage": "http://bit.ly/ng-boilerplate",
+  "author": "Rob Layton",
+  "name": "roblayton-portfolio",
+  "version": "0.2",
+  "homepage": "http://www.roblayton.com",
   "licenses": {
-    "type": "MIT",
-    "url": "https://raw.github.com/joshdmiller/ng-boilerplate/master/LICENSE"
+    "type": "BSD",
+    "url": "https://raw.github.com/roblayton/roblayton-portfolio/master/LICENSE"
   },
-  "bugs": "https://github.com/joshdmiller/ng-boilerplate/issues",
+  "bugs": "https://github.com/roblayton/roblayton-portfolio/issues",
   "repository": {
     "type": "git",
-    "url": "git@github.com:joshdmiller/ng-boilerplate.git"
+    "url": "git@github.com:roblayton/roblayton-portfolio.git"
   },
   "dependencies": {},
   "devDependencies": {
