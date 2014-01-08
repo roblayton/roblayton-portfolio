@@ -333,8 +333,64 @@ angular.module('codeboxsystems.mocks.PortfolioDataServiceMocks', ['codeboxsystem
 			title: 'BackboneJS Portfolio',
             description: 'This is a single-page application I built using BackboneJS to showcase my professional portfolio.',
 			link: 'http://www.roblayton.com/samples/backbonejs_portfolio/'
-		}
+		},
+        {
+			id: '2',
+			title: 'Flash Solar System',
+            description: 'Desktop only. The beginnings of a solar system. Designed and developed in the Flash IDE. Control with 1,2,3,4, W,A,S,D, UP, DOWN, LEFT, RIGHT, and Mouse. Please excuse the long load times.',
+			link: 'http://roblayton.com/samples/solar/main.swf'
+        },
+        {
+			id: '3',
+			title: 'Gesture Tracking Cube Prototype',
+            description: 'A prototype that allows the user to manipulate cubes in 3d space using gestures',
+            link: 'http://www.youtube.com/watch?v=4D1x-HyXfdE'
+        },
+        {
+			id: '4',
+			title: 'Gesture Tracking Layers Prototype',
+            description: 'A prototype that allows the user to select different layers of a data model using gestures',
+            link: 'http://www.youtube.com/watch?v=hoFHx7OmBGA'
+        }
         ];
+
+        var assetsDb = [{
+            id: '1',
+            path: 'http://www.roblayton.com/samples/assets/roblayton_backbone_1.png'
+        }, {
+            id: '2',
+            path: 'http://www.roblayton.com/samples/assets/roblayton_backbone_2.png'
+        }, {
+            id: '3',
+            path: 'http://www.roblayton.com/samples/assets/roblayton_backbone_3.png'
+        }, {
+            id: '4',
+            path: 'http://www.roblayton.com/samples/assets/roblayton_solarsystem_1.jpg'
+        }, {
+            id: '5',
+            path: 'http://www.roblayton.com/samples/assets/roblayton_solarsystem_2.jpg'
+        }, {
+            id: '6',
+            path: 'http://www.roblayton.com/samples/assets/roblayton_solarsystem_3.jpg'
+        }, {
+            id: '7',
+            path: 'http://www.roblayton.com/samples/assets/roblayton_cubes1.png'
+        }, {
+            id: '8',
+            path: 'http://www.roblayton.com/samples/assets/roblayton_cubes2.png'
+        }, {
+            id: '9',
+            path: 'http://www.roblayton.com/samples/assets/roblayton_cubes3.png'
+        }, {
+            id: '10',
+            path: 'http://www.roblayton.com/samples/assets/roblayton_city1.png'
+        }, {
+            id: '11',
+            path: 'http://www.roblayton.com/samples/assets/roblayton_city2.png'
+        }, {
+            id: '12',
+            path: 'http://www.roblayton.com/samples/assets/roblayton_city3.png'
+        }];
 
 		var educationDb = [{
 			id: '1',
@@ -502,8 +558,21 @@ angular.module('codeboxsystems.mocks.PortfolioDataServiceMocks', ['codeboxsystem
                 ]
 			}],
             portfolio: [{
+                value: '4',
+				skills: ['1', '3', '6', '10', '11'],
+                assets: ['10','11','12']
+                }, {
+                value: '3',
+				skills: ['1', '3', '6', '10', '11'],
+                assets: ['7','8','9']
+                }, {
+                value: '2',
+				skills: ['7', '1', '3', '4'],
+                assets: ['4','5','6']
+                }, {
                 value: '1',
-				skills: ['1', '3', '4', '8', '12', '13', '32']
+				skills: ['1', '3', '4', '8', '12', '13', '32'],
+                assets: ['1','2','3']
             }],
             education: [{
                 value: '2'
@@ -650,7 +719,8 @@ angular.module('codeboxsystems.mocks.PortfolioDataServiceMocks', ['codeboxsystem
                       var p = user.portfolio[i];
                       portfolio.push({
                           value: fetchData(p.value, portfolioDb),
-                          skills: fetchData(p.skills, skillsDb)
+                          skills: fetchData(p.skills, skillsDb),
+                          assets: fetchData(p.assets, assetsDb)
                       });
                   }
 

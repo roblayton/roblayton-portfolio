@@ -1,4 +1,4 @@
-angular.module('templates-app', ['account/account.tpl.html', 'education/education.tpl.html', 'experience/experience.tpl.html', 'hireme/hireme.tpl.html', 'home/home.tpl.html', 'login/login.tpl.html', 'portfolio/portfolio.tpl.html', 'register/register.tpl.html', 'skills/skills.tpl.html']);
+angular.module('templates-app', ['account/account.tpl.html', 'blog/blog.tpl.html', 'education/education.tpl.html', 'experience/experience.tpl.html', 'hire/hire.tpl.html', 'home/home.tpl.html', 'login/login.tpl.html', 'portfolio/portfolio.tpl.html', 'register/register.tpl.html', 'skills/skills.tpl.html']);
 
 angular.module("account/account.tpl.html", []).run(["$templateCache", function($templateCache) {
   $templateCache.put("account/account.tpl.html",
@@ -25,6 +25,68 @@ angular.module("account/account.tpl.html", []).run(["$templateCache", function($
     "            <button class=\"btn btn-success\" name=\"submit\" type=\"Submit\" ng-click=\"changePassword()\">Submit</button>\n" +
     "\n" +
     "        </form>\n" +
+    "    </div>\n" +
+    "</div>\n" +
+    "");
+}]);
+
+angular.module("blog/blog.tpl.html", []).run(["$templateCache", function($templateCache) {
+  $templateCache.put("blog/blog.tpl.html",
+    "<div class=\"row\">\n" +
+    "    <div class=\"sidebar col-md-3\">\n" +
+    "        <div class=\"form-group\">\n" +
+    "            <div class=\"input-group\">\n" +
+    "                <input ng-model=\"searchText\" class=\"form-control\">\n" +
+    "                <span class=\"input-group-addon\">\n" +
+    "                    <span class=\"glyphicon glyphicon-search\"></span>\n" +
+    "                </span>\n" +
+    "            </div>\n" +
+    "        </div>\n" +
+    "        <div class=\"form-group\">\n" +
+    "            <select ng-model=\"sortOrder\" class=\"form-control\" disabled>\n" +
+    "                <option value=\"value[0].title\">Alphabetical</option>\n" +
+    "                <option value=\"rating\">Proficiency</option>\n" +
+    "            </select>\n" +
+    "        </div>\n" +
+    "        <div class=\"panel panel-default\">\n" +
+    "            <div class=\"panel-heading\">\n" +
+    "                <h3 class=\"panel-title\">Requested Skills</h3>\n" +
+    "            </div>\n" +
+    "            <div class=\"panel-body\">\n" +
+    "                <div ng-hide=\"isActiveSkill()\">\n" +
+    "                <div class=\"alert alert-warning\">\n" +
+    "                    <strong>Looking to hire me on as a consultant?</strong> Select desired skills as you browse to store them in this panel for easy viewing.\n" +
+    "                    <!--<button type=\"button\" class=\"close\" data-dismiss=\"alert\" aria-hidden=\"true\">x</button>-->\n" +
+    "                </div>\n" +
+    "            </div>\n" +
+    "            <p></p>\n" +
+    "                <div class=\"skill\" ng-repeat=\"skill in skills\">\n" +
+    "                    <div class=\"skill\" ng-repeat=\"set in skill.sets\">\n" +
+    "                        <div class=\"skill\" ng-repeat=\"value in set.value\" ng-show=\"value.active\" ng-click=\"remove(value)\" class=\"pointer\">\n" +
+    "                            <div class=\"skill-cont\"><div class=\"btn btn-success stored\">{{value.title}} <i class=\"icon-star\">{{set.rating}} </i><button type=\"button\" class=\"stored\" data-dismiss=\"alert\" aria-hidden=\"true\"><strong>x</strong></button></div></div>\n" +
+    "                        </div>\n" +
+    "                    </div>\n" +
+    "                </div>\n" +
+    "                <p></p>\n" +
+    "                <div ng-show=\"isActiveSkill()\">\n" +
+    "                    <a class=\"link\" href=\"\" clip-copy=\"copySkills()\" clip-click=\"copyLink()\">Copy to clipboard</a>\n" +
+    "                    <div class=\"alert alert-success alert-dismissable\" style=\"display: none\">\n" +
+    "                        Copied!\n" +
+    "                    </div>\n" +
+    "                </div>\n" +
+    "            </div>\n" +
+    "        </div>\n" +
+    "    </div>\n" +
+    "    <div class=\"col-md-9\">\n" +
+    "        <div class=\"panel panel-default\" ng-repeat=\"feed in feeds\">\n" +
+    "            <div class=\"panel-heading\">\n" +
+    "                <h3 class=\"panel-title\">{{feed.publishedDate}}</h3>\n" +
+    "            </div>\n" +
+    "            <div class=\"panel-body\">\n" +
+    "                <p ng-bind-html=\"feed.content\"></p>\n" +
+    "                <p><a href=\"{{feed.link}}\" target=\"_blank\">Tumblr</a></p>\n" +
+    "            </div>\n" +
+    "        </div>\n" +
     "    </div>\n" +
     "</div>\n" +
     "");
@@ -167,8 +229,8 @@ angular.module("experience/experience.tpl.html", []).run(["$templateCache", func
     "");
 }]);
 
-angular.module("hireme/hireme.tpl.html", []).run(["$templateCache", function($templateCache) {
-  $templateCache.put("hireme/hireme.tpl.html",
+angular.module("hire/hire.tpl.html", []).run(["$templateCache", function($templateCache) {
+  $templateCache.put("hire/hire.tpl.html",
     "<div class=\"row\">\n" +
     "    <div class=\"sidebar col-md-3\">\n" +
     "        <div class=\"form-group\">\n" +
@@ -439,8 +501,13 @@ angular.module("portfolio/portfolio.tpl.html", []).run(["$templateCache", functi
     "                </div>\n" +
     "                <div class=\"panel-body\">\n" +
     "                    <p>{{value.description}}</p>\n" +
-    "                    <p><a href=\"{{value.link}}\" target=\"_blank\">{{value.link}}</a></p>\n" +
+    "                    <p><a href=\"{{value.link}}\" target=\"_blank\">Launch Demo</a></p>\n" +
     "                <p>\n" +
+    "                <span class=\"thumb\" ng-repeat=\"asset in p.assets\">\n" +
+    "                    <a href=\"{{value.link}}\" target=\"_blank\">\n" +
+    "                        <img src=\"{{asset.path}}\" alt=\"{{asset.alt}}\"></img>\n" +
+    "                    </a>\n" +
+    "                </span>\n" +
     "                <div class=\"skill-cont\"><button button-simple=\"active btn-primary\" class=\"btn btn-default btn-xs\" ng-repeat=\"skill in p.skills\" ng-model=\"skill\"></button></div>\n" +
     "                </p>\n" +
     "                </div>\n" +

@@ -44,23 +44,13 @@
         </div>
     </div>
     <div class="col-md-9">
-        <div ng-repeat="p in portfolio | filter:searchText">
-            <div class="panel panel-default" ng-repeat="value in p.value">
-                <div class="panel-heading">
-                    <h3 class="panel-title">{{value.title}}</h3>
-                </div>
-                <div class="panel-body">
-                    <p>{{value.description}}</p>
-                    <p><a href="{{value.link}}" target="_blank">Launch Demo</a></p>
-                <p>
-                <span class="thumb" ng-repeat="asset in p.assets">
-                    <a href="{{value.link}}" target="_blank">
-                        <img src="{{asset.path}}" alt="{{asset.alt}}"></img>
-                    </a>
-                </span>
-                <div class="skill-cont"><button button-simple="active btn-primary" class="btn btn-default btn-xs" ng-repeat="skill in p.skills" ng-model="skill"></button></div>
-                </p>
-                </div>
+        <div class="panel panel-default" ng-repeat="feed in feeds">
+            <div class="panel-heading">
+                <h3 class="panel-title">{{feed.publishedDate}}</h3>
+            </div>
+            <div class="panel-body">
+                <p ng-bind-html="feed.content"></p>
+                <p><a href="{{feed.link}}" target="_blank">Tumblr</a></p>
             </div>
         </div>
     </div>

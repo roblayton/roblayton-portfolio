@@ -6119,6 +6119,13 @@ button {
   outline: #D9765F;
 }
 
+.thumb img {
+  padding: 5px;
+  margin: 2px;
+  background-color: #fff;
+  border: solid 1px #ccc;
+}
+
 /**
  * Now that all app-wide styles have been applied, we can load the styles for
  * all the submodules and components we are using. 
