@@ -378,9 +378,31 @@ angular.module("home/home.tpl.html", []).run(["$templateCache", function($templa
     "                        <p>\n" +
     "                        Professionally, my number one passion is working with teams of developers. Outside of work, my passions include rock climbing, bouldering, playing the guitar, digital illustration, photography, electrical engineering, and archery.\n" +
     "                        </p>\n" +
-    "                        <p><a href=\"https://docs.google.com/document/d/1Iqkc-8_73aZsBJZyE4bMCEJtVsgQcXAJXdlBDHu26bc/pub\" target=\"_blank\">Click here</a> to skip right to my resume.</p>\n" +
+    "                <p>\n" +
+    "                I am currently available for part-time freelance web development and front end consulting. The best way to contact me is by <a href=\"mailto:hire.rob.layton@gmail.com\" target=\"_blank\" width=\"33%\">email</a>.\n" +
+    "                </p>\n" +
+    "                    <p>My <a href=\"https://docs.google.com/document/d/1Iqkc-8_73aZsBJZyE4bMCEJtVsgQcXAJXdlBDHu26bc/pub\" target=\"_blank\">resume</a> can be found here.</p>\n" +
     "                    </div>\n" +
     "            </div>\n" +
+    "        <div class=\"panel panel-default\">\n" +
+    "            <div class=\"panel-heading\">\n" +
+    "                <h3 class=\"panel-title\">Social Networks</h3>\n" +
+    "            </div>\n" +
+    "            <div class=\"panel-body\">\n" +
+    "                <table class=\"table\">\n" +
+    "                    <tr>\n" +
+    "                            <td><a href=\"https://github.com/roblayton\" target=\"_blank\">Github</a>\n" +
+    "                        <td><a href=\"http://beknown.com/roblayton\" target=\"_blank\">Monster</a></td>\n" +
+    "                        <td><a href=\"http://www.linkedin.com/in/roblayton\" target=\"_blank\">LinkedIn</a></td>\n" +
+    "                    </td>\n" +
+    "                    <tr>\n" +
+    "                        <td><a href=\"http://www.twitter.com/roblayton\" target=\"_blank\">Twitter</td>\n" +
+    "                        <td><a href=\"http://www.facebook.com/robertblascolayton\" target=\"_blank\">Facebook</td>\n" +
+    "                        <td><a href=\"http://roblayton.tumblr.com\" target=\"_blank\">Tumblr</td>\n" +
+    "                    </tr>\n" +
+    "                </table>\n" +
+    "            </div>\n" +
+    "        </div>\n" +
     "            <div class=\"panel panel-default\">\n" +
     "                <div class=\"panel-heading\">\n" +
     "                    <h4 class=\"panel-title\">\n" +

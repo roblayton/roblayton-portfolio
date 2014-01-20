@@ -164,6 +164,31 @@ angular.module('codeboxsystems.mocks.PortfolioDataServiceMocks', ['codeboxsystem
             id: '33',
             title: 'Selenium',
             active: false
+        },
+		{
+			id: '34',
+			title: 'Scala',
+			active: false
+		},
+		{
+			id: '35',
+			title: 'Mandarin Chinese',
+			active: false
+		},
+		{
+			id: '36',
+			title: 'German',
+			active: false
+		},
+        {
+            id: '37',
+            title: 'English',
+            active: false
+        },
+        {
+            id: '38',
+            title: 'Spanish',
+            active: false
         }
 		];
 
@@ -326,6 +351,10 @@ angular.module('codeboxsystems.mocks.PortfolioDataServiceMocks', ['codeboxsystem
 		{
 			id: '5',
 			title: 'Tools'
+        },
+        {
+            id: '6',
+            title: 'Spoken Languages'
 		}];
 
 		var portfolioDb = [{
@@ -344,13 +373,37 @@ angular.module('codeboxsystems.mocks.PortfolioDataServiceMocks', ['codeboxsystem
 			id: '3',
 			title: 'Gesture Tracking Cube Prototype',
             description: 'A prototype that allows the user to manipulate cubes in 3d space using gestures',
-            link: 'http://www.youtube.com/watch?v=4D1x-HyXfdE'
+            link: 'http://roblayton.tumblr.com/post/72065519078'
         },
         {
 			id: '4',
 			title: 'Gesture Tracking Layers Prototype',
             description: 'A prototype that allows the user to select different layers of a data model using gestures',
-            link: 'http://www.youtube.com/watch?v=hoFHx7OmBGA'
+            link: 'http://roblayton.tumblr.com/post/72219763286/another-gesture-tracking-prototype-i-wrote-that'
+        },
+        {
+			id: '5',
+			title: 'Gyroscope Prototype',
+            description: 'Experimenting with a gyroscope connected to an Arduino board. Data is sent to a threejs application using nodejs and socket io.',
+            link: 'http://roblayton.tumblr.com/post/71508526075/experimenting-with-a-gyroscope-connected-to-an'
+        },
+        {
+			id: '6',
+			title: 'Blend Mode Motion Detection',
+            description: 'This library uses the blend mode difference of subsequent frames captured by a normal webcam to detect motion.',
+            link: 'http://roblayton.tumblr.com/post/68011586351/this-library-uses-the-blend-mode-difference-of'
+        },
+        {
+			id: '7',
+			title: 'PING Sensor Photo Gallery',
+            description: 'Wired together some PING sensors to detect motion and distance (works like sonar) to control a photo viewing application I designed and developed. Runs in a web browser using Node.js.',
+            link: 'http://roblayton.tumblr.com/post/71888079784/wired-together-some-ping-sensors-to-detect-motion'
+        },
+        {
+			id: '8',
+			title: 'PING Sensor Navigation',
+            description: 'Used nodejs and socketio to get an arduino board to communicate with a threejs application by Mr. Doob.',
+            link: 'http://roblayton.tumblr.com/post/72648433774/used-nodejs-and-socketio-to-get-an-arduino-board'
         }
         ];
 
@@ -390,6 +443,42 @@ angular.module('codeboxsystems.mocks.PortfolioDataServiceMocks', ['codeboxsystem
         }, {
             id: '12',
             path: 'http://www.roblayton.com/samples/assets/roblayton_city3.png'
+        }, {
+            id: '13',
+            path: 'http://www.roblayton.com/samples/assets/roblayton_gyro1.png'
+        }, {
+            id: '14',
+            path: 'http://www.roblayton.com/samples/assets/roblayton_gyro2.png'
+        }, {
+            id: '15',
+            path: 'http://www.roblayton.com/samples/assets/roblayton_gyro3.png'
+        }, {
+            id: '16',
+            path: 'http://www.roblayton.com/samples/assets/roblayton_blend1.png'
+        }, {
+            id: '17',
+            path: 'http://www.roblayton.com/samples/assets/roblayton_blend2.png'
+        }, {
+            id: '18',
+            path: 'http://www.roblayton.com/samples/assets/roblayton_blend3.png'
+        }, {
+            id: '19',
+            path: 'http://www.roblayton.com/samples/assets/roblayton_photo1.png'
+        }, {
+            id: '20',
+            path: 'http://www.roblayton.com/samples/assets/roblayton_photo2.png'
+        }, {
+            id: '21',
+            path: 'http://www.roblayton.com/samples/assets/roblayton_photo3.png'
+        }, {
+            id: '22',
+            path: 'http://www.roblayton.com/samples/assets/roblayton_doob1.png'
+        }, {
+            id: '23',
+            path: 'http://www.roblayton.com/samples/assets/roblayton_doob2.png'
+        }, {
+            id: '24',
+            path: 'http://www.roblayton.com/samples/assets/roblayton_doob3.png'
         }];
 
 		var educationDb = [{
@@ -452,6 +541,10 @@ angular.module('codeboxsystems.mocks.PortfolioDataServiceMocks', ['codeboxsystem
 					value: '4',
 					rating: 5
 				},
+                {
+                    value: '34',
+                    rating: 3
+                },
 				{
 					value: '5',
 					rating: 4
@@ -556,7 +649,27 @@ angular.module('codeboxsystems.mocks.PortfolioDataServiceMocks', ['codeboxsystem
                     rating: 2
                 }
                 ]
-			}],
+			},
+			{
+				categories: ['6'],
+				set: [{
+					value: '37',
+					rating: 5
+				},
+                {
+					value: '35',
+					rating: 2
+				},
+                {
+					value: '36',
+					rating: 2
+				},
+                {
+					value: '38',
+					rating: 3
+				}
+                ]
+            }],
             portfolio: [{
                 value: '4',
 				skills: ['1', '3', '6', '10', '11'],
@@ -565,6 +678,22 @@ angular.module('codeboxsystems.mocks.PortfolioDataServiceMocks', ['codeboxsystem
                 value: '3',
 				skills: ['1', '3', '6', '10', '11'],
                 assets: ['7','8','9']
+                }, {
+                value: '5',
+				skills: ['1', '3', '6', '10', '11','12'],
+                assets: ['13','14','15']
+                }, {
+                value: '6',
+				skills: ['1', '3', '6', '10', '11'],
+                assets: ['16','17','18']
+                }, {
+                value: '7',
+				skills: ['1', '3', '6', '10', '11', '12'],
+                assets: ['19','20','21']
+                }, {
+                value: '8',
+				skills: ['1', '3', '6', '10', '11', '12'],
+                assets: ['22','23','24']
                 }, {
                 value: '2',
 				skills: ['7', '1', '3', '4'],
@@ -575,8 +704,6 @@ angular.module('codeboxsystems.mocks.PortfolioDataServiceMocks', ['codeboxsystem
                 assets: ['1','2','3']
             }],
             education: [{
-                value: '2'
-            }, {
                 value: '1'
             }],
 			experience: [{
