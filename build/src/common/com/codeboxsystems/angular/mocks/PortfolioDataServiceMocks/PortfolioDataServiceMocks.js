@@ -657,16 +657,16 @@ angular.module('codeboxsystems.mocks.PortfolioDataServiceMocks', ['codeboxsystem
 					rating: 5
 				},
                 {
+					value: '38',
+					rating: 3
+				},
+                {
 					value: '35',
 					rating: 2
 				},
                 {
 					value: '36',
 					rating: 2
-				},
-                {
-					value: '38',
-					rating: 3
 				}
                 ]
             }],
