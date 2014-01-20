@@ -1,5 +1,5 @@
 <div class="row">
-    <div class="col-md-3">
+    <div class="sidebar col-md-3">
         <div class="form-group">
             <div class="input-group">
                 <input ng-model="searchText" class="form-control" disabled>
@@ -26,23 +26,24 @@
                 </div>
             </div>
             <p></p>
-                <div ng-repeat="skill in skills">
-                    <div ng-repeat="set in skill.sets">
-                        <div ng-repeat="value in set.value" ng-show="value.active" ng-click="remove(value)" class="pointer">
-                                <p class="sidebar-spacer">
-                                <span class="label label-success stored">{{value.title}} <i class="icon-star"> {{set.rating}}</i> <button type="button" class="close stored" data-dismiss="alert" aria-hidden="true"><strong>x</strong></button></span>
-                                </p>
+                <div class="skill" ng-repeat="skill in skills">
+                    <div class="skill" ng-repeat="set in skill.sets">
+                        <div class="skill" ng-repeat="value in set.value" ng-show="value.active" ng-click="remove(value)" class="pointer">
+                            <div class="skill-cont"><div class="btn btn-success stored">{{value.title}} <i class="icon-star">{{set.rating}} </i><button type="button" class="stored" data-dismiss="alert" aria-hidden="true"><strong>x</strong></button></div></div>
                         </div>
                     </div>
                 </div>
+                <p></p>
                 <div ng-show="isActiveSkill()">
-                <a href="" clip-copy="copySkills()" clip-click="copyLink()">Copy to clipboard</a>
+                    <a class="link" href="" clip-copy="copySkills()" clip-click="copyLink()">Copy to clipboard</a>
+                    <div class="alert alert-success alert-dismissable" style="display: none">
+                        Copied!
+                    </div>
                 </div>
             </div>
         </div>
     </div>
     <div class="col-md-9">
-        <div class="panel-group" id="accordion">
             <div class="panel panel-default">
                 <div class="panel-heading">
                     <h4 class="panel-title">
@@ -51,7 +52,6 @@
                         </a>
                     </h4>
                 </div>
-                <div id="collapseOne" class="panel-collapse collapse in">
                     <div class="panel-body">
                         <p>
                         I am the Director of Web Engineering at Adcade, a freelance Sr. Web Developer, and Front End Consultant. My primary focus is front end web development, but I also specialize in back end development, deployment, and management. 
@@ -62,13 +62,31 @@
                         <p>
                         Professionally, my number one passion is working with teams of developers. Outside of work, my passions include rock climbing, bouldering, playing the guitar, digital illustration, photography, electrical engineering, and archery. I currently reside in New York City.
                         </p>
-                        <p>
-                        I built this portfolio using <a href="http://angularjs.org/" target="_blank">AngularJS</a>.
-                        </p>
-                        <p><a href="https://docs.google.com/document/d/1Iqkc-8_73aZsBJZyE4bMCEJtVsgQcXAJXdlBDHu26bc/pub" target="_blank" class="btn btn-primary btn-sm pull-right" role="button">Resume</a></p>
+                <p>
+                I am currently available for part-time freelance web development and front end consulting. The best way to contact me is by <a href="mailto:hire.rob.layton@gmail.com" target="_blank" width="33%">email</a>.
+                </p>
+                    <p>My <a href="https://docs.google.com/document/d/1Iqkc-8_73aZsBJZyE4bMCEJtVsgQcXAJXdlBDHu26bc/pub" target="_blank">resume</a> can be found here.</p>
                     </div>
-                </div>
             </div>
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h3 class="panel-title">Social Networks</h3>
+            </div>
+            <div class="panel-body">
+                <table class="table">
+                    <tr>
+                            <td><a href="https://github.com/roblayton" target="_blank">Github</a>
+                        <td><a href="http://beknown.com/roblayton" target="_blank">Monster</a></td>
+                        <td><a href="http://www.linkedin.com/in/roblayton" target="_blank">LinkedIn</a></td>
+                    </td>
+                    <tr>
+                        <td><a href="http://www.twitter.com/roblayton" target="_blank">Twitter</td>
+                        <td><a href="http://www.facebook.com/robertblascolayton" target="_blank">Facebook</td>
+                        <td><a href="http://roblayton.tumblr.com" target="_blank">Tumblr</td>
+                    </tr>
+                </table>
+            </div>
+        </div>
             <div class="panel panel-default">
                 <div class="panel-heading">
                     <h4 class="panel-title">
@@ -77,11 +95,9 @@
                         </a>
                     </h4>
                 </div>
-                <div id="collapseTwo" class="panel-collapse collapse">
                     <div class="panel-body">
                         <div workload id="chart_div" style="width:400; height:300"></div>
                     </div>
-                </div>
             </div>
             <div class="panel panel-default">
                 <div class="panel-heading">
@@ -91,7 +107,6 @@
                         </a>
                     </h4>
                 </div>
-                <div id="collapseThree" class="panel-collapse collapse">
                     <div class="panel-body">
                         <ul>
                             <li><strong>The Lean Startup</strong> by Eric Ries</li>
@@ -103,8 +118,6 @@
                             <li><strong>Visualize This: The FlowingData Guide to Design, Visualization and Statistics</strong> by Nathan Yau</li>
                         </ul>
                     </div>
-                </div>
             </div>
-        </div>
     </div>
 </div>

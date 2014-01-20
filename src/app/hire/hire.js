@@ -1,12 +1,12 @@
-angular.module('app.hireme', ['ui.state', 'codeboxsystems.data.PortfolioDataService'])
+angular.module('app.hire', ['ui.state', 'codeboxsystems.data.PortfolioDataService'])
 
 .config(function config($stateProvider) {
-	$stateProvider.state('hireme', {
-		url: '/hireme',
+	$stateProvider.state('hire', {
+		url: '/hire',
 		views: {
 			"main": {
 				controller: 'HireMeCtrl',
-				templateUrl: 'hireme/hireme.tpl.html'
+				templateUrl: 'hire/hire.tpl.html'
 			}
 		},
 		data: {

@@ -1,6 +1,6 @@
-angular.module('codeboxsystems.ui.button', [])
+angular.module('codeboxsystems.ui.buttonsimple', [])
 
-.directive('buttonToggle', function() {
+.directive('buttonSimple', function() {
     return {
         restrict: 'A',
         require: 'ngModel',
@@ -9,7 +9,7 @@ angular.module('codeboxsystems.ui.button', [])
         },
         link: function($scope, element, attr) {
             element[0].innerHTML = $scope.ngModel.title;
-            var classToToggle = attr.buttonToggle;
+            var classToToggle = attr.buttonSimple;
 
             element.bind('click', function() {
                 $scope.ngModel.active = !$scope.ngModel.active;

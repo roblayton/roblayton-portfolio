@@ -1,21 +1,21 @@
-angular.module('app.education', ['ui.state', 'placeholders', 'ui.bootstrap', 'codeboxsystems.data.PortfolioDataService'])
+angular.module('app.blog', ['ui.state', 'placeholders', 'ui.bootstrap', 'ngSanitize', 'codeboxsystems.ui.buttonsimple', 'codeboxsystems.data.PortfolioDataService', 'codeboxsystems.data.FeedService'])
 
 .config(function config($stateProvider) {
-	$stateProvider.state('education', {
-		url: '/education',
+	$stateProvider.state('blog', {
+		url: '/blog',
 		views: {
 			"main": {
-				controller: 'EducationCtrl',
-				templateUrl: 'education/education.tpl.html'
+				controller: 'BlogCtrl',
+				templateUrl: 'blog/blog.tpl.html'
 			}
 		},
 		data: {
-			pageTitle: 'Education'
+			pageTitle: 'Blog'
 		}
 	});
 })
 
-.controller('EducationCtrl', function EducationCtrl($scope, $rootScope, $location, PortfolioDataService) {
+.controller('BlogCtrl', function BlogCtrl($scope, $rootScope, $location, $sanitize, PortfolioDataService, FeedService) {
 	$scope.fetch = function() {
 		PortfolioDataService.fetchSkillsByUser($rootScope.currUser, {
 			onSuccess: function(skills) {
@@ -25,16 +25,14 @@ angular.module('app.education', ['ui.state', 'placeholders', 'ui.bootstrap', 'co
 				console.log(err.message);
 			}
 		});
-		PortfolioDataService.fetchEducationByUser($rootScope.currUser, {
-			onSuccess: function(education) {
-				$scope.education = education;
-			},
-			onErr: function(err) {
-				console.log(err.message);
-			}
-		});
+
+        FeedService.parseFeed('http://roblayton.tumblr.com/rss').then(function(res) {
+    console.log(res.data.responseData.feed);
+            $scope.feeds = res.data.responseData.feed.entries;
+        });
 	};
 
+    $scope.content = '<span>uo</span>';
 	$scope.copySkills = function() {
 		var str = "I'm interested in hiring you because you are proficient in: \n";
 		var skills = $scope.skills;

@@ -1,8 +1,8 @@
 <div class="row">
-    <div class="col-md-3">
+    <div class="sidebar col-md-3">
         <div class="form-group">
             <div class="input-group">
-                <input ng-model="searchText" class="form-control">
+                <input ng-model="searchText" class="form-control" disabled>
                 <span class="input-group-addon">
                     <span class="glyphicon glyphicon-search"></span>
                 </span>
@@ -25,34 +25,36 @@
                     <!--<button type="button" class="close" data-dismiss="alert" aria-hidden="true">x</button>-->
                 </div>
             </div>
-            <p></p>
-                <div ng-repeat="skill in skills">
-                    <div ng-repeat="set in skill.sets">
-                        <div ng-repeat="value in set.value" ng-show="value.active" ng-click="remove(value)" class="pointer">
-                                <p class="sidebar-spacer">
-                                <span class="label label-success stored">{{value.title}} <i class="icon-star"> {{set.rating}}</i> <button type="button" class="close stored" data-dismiss="alert" aria-hidden="true"><strong>x</strong></button></span>
-                                </p>
+                <p></p>
+                <div class="skill" ng-repeat="skill in skills">
+                    <div class="skill" ng-repeat="set in skill.sets">
+                        <div class="skill" ng-repeat="value in set.value" ng-show="value.active" ng-click="remove(value)" class="pointer">
+                            <div class="skill-cont"><div class="btn btn-success stored">{{value.title}} <i class="icon-star">{{set.rating}} </i><button type="button" class="stored" data-dismiss="alert" aria-hidden="true"><strong>x</strong></button></div></div>
                         </div>
                     </div>
                 </div>
+                <p></p>
                 <div ng-show="isActiveSkill()">
-                <a href="" clip-copy="copySkills()" clip-click="copyLink()">Copy to clipboard</a>
+                    <a class="link" href="" clip-copy="copySkills()" clip-click="copyLink()">Copy to clipboard</a>
+                    <div class="alert alert-success alert-dismissable" style="display: none">
+                        Copied!
+                    </div>
                 </div>
             </div>
         </div>
     </div>
     <div class="col-md-9">
         <div ng-repeat="edu in education | filter:searchText">
-        <div class="panel panel-default" ng-repeat="value in edu.value">
-            <div class="panel-heading">
-                <h3 class="panel-title">{{value.facility}}</h3>
-            </div>
-            <div class="panel-body">
-                <h4>{{value.title}}</h4>
-                </p>
-                <p>{{value.startDate}} - {{value.endDate}}</p>
-                <p>{{value.description}}</p>
+            <div class="panel panel-default" ng-repeat="value in edu.value">
+                <div class="panel-heading">
+                    <h3 class="panel-title">{{value.facility}}</h3>
+                </div>
+                <div class="panel-body">
+                    <h4>{{value.title}}</h4>
+                    </p>
+                    <p>{{value.startDate}} - {{value.endDate}}</p>
+                    <p>{{value.description}}</p>
+                </div>
             </div>
         </div>
     </div>
-</div>

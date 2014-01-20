@@ -1,4 +1,4 @@
-angular.module('app.skills', ['ui.state', 'placeholders', 'ui.bootstrap', 'codeboxsystems.ui.button', 'codeboxsystems.data.PortfolioDataService'])
+angular.module('app.skills', ['ui.state', 'placeholders', 'ui.bootstrap', 'codeboxsystems.ui.buttonrating', 'codeboxsystems.data.PortfolioDataService'])
 
 .config(function config($stateProvider) {
 	$stateProvider.state('skills', {

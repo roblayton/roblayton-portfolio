@@ -1,4 +1,4 @@
-angular.module('app.portfolio', ['ui.state', 'placeholders', 'ui.bootstrap', 'codeboxsystems.ui.button', 'codeboxsystems.data.PortfolioDataService'])
+angular.module('app.portfolio', ['ui.state', 'placeholders', 'ui.bootstrap', 'codeboxsystems.ui.buttonsimple', 'codeboxsystems.data.PortfolioDataService'])
 
 .config(function config($stateProvider) {
 	$stateProvider.state('portfolio', {

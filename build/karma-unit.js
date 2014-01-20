@@ -10,6 +10,7 @@ module.exports = function ( karma ) {
      */
     files: [
       'vendor/angular/angular.js',
+      'vendor/angular/angular-sanitize.js',
       'vendor/jquery/jquery.js',
       'vendor/angular-bootstrap/ui-bootstrap-tpls.min.js',
       'vendor/placeholders/angular-placeholders-0.0.1-SNAPSHOT.min.js',
@@ -21,6 +22,8 @@ module.exports = function ( karma ) {
       'vendor/bootstrap/js/collapse.js',
       'vendor/bootstrap/js/transition.js',
       'vendor/bootstrap/js/modal.js',
+      'vendor/bootstrap/js/tooltip.js',
+      'vendor/bootstrap/js/popover.js',
       'vendor/bootstrap-tree/js/bootstrap-tree.js',
       'vendor/bootstrap-datetimepicker/js/bootstrap-datetimepicker.lib.min.js',
       'vendor/bootstrap-datetimepicker/js/bootstrap-datetimepicker.js',

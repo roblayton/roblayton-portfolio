@@ -1,4 +1,4 @@
-angular.module('app', ['templates-app', 'templates-common', 'app.home', 'app.skills', 'app.experience', 'app.portfolio', 'app.education', 'app.hireme', 'app.register', 'app.login', 'app.logout', 'app.account', 'ui.state', 'ui.route', 'codeboxsystems.data.PortfolioDataService'])
+angular.module('app', ['templates-app', 'templates-common', 'app.home', 'app.skills', 'app.experience', 'app.portfolio', 'app.education', 'app.hire', 'app.blog', 'app.register', 'app.login', 'app.logout', 'app.account', 'ui.state', 'ui.route', 'codeboxsystems.data.PortfolioDataService'])
 
 .config(function myAppConfig($stateProvider, $urlRouterProvider) {
 	$urlRouterProvider.otherwise('/home');

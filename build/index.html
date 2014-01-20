@@ -3,20 +3,20 @@
   <head>
     <title ng-bind="pageTitle"></title>
 
+    <!-- social media tags -->
+    <!--<meta name="twitter:card" content="summary">-->
+    <meta name="twitter:site" content="@roblayton">
+    <meta name="twitter:title" content="app">
+    <meta name="twitter:description" content="I am a Freelance Sr. Web Developer and Front End Consultant">
+    <meta name="twitter:creator" content="@roblayton">
+    <meta property="og:title" content="Rob Layton" />
+    <meta property="og:type" content="Website" />
+    <meta property="og:url" content="http://bit.ly/app" />
+    <!--<meta property="og:image" content="https://a248.e.akamai.net/assets.github.com/images/modules/logos_page/Octocat.png?1366128846" />-->
+    <meta name="description" content="I am a Freelance Sr. Web Developer and Front End Consultant" />
+    <meta name="author" content="Rob Layton" />
     <!--ZeroClipboard-->
     <script type="text/javascript" src="vendor/zeroclipboard/ZeroClipboard.min.js"></script>
-    <!-- social media tags -->
-    <meta name="twitter:card" content="summary">
-    <meta name="twitter:site" content="@adcadenyc">
-    <meta name="twitter:title" content="app">
-    <meta name="twitter:description" content="Non-Trivial AngularJS Made Easy: Everything you need to kickstart AngularJS projects: a best-practice directory structure, an intelligent build system, and the best web design libraries around.">
-    <meta name="twitter:creator" content="@adcadenyc">
-    <meta name="twitter:image:src" content="https://a248.e.akamai.net/assets.github.com/images/modules/logos_page/Octocat.png?1366128846">
-    <meta property="og:title" content="app" />
-    <meta property="og:type" content="website" />
-    <meta property="og:url" content="http://bit.ly/app" />
-    <meta property="og:image" content="https://a248.e.akamai.net/assets.github.com/images/modules/logos_page/Octocat.png?1366128846" />
-    <meta property="og:description" content="Non-Trivial AngularJS Made Easy: Everything you need to kickstart AngularJS projects: a best-practice directory structure, an intelligent build system, and the best web design libraries around.">
 
     <!-- font awesome from BootstrapCDN -->
     <link href="http://netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css" rel="stylesheet">
@@ -29,6 +29,7 @@
 
     <!-- compiled JavaScript -->
     <script type="text/javascript" src="vendor/angular/angular.js"></script>
+    <script type="text/javascript" src="vendor/angular/angular-sanitize.js"></script>
     <script type="text/javascript" src="vendor/jquery/jquery.js"></script>
     <script type="text/javascript" src="vendor/angular-bootstrap/ui-bootstrap-tpls.min.js"></script>
     <script type="text/javascript" src="vendor/placeholders/angular-placeholders-0.0.1-SNAPSHOT.min.js"></script>
@@ -40,6 +41,8 @@
     <script type="text/javascript" src="vendor/bootstrap/js/collapse.js"></script>
     <script type="text/javascript" src="vendor/bootstrap/js/transition.js"></script>
     <script type="text/javascript" src="vendor/bootstrap/js/modal.js"></script>
+    <script type="text/javascript" src="vendor/bootstrap/js/tooltip.js"></script>
+    <script type="text/javascript" src="vendor/bootstrap/js/popover.js"></script>
     <script type="text/javascript" src="vendor/bootstrap-tree/js/bootstrap-tree.js"></script>
     <script type="text/javascript" src="vendor/bootstrap-datetimepicker/js/bootstrap-datetimepicker.lib.min.js"></script>
     <script type="text/javascript" src="vendor/bootstrap-datetimepicker/js/bootstrap-datetimepicker.js"></script>
@@ -51,37 +54,36 @@
     <script type="text/javascript" src="vendor/zeroclipboard/ZeroClipboard.min.js"></script>
     <script type="text/javascript" src="src/app/account/account.js"></script>
     <script type="text/javascript" src="src/app/app.js"></script>
+    <script type="text/javascript" src="src/app/blog/blog.js"></script>
     <script type="text/javascript" src="src/app/education/education.js"></script>
     <script type="text/javascript" src="src/app/experience/experience.js"></script>
-    <script type="text/javascript" src="src/app/hireme/hireme.js"></script>
+    <script type="text/javascript" src="src/app/hire/hire.js"></script>
     <script type="text/javascript" src="src/app/home/home.js"></script>
     <script type="text/javascript" src="src/app/login/login.js"></script>
     <script type="text/javascript" src="src/app/logout/logout.js"></script>
     <script type="text/javascript" src="src/app/portfolio/portfolio.js"></script>
     <script type="text/javascript" src="src/app/register/register.js"></script>
     <script type="text/javascript" src="src/app/skills/skills.js"></script>
+    <script type="text/javascript" src="src/common/com/codeboxsystems/angular/data/FeedService/FeedService.js"></script>
     <script type="text/javascript" src="src/common/com/codeboxsystems/angular/data/LoginService/LoginService.js"></script>
     <script type="text/javascript" src="src/common/com/codeboxsystems/angular/data/PortfolioDataService/PortfolioDataService.js"></script>
     <script type="text/javascript" src="src/common/com/codeboxsystems/angular/mocks/LoginServiceMocks/LoginServiceMocks.js"></script>
     <script type="text/javascript" src="src/common/com/codeboxsystems/angular/mocks/PortfolioDataServiceMocks/PortfolioDataServiceMocks.js"></script>
     <script type="text/javascript" src="src/common/com/codeboxsystems/angular/session/Cookie/Cookie.js"></script>
     <script type="text/javascript" src="src/common/com/codeboxsystems/angular/ui/BootstrapModal/BootstrapModal.js"></script>
-    <script type="text/javascript" src="src/common/com/codeboxsystems/angular/ui/button/button.js"></script>
+    <script type="text/javascript" src="src/common/com/codeboxsystems/angular/ui/button/buttonRating.js"></script>
+    <script type="text/javascript" src="src/common/com/codeboxsystems/angular/ui/button/buttonSimple.js"></script>
     <script type="text/javascript" src="src/common/com/codeboxsystems/angular/ui/fileInput/fileInput.js"></script>
     <script type="text/javascript" src="src/common/com/codeboxsystems/angular/utils/DateUtil/DateUtil.js"></script>
     <script type="text/javascript" src="src/common/org/ngmodules/ngClip/ngClip.js"></script>
     <script type="text/javascript" src="templates-common.js"></script>
     <script type="text/javascript" src="templates-app.js"></script>
 
-    <!-- it's stupid to have to load it here, but this is for the +1 button -->
-    <script type="text/javascript" src="https://apis.google.com/js/plusone.js">
-      { "parsetags": "explicit" }
-    </script>
   </head>
   <body>
     <div class="main">
       <div class="masthead">
-        <nav class="navbar navbar-default" role="navigation">
+        <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
           <!-- Brand and toggle get grouped for better mobile display -->
           <div class="navbar-header">
             <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
@@ -97,12 +99,12 @@
           <!-- Collect the nav links, forms, and other content for toggling -->
           <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav">
-              <li ui-route="/home" ng-class="{active:$uiRoute}">
-                <a href="#/home">
-                  <!--<i class="glyphicon glyphicon-home"></i>-->
-                  Home
-                </a>
-              </li>
+              <!--<li ui-route="/home" ng-class="{active:$uiRoute}">-->
+                <!--<a href="#/home">-->
+                  <!--[><i class="glyphicon glyphicon-home"></i><]-->
+                  <!--Home-->
+                <!--</a>-->
+              <!--</li>-->
               <li ui-route="/skills" ng-class="{active:$uiRoute}">
                 <a href="#/skills">
                   <!--<i class="glyphicon glyphicon-wrench"></i>-->
@@ -127,13 +129,25 @@
                   &nbsp;Portfolio
                 </a>
               </li>
-              <li ui-route="/hireme" ng-class="{active:$uiRoute}">
-                <a href="#/hireme">
-                  <!--<i class="glyphicon glyphicon-inbox"></i>-->
-                  Hire Me
-                </a>
-              </li>
+              <!--<li ui-route="/blog" ng-class="{active:$uiRoute}">-->
+                <!--<a href="#/blog">-->
+                  <!--[><i class="glyphicon glyphicon-folder-open"></i><]-->
+                  <!--&nbsp;Blog-->
+                <!--</a>-->
+              <!--</li>-->
+              <!--<li ui-route="/hire" ng-class="{active:$uiRoute}">-->
+                <!--<a href="#/hire">-->
+                  <!--[><i class="glyphicon glyphicon-inbox"></i><]-->
+                  <!--Hire-->
+                <!--</a>-->
+              <!--</li>-->
               
+              <!--<li ng-class="{active:$uiRoute}">-->
+                <!--<a href="http://roblayton.tumblr.com" target="_blank">-->
+                  <!--[><i class="glyphicon glyphicon-inbox"></i><]-->
+                  <!--Blog-->
+                <!--</a>-->
+              <!--</li>-->
               <!-- <li class="dropdown">
                 <a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown <b class="caret"></b></a>
                 <ul class="dropdown-menu">
@@ -187,7 +201,7 @@
         <div class="footer-inner">
 
           <p>
-            &copy; 2013 Rob Layton
+            &copy; 2013 Rob Layton | New York, NY
           </p>
         </div>
       </div>

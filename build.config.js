@@ -55,6 +55,7 @@ module.exports = {
   vendor_files: {
     js: [
       'vendor/angular/angular.js',
+      'vendor/angular/angular-sanitize.js',
       'vendor/jquery/jquery.js',
       'vendor/angular-bootstrap/ui-bootstrap-tpls.min.js',
       'vendor/placeholders/angular-placeholders-0.0.1-SNAPSHOT.min.js',
@@ -68,6 +69,8 @@ module.exports = {
       'vendor/bootstrap/js/collapse.js',
       'vendor/bootstrap/js/transition.js',
       'vendor/bootstrap/js/modal.js',
+      'vendor/bootstrap/js/tooltip.js',
+      'vendor/bootstrap/js/popover.js',
       // bootstrap-tree
       'vendor/bootstrap-tree/js/bootstrap-tree.js',
       // bootstrap-datetimepicker
