@@ -13,7 +13,7 @@ angular.module('codeboxsystems.ui.buttonrating', [])
             var i = 0;
             while(i < 5) {
                 if (i < $scope.ngModel.rating) {
-                    stars+= '<i class="icon-star-empty" style="font-size: 0.5em;"></i>';
+                    stars+= '<i class="icon-star-empty" style="font-size: 0.6em;"></i>';
                 } else {
                     //stars+= '<i class="icon-star-empty" style="font-size: 0.5em; color: #666;"></i>';
                 }
