@@ -189,6 +189,21 @@ angular.module('codeboxsystems.mocks.PortfolioDataServiceMocks', ['codeboxsystem
             id: '38',
             title: 'Spanish',
             active: false
+        },
+        {
+            id: '39',
+            title: '3d Modeling',
+            active: false
+        },
+        {
+            id: '40',
+            title: 'Blender',
+            active: false
+        },
+        {
+            id: '41',
+            title: 'Kivy',
+            active: false
         }
 		];
 
@@ -404,6 +419,18 @@ angular.module('codeboxsystems.mocks.PortfolioDataServiceMocks', ['codeboxsystem
 			title: 'PING Sensor Navigation',
             description: 'Used nodejs and socketio to get an arduino board to communicate with a threejs application by Mr. Doob.',
             link: 'http://roblayton.tumblr.com/post/72648433774/used-nodejs-and-socketio-to-get-an-arduino-board'
+        },
+        {
+			id: '9',
+			title: 'Gesture-based Camera Controls',
+            description: 'Built a simple horseriding demo where you can control the camera and different modes with gestures. Model by Mirada.',
+            link: 'http://blog.roblayton.com/post/76171674426/finished-prototype-motion-tracking-particle'
+        },
+        {
+			id: '10',
+			title: 'Motion-based 3d Model Viewer',
+            description: 'Created a 3d model of the earth with polygonal continents using Blender. Using basic hand motions, the user can view the 3d model from different angles. Also experimented with vertex shaders.',
+            link: 'http://blog.roblayton.com/post/76387658596/playing-with-vertex-shaders-on-a-wireframe-model'
         }
         ];
 
@@ -479,6 +506,24 @@ angular.module('codeboxsystems.mocks.PortfolioDataServiceMocks', ['codeboxsystem
         }, {
             id: '24',
             path: 'http://www.roblayton.com/samples/assets/roblayton_doob3.png'
+        }, {
+            id: '25',
+            path: 'http://www.roblayton.com/samples/assets/roblayton_stampede1.png'
+        }, {
+            id: '26',
+            path: 'http://www.roblayton.com/samples/assets/roblayton_stampede2.png'
+        }, {
+            id: '27',
+            path: 'http://www.roblayton.com/samples/assets/roblayton_stampede3.png'
+        }, {
+            id: '28',
+            path: 'http://www.roblayton.com/samples/assets/roblayton_earth1.png'
+        }, {
+            id: '29',
+            path: 'http://www.roblayton.com/samples/assets/roblayton_earth2.png'
+        }, {
+            id: '30',
+            path: 'http://www.roblayton.com/samples/assets/roblayton_earth3.png'
         }];
 
 		var educationDb = [{
@@ -541,10 +586,10 @@ angular.module('codeboxsystems.mocks.PortfolioDataServiceMocks', ['codeboxsystem
 					value: '4',
 					rating: 5
 				},
-                {
-                    value: '34',
-                    rating: 3
-                },
+				{
+					value: '2',
+					rating: 4
+				},
 				{
 					value: '5',
 					rating: 4
@@ -553,10 +598,10 @@ angular.module('codeboxsystems.mocks.PortfolioDataServiceMocks', ['codeboxsystem
 					value: '7',
 					rating: 4
 				},
-				{
-					value: '2',
-					rating: 3
-				},
+                {
+                    value: '34',
+                    rating: 3
+                },
 				{
 					value: '14',
 					rating: 2
@@ -567,6 +612,10 @@ angular.module('codeboxsystems.mocks.PortfolioDataServiceMocks', ['codeboxsystem
 				},
 				{
 					value: '16',
+					rating: 2
+				},
+				{
+					value: '39',
 					rating: 2
 				}]
 			},
@@ -590,6 +639,10 @@ angular.module('codeboxsystems.mocks.PortfolioDataServiceMocks', ['codeboxsystem
 				},
 				{
 					value: '33',
+					rating: 3
+				},
+				{
+					value: '41',
 					rating: 3
 				},
                 {
@@ -647,6 +700,10 @@ angular.module('codeboxsystems.mocks.PortfolioDataServiceMocks', ['codeboxsystem
                 {
                     value: '11',
                     rating: 2
+                },
+                {
+                    value: '40',
+                    rating: 2
                 }
                 ]
 			},
@@ -671,6 +728,14 @@ angular.module('codeboxsystems.mocks.PortfolioDataServiceMocks', ['codeboxsystem
                 ]
             }],
             portfolio: [{
+                value: '10',
+				skills: ['1', '3', '6', '10', '11', '39', '40'],
+                assets: ['28','29','30']
+                }, {
+                value: '9',
+				skills: ['1', '3', '6', '10', '11'],
+                assets: ['25','26','27']
+                }, {
                 value: '4',
 				skills: ['1', '3', '6', '10', '11'],
                 assets: ['10','11','12']
@@ -704,6 +769,8 @@ angular.module('codeboxsystems.mocks.PortfolioDataServiceMocks', ['codeboxsystem
                 assets: ['1','2','3']
             }],
             education: [{
+                value: '2'
+            }, {
                 value: '1'
             }],
 			experience: [{
@@ -783,7 +850,7 @@ angular.module('codeboxsystems.mocks.PortfolioDataServiceMocks', ['codeboxsystem
 			for (var i = 0, iLen = a.length; i < iLen; i++) {
 				for (var j = 0, jLen = b.length; j < jLen; j++) {
 					var data = b[j];
-					if (a[i] == data.id) {
+					if (a[i] === data.id) {
 						list.push(data);
 					}
 				}
@@ -845,7 +912,7 @@ angular.module('codeboxsystems.mocks.PortfolioDataServiceMocks', ['codeboxsystem
                   for (var i = 0, len = user.portfolio.length; i < len; i++) {
                       var p = user.portfolio[i];
                       portfolio.push({
-                          value: fetchData(p.value, portfolioDb),
+                          value: fetchData([p.value], portfolioDb),
                           skills: fetchData(p.skills, skillsDb),
                           assets: fetchData(p.assets, assetsDb)
                       });

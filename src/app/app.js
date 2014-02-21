@@ -27,6 +27,15 @@ angular.module('app', ['templates-app', 'templates-common', 'app.home', 'app.ski
 			}
 		}
 	});
+
+	$rootScope.$on('$locationChangeSuccess', function(event, newUrl, oldUrl) {
+
+		// $location.path('')
+		if (ga !== undefined) {
+			ga('send', 'pageview');
+		}
+
+	});
 })
 
 .controller('AppCtrl', function AppCtrl($scope, $location) {
