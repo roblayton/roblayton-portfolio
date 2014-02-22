@@ -370,7 +370,7 @@ angular.module("home/home.tpl.html", []).run(["$templateCache", function($templa
     "                </div>\n" +
     "                    <div class=\"panel-body\">\n" +
     "                        <p>\n" +
-    "                        I am the Director of Web Engineering at Adcade, a freelance Sr. Web Developer, and Front End Consultant. My primary focus is front end web development, but I also specialize in back end development, deployment, and management. \n" +
+    "                        I am the Director of Web Engineering at Adcade, a freelance Sr. Web Developer, and Front End Consultant. I have 9 years of experience. My primary focus is front end web development, but I also specialize in back end development, deployment, and management. \n" +
     "                        </p>\n" +
     "                        <p>\n" +
     "                        I'm currently working with a tech startup where I am the direct supervisor to a team of 4 web engineers. My daily responsibilities involve strategic planning, mentoring, hands-on development, writing automated tests, performing code reviews, managing product releases, leading scrum meetings, and communicating and carrying out JAD sessions with other department leads.\n" +

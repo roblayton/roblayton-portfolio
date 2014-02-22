@@ -217,18 +217,10 @@ angular.module('codeboxsystems.mocks.PortfolioDataServiceMocks', ['codeboxsystem
 		},
 		{
 			id: '3',
-			title: 'Monster Media'
+			title: 'Contractor'
 		},
 		{
 			id: '4',
-			title: 'Digitec'
-		},
-		{
-			id: '5',
-			title: 'University of Central Florida'
-		},
-		{
-			id: '6',
 			title: 'The Presentation Group'
 		}];
 
@@ -247,30 +239,6 @@ angular.module('codeboxsystems.mocks.PortfolioDataServiceMocks', ['codeboxsystem
 		{
 			id: '4',
 			title: 'Interactive Designer'
-		},
-		{
-			id: '5',
-			title: 'Interactive Developer'
-		},
-		{
-			id: '6',
-			title: 'HTML Developer'
-		},
-		{
-			id: '7',
-			title: 'Contractor'
-		},
-		{
-			id: '8',
-			title: 'Web Developer'
-		},
-		{
-			id: '9',
-			title: 'Intern'
-		},
-		{
-			id: '10',
-			title: 'Interactive Designer'
 		}
         ];
 
@@ -284,27 +252,19 @@ angular.module('codeboxsystems.mocks.PortfolioDataServiceMocks', ['codeboxsystem
 		},
 		{
 			id: '3',
-			title: 'Designed and developed an interactive map of the campus lands.'
+			title: 'Web Developer Intern, University of Central Florida, 5/2009 - 8/2009'
 		},
 		{
 			id: '4',
-			title: 'Wrote a scalable system for managing map data and assets.'
-		},
-		{
-			id: '5',
-			title: 'Implemented a cost-efficient workflow for maintaining the map to reduce the dependency on technical expertise.'
+			title: 'HTML Programmer, Digitec Interactive, 8/2009 - 11/2009'
 		},
 		{
 			id: '6',
-			title: 'Worked with instructional designers to develop e-learning modules.'
+			title: 'Interactive Designer and Developer, Monster Media, 11/2009 - 7/2010'
 		},
 		{
 			id: '7',
-			title: 'Designed and developed interactive advertisements and web content'
-		},
-		{
-			id: '8',
-			title: 'Developed mobile-accessible backend systems to allow the team and clients to monitor user-generated content.'
+			title: 'Designed and developed interactive advertisements and web content and mobile-accessible backend systems for Monster Media.'
 		},
 		{
 			id: '9',
@@ -791,31 +751,15 @@ angular.module('codeboxsystems.mocks.PortfolioDataServiceMocks', ['codeboxsystem
 			},
 			{
 				company: '3',
-				titles: ['5'],
-				achievements: ['7', '8'],
-				skills: ['1', '3', '4', '5', '7', '8', '14', '15', '25', '26', '27'],
-				startDate: '2009-11-01',
+				titles: ['3'],
+				achievements: ['3', '4', '6'],
+				skills: ['1', '3', '4', '5', '7', '8', '14', '15', '25', '26', '27', '28'],
+				startDate: '2009-05-01',
 				endDate: '2010-07-01'
 			},
 			{
 				company: '4',
-				titles: ['6', '7'],
-				achievements: ['6'],
-				skills: ['1', '3', '4', '5', '7', '8', '14', '15', '25', '26', '27'],
-				startDate: '2009-08-01',
-				endDate: '2009-11-01'
-			},
-			{
-				company: '5',
-				titles: ['8', '9'],
-				achievements: ['3', '4', '5'],
-				skills: ['1', '3', '4', '5', '7', '8', '14', '15', '25', '26', '27', '28'],
-				startDate: '2009-05-01',
-				endDate: '2009-08-01'
-			},
-			{
-				company: '6',
-				titles: ['10'],
+				titles: ['4'],
 				achievements: ['1', '2'],
 				skills: ['1', '3', '4', '5', '7', '8', '14', '15', '25', '26', '27', '29', '30'],
 				startDate: '2004-05-01',
